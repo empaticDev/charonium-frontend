@@ -1,0 +1,15 @@
+.wrapper {
+	@apply bg-red-700 py-8;
+
+	&__alternate {
+		@apply bg-slate-700;
+
+		.title {
+			@apply text-yellow-300;
+		}
+	}
+}
+
+.title {
+	@apply text-lg text-blue-900;
+}
