@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const path = require('path')
+const StylelintPlugin = require("stylelint-webpack-plugin")
 
 const nextConfig = {
   reactStrictMode: true,
@@ -12,6 +13,8 @@ const nextConfig = {
       '@assets': path.resolve(__dirname, 'public'),
       '@components': path.resolve(__dirname, 'components'),
     }
+
+    config.plugins.push(new StylelintPlugin());
 
     return config
   },
