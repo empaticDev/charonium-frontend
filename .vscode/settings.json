@@ -1,0 +1,21 @@
+{
+	"editor.formatOnSave": true,
+	"prettier.configPath": ".prettierrc.json",
+	"stylelint.configFile": ".stylelintrc.js",
+	"stylelint.enable": true,
+	"stylelint.snippet": [
+		"css",
+		"postcss",
+		"scss"
+	],
+	"stylelint.validate": [
+		"css",
+		"postcss",
+		"scss"
+	],
+	"prettier.useTabs": true,
+	"prettier.tabWidth": 2,
+	"prettier.singleQuote": true,
+	"editor.tabSize": 2,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+}
