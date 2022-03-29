@@ -27,19 +27,23 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
+### Markdown
+
+Learn how to write markdown files [MarkdownGuide](https://www.markdownguide.org/basic-syntax/)
+
 ## Commit
 
 Use the [Conventional Commits Guidlines](https://www.conventionalcommits.org/en/v1.0.0/) to commit messages.
 
 According to this a commit message should be structured like:
 
-``
+`
 <type>[optional scope]: <description>
 
 [optional body]
 
 [optional footer(s)]
-``
+`
 
 The following types are available and should be used:
 
