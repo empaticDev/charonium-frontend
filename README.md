@@ -37,13 +37,11 @@ Use the [Conventional Commits Guidlines](https://www.conventionalcommits.org/en/
 
 According to this a commit message should be structured like:
 
-`
-<type>[optional scope]: <description>
+`<type>[optional scope]: <description>
 
 [optional body]
 
-[optional footer(s)]
-`
+[optional footer(s)]`
 
 The following types are available and should be used:
 
