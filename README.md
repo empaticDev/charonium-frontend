@@ -27,8 +27,42 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
+### Markdown
+
+Learn how to write markdown files [MarkdownGuide](https://www.markdownguide.org/basic-syntax/)
+
+## Commit
+
+Use the [Conventional Commits Guidlines](https://www.conventionalcommits.org/en/v1.0.0/) to commit messages.
+
+According to this a commit message should be structured like:
+
+```
+  <type>[optional scope]: <description>
+
+  [optional body]
+
+  [optional footer(s)]
+```
+
+The following types are available and should be used:
+
+| type     | info                                                                                                   |
+| -------- | ------------------------------------------------------------------------------------------------------ |
+| fix      | patches a bug in your codebase                                                                         |
+| feat     | introduces a new feature to the codebase                                                               |
+| chore    | updates within the application e.g. change build process                                               |
+| docs     | updates the documentation only                                                                         |
+| refactor | a code change that neither fixes a bug nor adds a feature                                              |
+| style    | changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc) |
+| test     | Adding missing tests or correcting existing tests                                                      |
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+```
+
+```
