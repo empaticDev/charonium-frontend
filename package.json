@@ -10,7 +10,8 @@
 		"start:static": "serve out",
 		"lint": "next lint",
 		"lint:styles": "stylelint '**/*.scss'",
-		"release": "standard-version"
+		"release": "standard-version -a",
+		"release:dry": "standard-version -a --dry-run"
 	},
 	"dependencies": {
 		"classnames": "^2.3.1",
