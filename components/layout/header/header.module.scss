@@ -1,7 +1,13 @@
-.wrapper {
-	@apply bg-slate-500 py-8;
-}
+/** @define header */
 
-.title {
-	@apply text-2xl;
+.header {
+	@apply text-green-300 bg-blue-500 py-8 text-2xl;
+
+	&--alternate {
+		@apply bg-slate-500;
+	}
+
+	&__title {
+		@apply text-2xl;
+	}
 }

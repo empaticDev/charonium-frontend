@@ -1,14 +1,16 @@
-.title {
-	@apply text-2xl text-blue-900;
-}
+/** @define footer */
 
-.wrapper {
+.footer {
 	@apply bg-red-700 py-8;
 
-	&__alternate {
+	&--title {
+		@apply text-2xl text-blue-900;
+	}
+
+	&--alternate {
 		@apply bg-slate-700;
 
-		.title {
+		.footer__title {
 			@apply text-yellow-300;
 		}
 	}

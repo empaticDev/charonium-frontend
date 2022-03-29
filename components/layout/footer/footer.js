@@ -6,13 +6,13 @@ let cx = classNames.bind(styles)
 
 export default function Footer(props) {
 	let className = cx({
-		wrapper: true,
-		wrapper__alternate: props.alternate,
+		footer: true,
+		'footer--alternate': props.alternate,
 	})
 
 	return (
 		<footer className={className}>
-			<span className={styles.title}>here comes the footer - nice</span>
+			<span className={styles.footer__title}>here comes the footer - nice</span>
 			<a
 				href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
 				target="_blank"
