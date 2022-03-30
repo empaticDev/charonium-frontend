@@ -35,8 +35,27 @@ module.exports = {
 		'plugin/selector-bem-pattern': {
 			preset: 'bem',
 			componentSelectors: customBemSelector,
-			ignoreSelectors: /^\.no-js$/,
 		},
+		'scss/function-no-unknown': [
+			true,
+			{
+				ignoreFunctions: ['str-replace'],
+			},
+		],
+		'scss/at-rule-no-unknown': [
+			true,
+			{
+				ignoreAtRules: [
+					'tailwind',
+					'extends',
+					'apply',
+					'components',
+					'utilities',
+					'screen',
+					'layer',
+				],
+			},
+		],
 	},
 }
 

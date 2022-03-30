@@ -1,0 +1,27 @@
+@use 'sass:string';
+
+// Shorthands to help writing easier to understand code.
+@mixin font-face(
+	$family,
+	$file,
+	$var: false,
+	$weight: 'normal',
+	$style: 'normal',
+	$woff2: true,
+	$base-path: '/fonts/'
+) {
+	@font-face {
+		font-display: swap;
+		font-family: $family;
+		font-style: string.unquote($style);
+		font-weight: string.unquote($weight);
+		@if $woff2 and $var {
+			src: url($base-path + $file + '.woff2') format('woff2');
+		} @else if $woff2 and $var == false {
+			src: url($base-path + $file + '.woff2') format('woff2'),
+				url($base-path + $file + '.woff') format('woff');
+		} @else {
+			src: url($base-path + $file + '.woff') format('woff');
+		}
+	}
+}

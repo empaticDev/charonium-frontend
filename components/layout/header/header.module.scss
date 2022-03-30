@@ -1,10 +1,10 @@
 /** @define header */
 
 .header {
-	@apply text-green-300 bg-blue-500 py-8 text-2xl;
+	@apply bg-skin-bg py-8 text-2xl border-b-4;
 
 	&--alternate {
-		@apply bg-slate-500;
+		@apply bg-skin-bg;
 	}
 
 	&__title {
