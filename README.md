@@ -55,7 +55,14 @@ The following types are available and should be used:
 | docs     | updates the documentation only                                                                         |
 | refactor | a code change that neither fixes a bug nor adds a feature                                              |
 | style    | changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc) |
+| story    | All changes regarding storybook setup e.g. add new pages etc                                           |
 | test     | Adding missing tests or correcting existing tests                                                      |
+
+## Storybook
+
+tba - add documentation
+
+Start storybook by running `npm run storybook -w storybook`
 
 ## Deploy on Vercel
 
