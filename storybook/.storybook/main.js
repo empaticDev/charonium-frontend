@@ -13,6 +13,7 @@ module.exports = {
 		'@storybook/addon-links',
 		'@storybook/addon-essentials',
 		'@storybook/addon-interactions',
+		'@geometricpanda/storybook-addon-badges',
 	],
 	core: {
 		builder: 'webpack5',
