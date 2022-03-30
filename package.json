@@ -1,7 +1,11 @@
 {
 	"name": "@charonium/frontend",
-	"version": "0.1.1-alpha.0",
+	"version": "0.1.1-alpha.1",
 	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/empaticDev/charonium-frontend.git"
+	},
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
@@ -12,7 +16,9 @@
 		"lint:styles": "stylelint '**/*.scss'",
 		"release": "standard-version -a",
 		"release:dry": "standard-version --dry-run",
-		"release:pre": "standard-version --prerelease alpha"
+		"release:pre": "standard-version --prerelease alpha",
+		"storybook": "start-storybook -p 6006",
+		"build-storybook": "build-storybook"
 	},
 	"dependencies": {
 		"classnames": "^2.3.1",
@@ -47,5 +53,8 @@
 		"not ie 11",
 		"not dead",
 		"not op_mini all"
+	],
+	"workspaces": [
+		"storybook"
 	]
 }
