@@ -1,17 +1,17 @@
 /** @define footer */
 
 .footer {
-	@apply bg-red-700 py-8;
+	@apply py-8 border-t-4;
 
 	&--title {
-		@apply text-2xl text-blue-900;
+		@apply text-2xl;
 	}
 
 	&--alternate {
-		@apply bg-slate-700;
+		@apply bg-skin-bg-inverted;
 
 		.footer__title {
-			@apply text-yellow-300;
+			@apply text-skin-inverted;
 		}
 	}
 }

@@ -1,0 +1,47 @@
+/**
+* 0.0 Root
+*
+* Top level styles every element should inherit.
+*/
+
+@layer base {
+	@include font-face('Barlow', 'Barlow-Regular', 'false', 'normal', 'normal');
+	@include font-face('Barlow', 'Barlow-Medium', 'false', '500', 'normal');
+	@include font-face('Poppins', 'Poppins-Bold', 'false', 'bold', 'normal');
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	html {
+		//base style
+	}
+
+	html,
+	body {
+		@apply font-sans leading-normal bg-skin-bg text-skin-base;
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+		-ms-overflow-style: -ms-autohiding-scrollbar;
+		overflow-wrap: break-word;
+		word-wrap: break-word;
+	}
+
+	body {
+		//body
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	img,
+	svg {
+		width: 100%;
+		height: auto;
+	}
+}

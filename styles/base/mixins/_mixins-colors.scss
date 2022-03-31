@@ -1,0 +1,31 @@
+// define HSL color variable
+@use 'sass:string';
+
+@mixin defineColorHSL($color, $hue, $saturation, $lightness) {
+	#{$color}: string.unquote('hsl(#{$hue}, #{$saturation}, #{$lightness})');
+	#{$color}-h: #{$hue};
+	#{$color}-s: #{$saturation};
+	#{$color}-l: #{$lightness};
+}
+
+// replace substring with another string
+// credits: https://css-tricks.com/snippets/sass/str-replace-function/
+
+/* prettier-ignore */
+@function str-replace($string, $search, $replace: '') {
+	$index: string.index(#{$string}, $search) !default;
+	@if $index {
+		@return string.slice($string, 1, $index - 1) + $replace + str-replace(string.slice($string, $index + str-length($search)), $search, $replace);
+	}
+	@return $string;
+}
+
+// return color with different opacity value
+@function alpha($color, $opacity) {
+	$color: str-replace($color, 'var(') !default;
+	$color: str-replace($color, ')') !default;
+	$color-h: var(#{$color + '-h'}) !default;
+	$color-s: var(#{$color + '-s'}) !default;
+	$color-l: var(#{$color + '-l'}) !default;
+	@return hsla($color-h, $color-s, $color-l, $opacity);
+}
