@@ -1,7 +1,16 @@
 import '../styles/globals.scss'
+import { LayoutDefault, LayoutHeader, LayoutFooter } from '@components/layout'
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+	return (
+		<>
+			<LayoutHeader />
+			<LayoutDefault>
+				<Component {...pageProps} />
+			</LayoutDefault>
+			<LayoutFooter />
+		</>
+	)
 }
 
 export default MyApp

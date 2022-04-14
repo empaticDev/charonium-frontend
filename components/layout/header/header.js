@@ -10,8 +10,8 @@ export default function Header(props) {
 	})
 
 	return (
-		<div className={className}>
+		<header className={className}>
 			<span className={styles.title}>here comes the header - nice</span>
-		</div>
+		</header>
 	)
 }

@@ -10,6 +10,15 @@ const nextConfig = {
 		loader: 'imgix',
 		path: 'http://localhost:3000',
 	},
+	async redirects() {
+		return [
+			{
+				source: '/welcome',
+				destination: '/',
+				permanent: true,
+			},
+		]
+	},
 	webpack: (config, { dev }) => {
 		config.resolve.alias = {
 			...config.resolve.alias,
