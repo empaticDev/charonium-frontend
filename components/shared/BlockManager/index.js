@@ -1,4 +1,5 @@
-import { BlockTextMedia } from '@components/block'
+import { BlockTextMedia, BlockCards} from '@components/block'
+import { PartialButton, PartialCard } from '@components/partial'
 
 const getBlockComponent = ({ __typename, ...block }, index) => {
 	let Block
@@ -8,6 +9,15 @@ const getBlockComponent = ({ __typename, ...block }, index) => {
 	switch (__typename) {
 		case 'ComponentBlocksTextMedia':
 			Block = BlockTextMedia
+			break
+		case 'ComponentBlocksCards':
+			Block = BlockCards
+			break
+		case 'ComponentPartialsButton':
+			Block = PartialButton
+			break
+		case 'ComponentPartialsCard':
+			Block = PartialCard
 			break
 	}
 
