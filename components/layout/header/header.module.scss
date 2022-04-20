@@ -1,13 +1,27 @@
 /** @define header */
 
 .header {
-	@apply bg-skin-bg py-8 text-2xl border-b-4;
+	@apply px-6 py-4 bg-skin-bg text-2xl;
 
 	&--alternate {
 		@apply bg-skin-bg;
 	}
+}
 
-	&__title {
-		@apply text-2xl;
+.inner {
+	@apply mx-auto flex justify-between;
+}
+
+.logo {
+	@apply text-3xl;
+
+	/* stylelint-disable-next-line plugin/selector-bem-pattern */
+	svg {
+		width: 1em;
+		height: 1em;
 	}
+}
+
+.title {
+	@apply text-2xl;
 }

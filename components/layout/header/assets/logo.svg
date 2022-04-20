@@ -1,0 +1,8 @@
+<svg version="1.1" id="charonium-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300" xml:space="preserve">
+    <style type="text/css">
+	#ch-logo{fill:#DDB52E;}
+</style>
+    <path id="ch-logo" d="M102.3,39.1h31.8V7.3h31.8v31.8h31.8v31.8h-31.8v63.5h63.6v-31.8h31.8v31.8H293v31.8h-31.8V198h-31.8
+	v-31.8h-63.6v63.5h31.8v31.8h-31.8v31.8h-31.8v-31.8h-31.8v-31.8h31.8v-63.5H70.6V198H38.8v-31.8H7v-31.8h31.8v-31.8h31.8v31.8h63.6
+	V70.9h-31.8V39.1" />
+</svg>
