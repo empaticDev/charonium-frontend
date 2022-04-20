@@ -21,11 +21,11 @@
 	//brand
 
 	$colorsBrand: (
-		200: #3b82f6,
-		300: #2563eb,
-		'default': #1d4ed8,
-		500: #1e40af,
-		600: #1e3a8a,
+		200: #dcf3ff,
+		300: #9addfe,
+		'default': #57c5fd,
+		500: #029fed,
+		600: #015b88,
 	) !default;
 
 	//default Colors
@@ -40,7 +40,7 @@
 
 	$bg-brand: map.get($colorsBrand, 'default') !default;
 
-	$text-base: map.get($colorsContrast, 900) !default;
+	$text-base: map.get($colorsContrast, 700) !default;
 
 	$text-muted: map.get($colorsContrast, 500) !default;
 

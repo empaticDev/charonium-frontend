@@ -24,7 +24,14 @@ const nextConfig = {
 			...config.resolve.alias,
 			'@assets': path.resolve(__dirname, 'public'),
 			'@components': path.resolve(__dirname, 'components'),
+			'@lib': path.resolve(__dirname, 'lib'),
 		}
+
+		config.module.rules.push({
+      		test: /\.svg$/i,
+      		issuer: /\.[jt]sx?$/,
+      		use: ['@svgr/webpack'],
+    	})
 
 		config.plugins.push(new StylelintPlugin())
 
