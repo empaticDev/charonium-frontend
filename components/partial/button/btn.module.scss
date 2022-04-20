@@ -1,0 +1,6 @@
+/** @define btn */
+
+.btn {
+	padding: 0.5em 1.5em;
+	@apply bg-skin-brand rounded inline-flex text-skin-inverted font-semibold whitespace-nowrap;
+}
