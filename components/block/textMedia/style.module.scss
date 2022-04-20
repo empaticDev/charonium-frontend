@@ -1,5 +1,19 @@
-/** @define text-media */
+/** @define textMedia */
 
-.text-media {
+.textMedia {
 	//style here
+}
+
+.pretitle {
+	@apply text-lg mb-4 text-skin-brand;
+}
+
+.title {
+	@apply text-4xl font-heading font-bold;
+}
+.content {
+	@apply prose lg__prose-lg mt-6;
+}
+.footer {
+	@apply mt-10 flex gap-4;
 }
