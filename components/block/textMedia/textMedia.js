@@ -1,14 +1,12 @@
 import classNames from 'classnames/bind'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import remarkHtml from 'remark-html'
 import rehypeRaw from 'rehype-raw'
 import rehypeSanitize from 'rehype-sanitize'
 import Image from 'next/image'
 
 import styles from './style.module.scss'
 import { BlockWrapper } from '@components/block'
-import { PartialText } from '@components/partial'
 import { SharedBlockManager } from '@components/shared'
 
 let cx = classNames.bind(styles)
