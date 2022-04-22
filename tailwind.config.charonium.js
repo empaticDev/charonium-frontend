@@ -45,7 +45,7 @@ module.exports = {
 			heading: ['"Poppins"', 'sans-serif'],
 		},
 		fontWeight: {
-			normal: 'normal',
+			normal: '300',
 			medium: '500',
 			semibold: '600',
 			bold: 'bold',
