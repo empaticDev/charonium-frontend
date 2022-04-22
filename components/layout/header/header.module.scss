@@ -8,8 +8,20 @@
 	}
 }
 
-.inner {
-	@apply mx-auto flex justify-between;
+.navwrapper {
+	@apply flex mx-auto justify-between;
+}
+
+.mainnav {
+	@apply flex space-x-10;
+}
+
+.navelements {
+	@apply font-medium text-lg space-x-10 uppercase;
+
+	a {
+		@apply text-skin-base;
+	}
 }
 
 .logo {

@@ -5,8 +5,7 @@ import Link from 'next/link'
 let cx = classNames.bind(styles)
 
 const getLink = (type, page, href, download) => {
-
-	let link 
+	let link
 
 	switch (type) {
 		case 'internal':
@@ -26,20 +25,36 @@ const getLink = (type, page, href, download) => {
 	return link
 }
 
-export default function Button({label, type, style, page, href, download}) {
+export default function Button({
+	label,
+	type,
+	secondary,
+	page,
+	href,
+	download,
+}) {
 	let className = cx({
-		'btn': true,
+		btn: true,
+		secondary: secondary,
 	})
 
-    //const link = type === 'external' && page.data != null || href != null ? href : `/${page.data.attributes.slug}`
+	//const link = type === 'external' && page.data != null || href != null ? href : `/${page.data.attributes.slug}`
 
 	const link = getLink(type, page, href, download)
 	const isDownload = type === 'download' && download != null ? true : false
-    //console.log('btn link', link)
+	//console.log('btn link', link)
 
 	return (
 		<>
-        { type === 'internal' ? <Link href={link}><a className={className}>{label}</a></Link> : <a href={link} className={className} download={isDownload}>{label}</a> }
-        </>
+			{type === 'internal' ? (
+				<Link href={link}>
+					<a className={className}>{label}</a>
+				</Link>
+			) : (
+				<a href={link} className={className} download={isDownload}>
+					{label}
+				</a>
+			)}
+		</>
 	)
 }
