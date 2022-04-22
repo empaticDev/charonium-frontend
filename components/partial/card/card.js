@@ -13,9 +13,9 @@ export default function Card({ title, content, image }) {
 
 	return (
 		<div className={className}>
-			<div>
+			{/* <div>
 				<Image src={image.url} width={117} height={117} />
-			</div>
+			</div> */}
 			<h2 className={styles.title}>{title}</h2>
 			<div className={styles.content}>
 				<ReactMarkdown children={content} remarkPlugins={[remarkGfm]} />
