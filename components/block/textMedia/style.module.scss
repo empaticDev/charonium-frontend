@@ -1,7 +1,13 @@
 /** @define textMedia */
 
 .textMedia {
-	//style here
+	@apply flex flex-col;
+
+	> * {
+		@screen md {
+			@apply w-1/2 flex-row;
+		}
+	}
 }
 
 .pretitle {
@@ -16,4 +22,10 @@
 }
 .footer {
 	@apply mt-10 flex gap-4;
+}
+
+.content-left {
+	@screen md {
+		@apply flex flex-row-reverse;
+	}
 }
