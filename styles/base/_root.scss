@@ -8,6 +8,27 @@
 	@include font-face('Barlow', 'Barlow-Regular', 'false', 'normal', 'normal');
 	@include font-face('Barlow', 'Barlow-Medium', 'false', '500', 'normal');
 	@include font-face('Barlow', 'Barlow-SemiBold', 'false', '600', 'normal');
+	@include font-face(
+		'BarlowCondensed',
+		'BarlowCondensed-Light',
+		'false',
+		'300',
+		'normal'
+	);
+	@include font-face(
+		'BarlowCondensed',
+		'BarlowCondensed-Medium',
+		'false',
+		'500',
+		'normal'
+	);
+	@include font-face(
+		'BarlowCondensed',
+		'BarlowCondensed-SemiBold',
+		'false',
+		'600',
+		'normal'
+	);
 	@include font-face('Poppins', 'Poppins-Bold', 'false', 'bold', 'normal');
 
 	*,
