@@ -8,8 +8,7 @@ const nextConfig = {
 	trailingSlash: true,
 	images: {
 		loader: 'imgix',
-		path: 'http://localhost:3000',
-		domains: [process.env.IMAGES_DOMAIN],
+		path: 'http://localhost:1337',
 	},
 	async redirects() {
 		return [

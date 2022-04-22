@@ -11,11 +11,15 @@ export default function Card({ title, content, image }) {
 		card: true,
 	})
 
+	console.log('image', image)
+
+	const imageURL = image.data.attributes.url
+
 	return (
 		<div className={className}>
-			{/* <div>
-				<Image src={image.url} width={117} height={117} />
-			</div> */}
+			<div>
+				<Image src={imageURL} width={117} height={117} />
+			</div>
 			<h2 className={styles.title}>{title}</h2>
 			<div className={styles.content}>
 				<ReactMarkdown children={content} remarkPlugins={[remarkGfm]} />
