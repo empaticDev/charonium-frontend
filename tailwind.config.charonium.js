@@ -41,7 +41,7 @@ module.exports = {
 			position: ['bottom', 'left'],
 		},
 		fontFamily: {
-			sans: ['"Barlow"', 'sans-serif'],
+			sans: ['"BarlowCondensed"', 'sans-serif'],
 			heading: ['"Poppins"', 'sans-serif'],
 		},
 		fontWeight: {
