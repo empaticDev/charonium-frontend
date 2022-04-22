@@ -1,13 +1,13 @@
 /** @define card */
 
 .card {
-	@apply bg-contrast-100 rounded-md p-10 border-1 border-contrast-200;
+	@apply bg-contrast-100 p-10 border-1 border-contrast-200 shadow-md rounded-3xl;
 }
 
 .title {
-	@apply uppercase font-heading text-xl;
+	@apply uppercase font-heading text-xl text-center;
 }
 
 .content {
-	@apply mt-4;
+	@apply mt-4 prose-lg font-normal;
 }

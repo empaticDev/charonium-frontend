@@ -9,6 +9,7 @@ const nextConfig = {
 	images: {
 		loader: 'imgix',
 		path: 'http://localhost:3000',
+		domains: [process.env.IMAGES_DOMAIN],
 	},
 	async redirects() {
 		return [
@@ -28,10 +29,10 @@ const nextConfig = {
 		}
 
 		config.module.rules.push({
-      		test: /\.svg$/i,
-      		issuer: /\.[jt]sx?$/,
-      		use: ['@svgr/webpack'],
-    	})
+			test: /\.svg$/i,
+			issuer: /\.[jt]sx?$/,
+			use: ['@svgr/webpack'],
+		})
 
 		config.plugins.push(new StylelintPlugin())
 
