@@ -1,7 +1,7 @@
 /** @define textMedia */
 
 .textMedia {
-	@apply flex flex-col;
+	@apply flex flex-col md__flex-row;
 
 	> * {
 		@screen md {

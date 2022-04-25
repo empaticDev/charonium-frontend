@@ -14,7 +14,7 @@ let cx = classNames.bind(styles)
 export default function TextMedia({ title, label, content, ctas, alignment }) {
 	let className = cx({
 		textMedia: true,
-		'content-left': alignment === 'right' ? true : false,
+		'content-left': alignment === 'left' ? true : false,
 	})
 
 	const hasLink = ctas != null ? true : false
