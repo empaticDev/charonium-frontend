@@ -2,26 +2,34 @@ import classNames from 'classnames/bind'
 import styles from './footer.module.scss'
 import Image from 'next/image'
 
+import { BlockWrapper } from '@components/block'
+
+import FooterSection from '@components/partial'
+
 let cx = classNames.bind(styles)
 
-export default function Footer(props) {
+let Section = () => {
+	return (
+		<div className={styles.section}>
+			<h3>title</h3>
+			<p>desc</p>
+		</div>
+	)
+}
+
+export default function Footer({ socialtitle, sociallinks, newslettertitle }) {
 	let className = cx({
 		footer: true,
-		'footer--alternate': props.alternate,
 	})
 
 	return (
 		<footer className={className}>
-			<span className={styles.footer__title}>here comes the footer - nice</span>
-			<a
-				href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-				target="_blank"
-				rel="noopener noreferrer">
-				Powered by{' '}
-				<span className={styles.logo}>
-					<Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-				</span>
-			</a>
+			<div className={styles.footer__inner}>
+				<Section />
+				<Section />
+				<Section />
+				<Section />
+			</div>
 		</footer>
 	)
 }

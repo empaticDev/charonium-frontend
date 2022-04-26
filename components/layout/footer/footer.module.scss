@@ -1,17 +1,25 @@
 /** @define footer */
 
 .footer {
-	@apply py-8 border-t-4;
+	@apply py-xl-5xl border-b-1 bg-brand;
+
+	&__inner {
+		@apply w-9/10 max-w-7xl mx-auto grid grid-cols-2 gap-x-36 gap-y-20;
+	}
 
 	&--title {
 		@apply text-2xl;
 	}
 
-	&--alternate {
-		@apply bg-skin-bg-inverted;
+	// &--alternate {
+	// 	@apply bg-skin-bg-inverted;
 
-		.footer__title {
-			@apply text-skin-inverted;
-		}
-	}
+	// 	.footer__title {
+	// 		@apply text-skin-inverted;
+	// 	}
+	// }
+}
+
+.section {
+	@apply border-1 w-full;
 }
