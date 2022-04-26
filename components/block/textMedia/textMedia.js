@@ -34,8 +34,6 @@ export default function TextMedia({
 				<div>image</div>
 				<div>
 					<PartialHeading title={title} label={label} heading={heading} />
-					{/* {label && <p className={styles.pretitle}>{label}</p>}
-					{title && <h2 className={styles.title}>{title}</h2>} */}
 					<div className={styles.content}>
 						<ReactMarkdown
 							children={content}
