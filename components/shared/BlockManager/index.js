@@ -1,4 +1,4 @@
-import { BlockTextMedia, BlockCards} from '@components/block'
+import { BlockTextMedia, BlockCards } from '@components/block'
 import { PartialButton, PartialCard } from '@components/partial'
 
 const getBlockComponent = ({ __typename, ...block }, index) => {

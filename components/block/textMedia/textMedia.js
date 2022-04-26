@@ -5,6 +5,8 @@ import rehypeRaw from 'rehype-raw'
 import rehypeSanitize from 'rehype-sanitize'
 import Image from 'next/image'
 
+import Heading from '@components/partial'
+
 import styles from './style.module.scss'
 import { BlockWrapper } from '@components/block'
 import { SharedBlockManager } from '@components/shared'
@@ -24,7 +26,11 @@ export default function TextMedia({ title, label, content, ctas, alignment }) {
 			{alignment === 'right' ? 'right' : 'left'}
 
 			<div className={className}>
-				<div>image</div>
+				<div>
+					{label && <p className={styles.caption}>{label}</p>}
+					{title && <div className={styles.type}>{title}</div>}
+					<Heading title={'title'} subtitle={'subtitle'} />
+				</div>
 				<div>
 					{label && <p className={styles.pretitle}>{label}</p>}
 					{title && <h2 className={styles.title}>{title}</h2>}

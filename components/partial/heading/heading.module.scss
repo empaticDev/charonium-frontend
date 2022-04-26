@@ -1,0 +1,21 @@
+/** @define heading */
+
+.heading {
+	@apply text-skin-brand;
+}
+
+.h1 {
+	@apply text-5xl font-heading font-bold;
+}
+
+.h2 {
+	@apply text-3xl font-heading font-bold;
+}
+
+.h4 {
+	@apply;
+}
+
+.caption {
+	@apply text-2xl font-sans font-normal;
+}
