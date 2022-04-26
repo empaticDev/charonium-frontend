@@ -3,17 +3,17 @@ import styles from './heading.module.scss'
 
 let cx = classNames.bind(styles)
 
-const heading = ({ pretitle, title, size }) => {
+export default function Heading({ label, title, heading }) {
 	let className = cx({
 		heading: true,
+		h1: heading === 'h1' ? true : false,
+		h2: heading === 'h2' ? true : false,
 	})
 
 	return (
 		<div className={className}>
-			{pretitle && <p className={styles.caption}>{pretitle}</p>}
-			{title ?? <div className={styles.size}>{title}</div>}
+			{label && <p className={styles.caption}>{label}</p>}
+			{title && <div className={styles.title}>{title}</div>}
 		</div>
 	)
 }
-
-export default heading

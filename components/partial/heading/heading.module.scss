@@ -1,21 +1,21 @@
 /** @define heading */
 
 .heading {
-	@apply text-skin-brand;
+	@apply py-4;
+}
+
+.title {
+	@apply font-heading font-bold text-skin-base py-6;
 }
 
 .h1 {
-	@apply text-5xl font-heading font-bold;
+	@apply text-5xl uppercase;
 }
 
 .h2 {
-	@apply text-3xl font-heading font-bold;
-}
-
-.h4 {
-	@apply text-xl;
+	@apply text-3xl;
 }
 
 .caption {
-	@apply text-2xl font-sans font-normal;
+	@apply text-2xl font-sans font-normal text-skin-brand normal-case;
 }

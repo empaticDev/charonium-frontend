@@ -13,7 +13,14 @@ import { PartialHeading } from '@components/partial'
 
 let cx = classNames.bind(styles)
 
-export default function TextMedia({ title, label, content, ctas, alignment }) {
+export default function TextMedia({
+	title,
+	label,
+	content,
+	ctas,
+	alignment,
+	heading,
+}) {
 	let className = cx({
 		textMedia: true,
 		'content-left': alignment === 'left' ? true : false,
@@ -23,16 +30,12 @@ export default function TextMedia({ title, label, content, ctas, alignment }) {
 
 	return (
 		<BlockWrapper className={className}>
-			{alignment === 'right' ? 'right' : 'left'}
-
 			<div className={className}>
+				<div>image</div>
 				<div>
-					image
-					<PartialHeading title={title} subtitle={label} />
-				</div>
-				<div>
-					{label && <p className={styles.pretitle}>{label}</p>}
-					{title && <h2 className={styles.title}>{title}</h2>}
+					<PartialHeading title={title} label={label} heading={heading} />
+					{/* {label && <p className={styles.pretitle}>{label}</p>}
+					{title && <h2 className={styles.title}>{title}</h2>} */}
 					<div className={styles.content}>
 						<ReactMarkdown
 							children={content}
