@@ -1,0 +1,11 @@
+/** @define timeline */
+
+.timeline {
+	@apply w-full;
+}
+
+.dot {
+	@apply w-6 h-6 bg-brand rounded-full;
+
+	box-shadow: 0px 0px 0px 8px rgba(87, 197, 253, 0.4);
+}
