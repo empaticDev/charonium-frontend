@@ -3,10 +3,9 @@ import styles from './heading.module.scss'
 
 let cx = classNames.bind(styles)
 
-export default function Heading({ pretitle, title, size }) {
+const heading = ({ pretitle, title, size }) => {
 	let className = cx({
 		heading: true,
-		size: size,
 	})
 
 	return (
@@ -16,3 +15,5 @@ export default function Heading({ pretitle, title, size }) {
 		</div>
 	)
 }
+
+export default heading
