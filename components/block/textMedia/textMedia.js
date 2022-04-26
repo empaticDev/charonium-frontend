@@ -9,7 +9,7 @@ import styles from './style.module.scss'
 import { BlockWrapper } from '@components/block'
 import { SharedBlockManager } from '@components/shared'
 
-import Heading from '@components/partial'
+import { PartialHeading } from '@components/partial'
 
 let cx = classNames.bind(styles)
 
@@ -28,7 +28,7 @@ export default function TextMedia({ title, label, content, ctas, alignment }) {
 			<div className={className}>
 				<div>
 					image
-					{/* <Heading title={'title'} subtitle={'subtitle'} /> */}
+					<PartialHeading title={title} subtitle={label} />
 				</div>
 				<div>
 					{label && <p className={styles.pretitle}>{label}</p>}
