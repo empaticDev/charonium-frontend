@@ -3,8 +3,8 @@ import styles from './footer.module.scss'
 import Image from 'next/image'
 
 import { BlockWrapper } from '@components/block'
-
-import FooterSection from '@components/partial'
+import { SharedBlockManager } from '@components/shared'
+import { PartialFooterSection } from '@components/partial'
 
 let cx = classNames.bind(styles)
 
@@ -17,7 +17,13 @@ let Section = () => {
 	)
 }
 
-export default function Footer({ socialtitle, sociallinks, newslettertitle }) {
+export default function Footer({
+	socialTitle,
+	socialLinks,
+	newsletterTitle,
+	input,
+	downloadsTitle,
+}) {
 	let className = cx({
 		footer: true,
 	})
@@ -25,10 +31,8 @@ export default function Footer({ socialtitle, sociallinks, newslettertitle }) {
 	return (
 		<footer className={className}>
 			<div className={styles.footer__inner}>
-				<Section />
-				<Section />
-				<Section />
-				<Section />
+				<SharedBlockManager blocks={socialTitle} />
+				<SharedBlockManager blocks={newsletterTitle} />
 			</div>
 		</footer>
 	)
