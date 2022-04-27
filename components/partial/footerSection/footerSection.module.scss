@@ -1,5 +1,5 @@
 .footersection {
-	@apply w-1/2 text-skin-inverted flex flex-col gap-y-4;
+	@apply text-skin-inverted max-w-lg;
 }
 
 .title {
@@ -7,5 +7,5 @@
 }
 
 .description {
-	@apply font-sans font-normal text-base text-skin-inverted;
+	@apply font-sans font-normal text-base text-skin-inverted text-xl py-4;
 }

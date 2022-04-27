@@ -1,19 +1,11 @@
 /** @define footer */
 
 .footer {
-	@apply py-xl-5xl border-b-1 bg-brand bg-gradient-radial from-brand to-brand-600;
-
-	&--title {
-		@apply text-2xl;
-	}
+	@apply bg-gradient-radial from-brand to-brand-600;
 
 	&--alternate {
 		@apply bg-skin-bg-inverted;
 	}
-
-	// 	.footer__title {
-	// 		@apply text-skin-inverted;
-	// 	}
 }
 
 .inner {

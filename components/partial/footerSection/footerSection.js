@@ -9,7 +9,7 @@ export default function footerSection({ title, description }) {
 	})
 
 	return (
-		<div className={styles.className}>
+		<div className={className}>
 			<div className={styles.title}>{title}</div>
 			<p className={styles.description}>{description}</p>
 		</div>
