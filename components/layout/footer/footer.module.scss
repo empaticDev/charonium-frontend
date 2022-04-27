@@ -3,11 +3,6 @@
 .footer {
 	@apply py-xl-5xl border-b-1 bg-brand bg-gradient-radial from-brand to-brand-600;
 
-	&__inner {
-		// @apply w-9/10 max-w-7xl mx-auto grid grid-cols-2 gap-x-36 gap-y-20;
-		@apply w-full mx-auto grid grid-cols-2 gap-x-36 gap-y-20;
-	}
-
 	&--title {
 		@apply text-2xl;
 	}
@@ -19,4 +14,8 @@
 	// 	.footer__title {
 	// 		@apply text-skin-inverted;
 	// 	}
+}
+
+.inner {
+	@apply grid grid-cols-1 md__grid-cols-2 gap-x-40 gap-y-20;
 }

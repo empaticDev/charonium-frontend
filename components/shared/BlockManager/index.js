@@ -27,11 +27,11 @@ const getBlockComponent = ({ __typename, ...block }, index) => {
 		case 'ComponentPartialsCard':
 			Block = PartialCard
 			break
-		case 'ComponentPartialsFooterSection':
-			Block = PartialFooterSection
-			break
 		case 'ComponentPartialsTimelineDate':
 			Block = PartialTimelineDate
+			break
+		case 'ComponentPartialsFooterSection':
+			Block = PartialFooterSection
 			break
 	}
 
