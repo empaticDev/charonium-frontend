@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind'
-import styles from './style.module.scss'
+import styles from './date.module.scss'
 
-export default function Event({ date, events }) {
+export default function Date({ date, events }) {
 	let cx = classNames.bind(styles)
 
 	let className = cx({
@@ -10,13 +10,14 @@ export default function Event({ date, events }) {
 
 	return (
 		<div className={className}>
-			<span className={styles.dot}></span>
-			<h3>{date}</h3>
-			<ol>
+			<ol className={styles.list}>
 				{events.map((event) => (
-					<li>{event}</li>
+					<li>{event.name}</li>
 				))}
 			</ol>
+			{/* <div className={styles.line}></div> */}
+			<span className={styles.dot}></span>
+			<h3 className={styles.date}>{date}</h3>
 		</div>
 	)
 }

@@ -4,6 +4,14 @@
 	@apply w-full;
 }
 
-.dot {
-	@apply w-6 h-6 bg-brand rounded-full;
+.content {
+	@apply flex flex-row justify-between items-stretch;
+}
+
+.line {
+	@apply w-screen h-px absolute bottom-44 z-0 border-dashed border-t-4 border-contrast-400;
+}
+
+.wrapper {
+	@apply relative;
 }

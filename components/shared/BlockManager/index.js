@@ -2,7 +2,7 @@ import { BlockTextMedia, BlockCards, BlockTimeline } from '@components/block'
 import {
 	PartialButton,
 	PartialCard,
-	PartialDate,
+	PartialTimelineDate,
 	PartialFooterSection,
 } from '@components/partial'
 
@@ -27,11 +27,11 @@ const getBlockComponent = ({ __typename, ...block }, index) => {
 		case 'ComponentPartialsCard':
 			Block = PartialCard
 			break
-		case 'ComponentPartialsDate':
-			Block = PartialDate
-			break
 		case 'ComponentPartialsFooterSection':
 			Block = PartialFooterSection
+			break
+		case 'ComponentPartialsTimelineDate':
+			Block = PartialTimelineDate
 			break
 	}
 
