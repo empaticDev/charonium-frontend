@@ -11,8 +11,6 @@ export default function Card({ title, content, image }) {
 		card: true,
 	})
 
-	console.log('image', image)
-
 	const imageURL = image.data.attributes.url
 
 	return (
