@@ -11,3 +11,7 @@
 .inner {
 	@apply grid grid-cols-1 md__grid-cols-2 gap-x-40 gap-y-20;
 }
+
+.graphic {
+	@apply w-full h-80 bg-gradient-to-t from-brand-600;
+}
