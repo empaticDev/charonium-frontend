@@ -9,7 +9,6 @@ export default function Card({ title, content, image }) {
 
 	let className = cx({
 		card: true,
-		hover: this.state.isHovered,
 	})
 
 	const imageURL = image.data.attributes.url
@@ -17,12 +16,7 @@ export default function Card({ title, content, image }) {
 	return (
 		<div className={className}>
 			<div className={styles.image}>
-				<Image
-					layout={'responsive'}
-					src={imageURL}
-					width={117}
-					height={'auto'}
-				/>
+				<Image src={imageURL} width={117} height={117} />
 			</div>
 			<h2 className={styles.title}>{title}</h2>
 			<div className={styles.content}>
