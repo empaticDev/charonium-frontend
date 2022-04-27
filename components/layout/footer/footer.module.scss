@@ -1,25 +1,22 @@
 /** @define footer */
 
 .footer {
-	@apply py-xl-5xl border-b-1 bg-brand;
+	@apply py-xl-5xl border-b-1 bg-brand bg-gradient-radial from-brand to-brand-600;
 
 	&__inner {
-		@apply w-9/10 max-w-7xl mx-auto grid grid-cols-2 gap-x-36 gap-y-20;
+		// @apply w-9/10 max-w-7xl mx-auto grid grid-cols-2 gap-x-36 gap-y-20;
+		@apply w-full mx-auto grid grid-cols-2 gap-x-36 gap-y-20;
 	}
 
 	&--title {
 		@apply text-2xl;
 	}
 
-	// &--alternate {
-	// 	@apply bg-skin-bg-inverted;
+	&--alternate {
+		@apply bg-skin-bg-inverted;
+	}
 
 	// 	.footer__title {
 	// 		@apply text-skin-inverted;
 	// 	}
-	// }
-}
-
-.section {
-	@apply border-1 w-full;
 }

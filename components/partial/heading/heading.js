@@ -8,6 +8,7 @@ export default function Heading({ label, title, heading }) {
 		heading: true,
 		h1: heading === 'h1' ? true : false,
 		h2: heading === 'h2' ? true : false,
+		h3: heading === 'h3' ? true : false,
 	})
 
 	return (

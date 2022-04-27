@@ -8,17 +8,8 @@ import { PartialFooterSection } from '@components/partial'
 
 let cx = classNames.bind(styles)
 
-let Section = () => {
-	return (
-		<div className={styles.section}>
-			<h3>title</h3>
-			<p>desc</p>
-		</div>
-	)
-}
-
 export default function Footer({
-	socialTitle,
+	SocialTitle,
 	socialLinks,
 	newsletterTitle,
 	input,
@@ -31,7 +22,12 @@ export default function Footer({
 	return (
 		<footer className={className}>
 			<div className={styles.footer__inner}>
-				<SharedBlockManager blocks={socialTitle} />
+				{console.log('footerInner', SocialTitle)}
+				{/* <PartialFooterSection
+					title={SocialTitle.title}
+					description={SocialTitle.description}
+				/> */}
+				<SharedBlockManager blocks={SocialTitle} />
 				<SharedBlockManager blocks={newsletterTitle} />
 			</div>
 		</footer>

@@ -95,6 +95,9 @@ module.exports = {
 					brand: withOpacityColor('--clr-text-brand'),
 				},
 			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+			},
 			backgroundColor: {
 				skin: {
 					bg: withOpacityColor('--clr-bg'),
