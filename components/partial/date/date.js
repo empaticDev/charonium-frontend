@@ -5,21 +5,40 @@ export default function Date({ date, events }) {
 	let cx = classNames.bind(styles)
 
 	let className = cx({
-		event: true,
+		date: true,
 	})
 
 	return (
 		<div className={className}>
-			<ol className={styles.list}>
+			<div className={styles.list}>
 				{events.map((event) => (
-					<li>{event.name}</li>
+					<div className={styles.event}>
+						<div className={styles.iconwrapper}>
+							<div className={styles.eventdot}></div>
+							<div className={styles.eventline}></div>
+						</div>
+						<div className={styles.eventname}>{event.name}</div>
+					</div>
 				))}
-			</ol>
+				<div className={styles.event}>
+					<div className={styles.iconwrapper}>
+						<div className={styles.eventline}></div>
+					</div>
+					<div className={styles.eventname}></div>
+				</div>
+				<div className={styles.event}>
+					<div className={styles.iconwrapper}>
+						<div className={styles.eventline}></div>
+					</div>
+					<div className={styles.eventname}></div>
+				</div>
+			</div>
+
 			<div className={styles.graphic}>
 				<div className={styles.dot}></div>
 				<div className={styles.line}></div>
 			</div>
-			<h3 className={styles.date}>{date}</h3>
+			<h3 className={styles.title}>{date}</h3>
 		</div>
 	)
 }

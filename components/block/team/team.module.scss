@@ -1,5 +1,5 @@
 .team {
-	@apply bg-gradient-radial-at-t from-transparent via-brand-500 to-transparent relative;
+	@apply bg-gradient-radial-at-t from-brand-500 to-transparent relative;
 }
 
 .box {
@@ -25,4 +25,10 @@
 
 .content {
 	@apply flex flex-row;
+}
+
+.graphic {
+	@apply w-screen absolute overflow-hidden;
+
+	height: 76%;
 }

@@ -20,8 +20,10 @@ export default function Team({ title, description, members }) {
 
 	return (
 		<div className={className}>
-			<div className={styles.spacing}></div>
-			<div className={styles.box}></div>
+			<div className={styles.graphic}>
+				<div className={styles.spacing}></div>
+				<div className={styles.box}></div>
+			</div>
 			<div className={styles.inner}>
 				<BlockTextMedia
 					title={title}
