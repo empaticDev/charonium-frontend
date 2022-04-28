@@ -30,7 +30,13 @@ const getBlockComponent = ({ __typename, ...block }, index) => {
 		case 'ComponentPartialsTimelineDate':
 			Block = PartialTimelineDate
 			break
-		case 'ComponentPartialsFooterSection':
+		case 'ComponentFooterSocial':
+			Block = PartialFooterSection
+			break
+		case 'ComponentFooterNewsletter':
+			Block = PartialFooterSection
+			break
+		case 'ComponentFooterDownloads':
 			Block = PartialFooterSection
 			break
 	}
