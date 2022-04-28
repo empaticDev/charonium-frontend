@@ -1,7 +1,7 @@
 /** @define footer */
 
 .footer {
-	@apply bg-gradient-radial from-brand to-brand-600;
+	@apply bg-gradient-radial-at-b from-brand to-brand-600;
 
 	&--alternate {
 		@apply bg-skin-bg-inverted;
