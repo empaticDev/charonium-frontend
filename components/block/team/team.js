@@ -7,7 +7,7 @@ import { SharedBlockManager } from '@components/shared'
 
 let cx = classNames.bind(styles)
 
-export default function Team({ title, description }) {
+export default function Team({ title, description, members }) {
 	let className = cx({
 		team: true,
 	})
@@ -21,12 +21,13 @@ export default function Team({ title, description }) {
 					title={title}
 					content={description}
 					alignment="left"
-					heading="h1"
+					heading="h2"
 					noimage="true"
 				/>
 				<BlockWrapper>
 					<div className={styles.placeholder}>team members</div>
-					{/* <SharedBlockManager blocks={''} /> */}
+					{console.log('team teammembers:', title)}
+					{/* <SharedBlockManager blocks={members} /> */}
 				</BlockWrapper>
 			</div>
 		</div>

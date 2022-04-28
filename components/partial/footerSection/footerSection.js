@@ -12,7 +12,7 @@ export default function footerSection({ header, list, input, downloads }) {
 
 	return (
 		<div className={className}>
-			<PartialHeading title={header.title} heading={'h3'} />
+			<PartialHeading title={header.title} heading={'footer'} />
 			<p className={styles.description}>{header.description}</p>
 			{list ? 'socialslist' : ''}
 			{input ? input.placeholder : ''}
