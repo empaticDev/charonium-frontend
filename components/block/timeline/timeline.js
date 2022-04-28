@@ -13,17 +13,13 @@ export default function Timeline({ title, description, dates }) {
 	})
 
 	return (
-		<div className={styles.wrapper}>
+		<div className={className}>
 			<BlockWrapper>
-				<div className={className}>
-					<PartialHeading title={title} label={description} heading="h2" />
-					<div className={styles.content}>
-						<SharedBlockManager blocks={dates} />
-					</div>
-				</div>
+				<PartialHeading title={title} label={description} heading="h2" />
 			</BlockWrapper>
-			<div className={styles.line}></div>
-			<div />
+			<div className={styles.content}>
+				<SharedBlockManager blocks={dates} />
+			</div>
 		</div>
 	)
 }

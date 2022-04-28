@@ -15,8 +15,10 @@ export default function Date({ date, events }) {
 					<li>{event.name}</li>
 				))}
 			</ol>
-			{/* <div className={styles.line}></div> */}
-			<span className={styles.dot}></span>
+			<div className={styles.graphic}>
+				<div className={styles.dot}></div>
+				<div className={styles.line}></div>
+			</div>
 			<h3 className={styles.date}>{date}</h3>
 		</div>
 	)
