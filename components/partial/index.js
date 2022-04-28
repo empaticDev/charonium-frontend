@@ -4,6 +4,7 @@ import PartialHeading from './heading/heading'
 import PartialFooterSection from './footerSection/footerSection'
 import PartialTimelineDate from './date/date'
 import PartialTeamMember from './teamMember/teamMember'
+import PartialPartner from './partner/partner'
 
 export {
 	PartialButton,
@@ -12,4 +13,5 @@ export {
 	PartialFooterSection,
 	PartialTimelineDate,
 	PartialTeamMember,
+	PartialPartner,
 }

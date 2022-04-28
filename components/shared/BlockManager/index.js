@@ -12,6 +12,7 @@ import {
 	PartialTimelineDate,
 	PartialFooterSection,
 	PartialTeamMember,
+	PartialPartner,
 } from '@components/partial'
 
 const getBlockComponent = ({ __typename, ...block }, index) => {
@@ -58,6 +59,9 @@ const getBlockComponent = ({ __typename, ...block }, index) => {
 			break
 		case 'Team':
 			Block = PartialTeamMember
+			break
+		case 'Partner':
+			Block = PartialPartner
 			break
 	}
 
