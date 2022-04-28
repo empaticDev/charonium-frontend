@@ -25,7 +25,7 @@ export default function Team({ title, description }) {
 					noimage="true"
 				/>
 				<BlockWrapper>
-					team members
+					<div className={styles.placeholder}>team members</div>
 					{/* <SharedBlockManager blocks={''} /> */}
 				</BlockWrapper>
 			</div>
