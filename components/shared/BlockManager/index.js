@@ -4,6 +4,7 @@ import {
 	BlockTimeline,
 	BlockTeam,
 	BlockFAQ,
+	BlockPartners,
 } from '@components/block'
 import {
 	PartialButton,
@@ -50,6 +51,9 @@ const getBlockComponent = ({ __typename, ...block }, index) => {
 			break
 		case 'ComponentBlocksFaqs':
 			Block = BlockFAQ
+			break
+		case 'ComponentBlocksPartners':
+			Block = BlockPartners
 			break
 	}
 

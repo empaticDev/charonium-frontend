@@ -4,6 +4,7 @@ import BlockCards from './cards/cards'
 import BlockTimeline from './timeline/timeline'
 import BlockTeam from './team/team'
 import BlockFAQ from './faq/faq'
+import BlockPartners from './partners/partners'
 
 export {
 	BlockWrapper,
@@ -12,4 +13,5 @@ export {
 	BlockTimeline,
 	BlockTeam,
 	BlockFAQ,
+	BlockPartners,
 }
