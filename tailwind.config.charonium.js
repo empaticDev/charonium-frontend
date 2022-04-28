@@ -41,13 +41,22 @@ module.exports = {
 			position: ['bottom', 'left'],
 		},
 		fontFamily: {
-			sans: ['"Barlow"', 'sans-serif'],
+			sans: ['"BarlowCondensed"', 'sans-serif'],
 			heading: ['"Poppins"', 'sans-serif'],
 		},
 		fontWeight: {
-			normal: 'normal',
+			normal: '300',
 			medium: '500',
+			semibold: '600',
 			bold: 'bold',
+		},
+		textSizes: {
+			'4xl': {
+				min: '1.75rem',
+				max: '5rem',
+				minvw: '40em',
+				maxvw: '96em',
+			},
 		},
 		screens: screensizes,
 		colors: {
@@ -57,16 +66,11 @@ module.exports = {
 			green: colors.emerald,
 			yellow: colors.amber,
 			brand: {
-				50: withOpacityColor('--clr-brand-50'),
-				100: withOpacityColor('--clr-brand-100'),
 				200: withOpacityColor('--clr-brand-200'),
 				300: withOpacityColor('--clr-brand-300'),
-				400: withOpacityColor('--clr-brand-400'),
+				DEFAULT: withOpacityColor('--clr-brand-default'),
 				500: withOpacityColor('--clr-brand-500'),
 				600: withOpacityColor('--clr-brand-600'),
-				700: withOpacityColor('--clr-brand-700'),
-				800: withOpacityColor('--clr-brand-800'),
-				900: withOpacityColor('--clr-brand-900'),
 			},
 			contrast: {
 				50: withOpacityColor('--clr-contrast-50'),
@@ -90,6 +94,9 @@ module.exports = {
 					inverted: withOpacityColor('--clr-text-inverted'),
 					brand: withOpacityColor('--clr-text-brand'),
 				},
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 			},
 			backgroundColor: {
 				skin: {
@@ -128,6 +135,11 @@ module.exports = {
 				90: '90%',
 				80: '80%',
 			},
+			spacing: {
+				'5p': '5%',
+				'xl-5xl': 'var(--space-xl-4xl,4rem)',
+				'xl-8xl': 'var(--space-xl-6xl,6rem)',
+			},
 			typography: {
 				DEFAULT: {
 					css: {
@@ -135,6 +147,12 @@ module.exports = {
 						fontWeight: 'inherit',
 						a: false,
 						strong: {
+							color: 'inherit',
+						},
+						blockquote: {
+							color: 'inherit',
+						},
+						code: {
 							color: 'inherit',
 						},
 						ul: {
@@ -180,12 +198,12 @@ module.exports = {
 			},
 		},
 	},
-	// modules: {
-	// 	textSizes: false,
-	// },
+	modules: {
+		textSizes: false,
+	},
 	plugins: [
 		require('tailwindcss-fluid')({
-			textSizes: false,
+			textSizes: true,
 		}),
 		require('@tailwindcss/aspect-ratio'),
 		require('@tailwindcss/typography'),

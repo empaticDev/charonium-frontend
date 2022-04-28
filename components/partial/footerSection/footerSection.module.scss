@@ -1,0 +1,11 @@
+.footersection {
+	@apply text-skin-inverted max-w-lg;
+}
+
+.title {
+	@apply font-heading font-bold text-2xl text-skin-inverted;
+}
+
+.description {
+	@apply font-sans font-normal text-base text-skin-inverted text-xl py-4;
+}

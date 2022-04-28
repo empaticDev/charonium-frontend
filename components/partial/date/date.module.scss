@@ -1,0 +1,25 @@
+.event {
+	@apply flex flex-col justify-between w-full;
+}
+
+.dot {
+	@apply w-6 h-6 bg-brand rounded-full ml-8 z-10 relative;
+
+	box-shadow: 0em 0em 0em 0.625em rgba(87, 197, 253, 0.4);
+}
+
+.date {
+	@apply py-4 prose ml-6;
+}
+
+.list {
+	@apply flex flex-col grow pb-12 justify-center ml-8;
+}
+
+.graphic {
+	@apply relative w-full;
+}
+
+.line {
+	@apply w-full h-px absolute top-3 border-dashed border-t-4 border-contrast-400 z-0;
+}

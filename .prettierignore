@@ -1,1 +1,6 @@
+# Ignore built files
 public
+dist/*
+_spacing.scss
+_colors.scss
+storybook/docs

@@ -1,4 +1,10 @@
-import { BlockTextMedia } from '@components/block'
+import { BlockTextMedia, BlockCards, BlockTimeline } from '@components/block'
+import {
+	PartialButton,
+	PartialCard,
+	PartialTimelineDate,
+	PartialFooterSection,
+} from '@components/partial'
 
 const getBlockComponent = ({ __typename, ...block }, index) => {
 	let Block
@@ -8,6 +14,24 @@ const getBlockComponent = ({ __typename, ...block }, index) => {
 	switch (__typename) {
 		case 'ComponentBlocksTextMedia':
 			Block = BlockTextMedia
+			break
+		case 'ComponentBlocksCards':
+			Block = BlockCards
+			break
+		case 'ComponentBlocksTimeline':
+			Block = BlockTimeline
+			break
+		case 'ComponentPartialsButton':
+			Block = PartialButton
+			break
+		case 'ComponentPartialsCard':
+			Block = PartialCard
+			break
+		case 'ComponentPartialsTimelineDate':
+			Block = PartialTimelineDate
+			break
+		case 'ComponentPartialsFooterSection':
+			Block = PartialFooterSection
 			break
 	}
 

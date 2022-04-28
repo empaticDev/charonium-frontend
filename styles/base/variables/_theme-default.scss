@@ -6,14 +6,14 @@
 	//contrast
 
 	$colorsContrast: (
-		50: #171717,
-		100: #262626,
-		200: #404040,
-		300: #525252,
-		400: #737373,
+		50: #121212,
+		100: #202020,
+		200: #333333,
+		300: #414141,
+		400: #8f8f8f,
 		500: #a3a3a3,
-		600: #d4d4d4,
-		700: #e5e5e5,
+		600: #cccccc,
+		700: #d7deea,
 		800: #f5f5f5,
 		900: #fafafa,
 	) !default;
@@ -21,11 +21,11 @@
 	//brand
 
 	$colorsBrand: (
-		200: #3b82f6,
-		300: #2563eb,
-		'default': #1d4ed8,
-		500: #1e40af,
-		600: #1e3a8a,
+		200: #dcf3ff,
+		300: #9addfe,
+		'default': #57c5fd,
+		500: #029fed,
+		600: #015b88,
 	) !default;
 
 	//default Colors
@@ -40,7 +40,7 @@
 
 	$bg-brand: map.get($colorsBrand, 'default') !default;
 
-	$text-base: map.get($colorsContrast, 900) !default;
+	$text-base: map.get($colorsContrast, 700) !default;
 
 	$text-muted: map.get($colorsContrast, 500) !default;
 

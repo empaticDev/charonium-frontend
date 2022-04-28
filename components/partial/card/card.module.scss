@@ -1,0 +1,24 @@
+/** @define card */
+
+.card {
+	@apply bg-contrast-100 p-10 border-1 border-contrast-200 shadow-md rounded-3xl mt-8 mb-0;
+
+	&:hover {
+		@apply border-1 border-contrast-700 mt-0 mb-8;
+
+		box-shadow: -1em -1em 5em rgba(87, 197, 253, 0.4),
+			1em 1em 5em rgba(87, 197, 253, 0.4);
+	}
+}
+
+.title {
+	@apply uppercase font-heading text-xl text-center;
+}
+
+.content {
+	@apply mt-4 prose-lg font-normal;
+}
+
+.image {
+	@apply w-full flex flex-row justify-center my-6;
+}
