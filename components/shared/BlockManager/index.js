@@ -1,4 +1,9 @@
-import { BlockTextMedia, BlockCards, BlockTimeline } from '@components/block'
+import {
+	BlockTextMedia,
+	BlockCards,
+	BlockTimeline,
+	BlockTeam,
+} from '@components/block'
 import {
 	PartialButton,
 	PartialCard,
@@ -38,6 +43,9 @@ const getBlockComponent = ({ __typename, ...block }, index) => {
 			break
 		case 'ComponentFooterDownloads':
 			Block = PartialFooterSection
+			break
+		case 'ComponentBlocksTeam':
+			Block = BlockTeam
 			break
 	}
 

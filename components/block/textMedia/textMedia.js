@@ -20,6 +20,7 @@ export default function TextMedia({
 	ctas,
 	alignment,
 	heading,
+	noimage,
 }) {
 	let className = cx({
 		textMedia: true,
@@ -31,7 +32,7 @@ export default function TextMedia({
 	return (
 		<BlockWrapper className={className}>
 			<div className={className}>
-				<div>image</div>
+				<div>{noimage ? '' : 'image'}</div>
 				<div>
 					<PartialHeading title={title} label={label} heading={heading} />
 					<div className={styles.content}>

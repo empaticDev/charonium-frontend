@@ -10,12 +10,11 @@ export default function footerSection({ header, list, input, downloads }) {
 		footersection: true,
 	})
 
-	console.log('footersection heading: ', header)
 	return (
 		<div className={className}>
 			<PartialHeading title={header.title} heading={'h3'} />
 			<p className={styles.description}>{header.description}</p>
-			{list ? 'socials list' : ''}
+			{list ? 'socialslist' : ''}
 			{input ? input.placeholder : ''}
 			{downloads ? 'downloads' : ''}
 		</div>
