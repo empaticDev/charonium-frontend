@@ -32,7 +32,6 @@ export default function Team({ title, description, members }) {
 				/>
 				<BlockWrapper>
 					<div className={styles.content}>
-						{console.log('team teammembers:', membersLocal)}
 						<SharedBlockManager blocks={membersLocal} />
 					</div>
 				</BlockWrapper>

@@ -8,8 +8,6 @@ export default function TeamMember({ Name, Nickname, image, avatar }) {
 		teammember: true,
 	})
 
-	console.log('member:', Name)
-
 	return (
 		<>
 			<div className={className}>
