@@ -1,5 +1,9 @@
 /** @define textMedia */
 
 .teammember {
-	@apply text-lg font-bold;
+	@apply w-full text-center;
+}
+
+.name {
+	@apply text-lg font-heading;
 }

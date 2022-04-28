@@ -12,6 +12,12 @@ export default function Team({ title, description, members }) {
 		team: true,
 	})
 
+	const membersLocal = [
+		members.data[0].attributes,
+		members.data[1].attributes,
+		members.data[2].attributes,
+	]
+
 	return (
 		<div className={className}>
 			<div className={styles.spacing}></div>
@@ -25,9 +31,10 @@ export default function Team({ title, description, members }) {
 					noimage="true"
 				/>
 				<BlockWrapper>
-					<div className={styles.placeholder}>team members</div>
-					{console.log('team teammembers:', title)}
-					{/* <SharedBlockManager blocks={members} /> */}
+					<div className={styles.content}>
+						{console.log('team teammembers:', membersLocal)}
+						<SharedBlockManager blocks={membersLocal} />
+					</div>
 				</BlockWrapper>
 			</div>
 		</div>
