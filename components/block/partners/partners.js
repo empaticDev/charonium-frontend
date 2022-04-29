@@ -14,8 +14,6 @@ export default function Partners({ label, title, description, partners }) {
 		partners: true,
 	})
 
-	console.log('partners:', partners)
-
 	const partnersLocal = [
 		partners.data[0].attributes,
 		partners.data[1].attributes,

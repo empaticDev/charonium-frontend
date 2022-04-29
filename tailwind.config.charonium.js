@@ -100,6 +100,8 @@ module.exports = {
 					'radial-gradient(ellipse at center, var(--tw-gradient-stops))',
 				'gradient-radial-at-t':
 					'radial-gradient(ellipse closest-side, var(--tw-gradient-stops))',
+				'gradient-radial-at-top':
+					'radial-gradient(ellipse at top, var(--tw-gradient-stops))',
 				'gradient-radial-at-b':
 					'radial-gradient(ellipse closest-side, var(--tw-gradient-stops))',
 				'gradient-radial-at-l':

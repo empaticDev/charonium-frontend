@@ -6,7 +6,7 @@ import { SharedBlockManager } from '@components/shared'
 
 let cx = classNames.bind(styles)
 
-export default function Footer({ footerBlocks, alternate }) {
+export default function Footer({ footerBlocks, menu, alternate }) {
 	let className = cx({
 		footer: true,
 		footer__alternate: alternate,
@@ -21,6 +21,11 @@ export default function Footer({ footerBlocks, alternate }) {
 						<SharedBlockManager blocks={footerBlocks} />
 					</div>
 				</BlockWrapper>
+				<div className={styles.menu}>
+					{menu.pages.map((item) => (
+						<a>{item.text}</a>
+					))}
+				</div>
 			</footer>
 		</>
 	)

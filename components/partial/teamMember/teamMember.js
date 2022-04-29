@@ -16,8 +16,6 @@ export default function TeamMember({
 		teammember: true,
 	})
 
-	console.log('avatar', avatar)
-
 	const avatarURL = avatar.data.attributes.url
 	const imageURL = image.data.attributes.url
 
