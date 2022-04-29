@@ -23,7 +23,7 @@ export default function TeamMember({
 		<>
 			<div className={className}>
 				<div className={styles.avatarwrapper}>
-					<Image src={avatarURL} width={'357'} height={'500'} />
+					<Image src={avatarURL} width={'390'} height={'500'} />
 				</div>
 				<div className={styles.description}>
 					<div className={styles.imagewrapper}>
