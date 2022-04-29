@@ -32,7 +32,7 @@ export default function Team({ title, description, members }) {
 					heading="h2"
 					noimage="true"
 				/>
-				<BlockWrapper>
+				<BlockWrapper spacing={'none'}>
 					<div className={styles.content}>
 						<SharedBlockManager blocks={membersLocal} />
 					</div>
