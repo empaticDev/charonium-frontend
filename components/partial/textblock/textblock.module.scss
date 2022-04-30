@@ -1,0 +1,24 @@
+/** @define textBlock */
+
+.pretitle {
+	@apply text-lg mb-4 text-skin-brand;
+}
+
+.title {
+	@apply text-4xl font-heading font-bold;
+}
+.content {
+	@apply prose md__prose-lg mt-6 font-normal;
+}
+.footer {
+	@apply mt-10 flex gap-4;
+}
+
+.spacing {
+	&--none {
+		@apply py-0;
+	}
+	&--medium {
+		@apply mb-16;
+	}
+}
