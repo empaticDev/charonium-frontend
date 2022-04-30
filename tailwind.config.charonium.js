@@ -165,6 +165,9 @@ module.exports = {
 						color: 'inherit',
 						fontWeight: 'inherit',
 						a: false,
+						p: {
+							letterSpacing: "0.05em"
+						},
 						strong: {
 							color: 'inherit',
 						},
