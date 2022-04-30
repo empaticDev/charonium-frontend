@@ -1,6 +1,10 @@
 {
 	"name": "@charonium/frontend",
 	"version": "0.1.1-alpha.1",
+	"engines": {
+		"npm": "^8.x.x",
+		"node": "^16.x.x"
+	},
 	"private": true,
 	"repository": {
 		"type": "git",
@@ -22,6 +26,7 @@
 	},
 	"dependencies": {
 		"classnames": "^2.3.1",
+		"dayjs": "^1.11.1",
 		"next": "12.1.0",
 		"postcss-flexbugs-fixes": "^5.0.2",
 		"postcss-import": "^14.1.0",

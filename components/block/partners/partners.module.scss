@@ -1,0 +1,11 @@
+.partners {
+	@apply prose;
+}
+
+.description {
+	@apply font-normal text-lg;
+}
+
+.images {
+	@apply h-fit w-full mt-20 mb-28 grid grid-cols-2 md__grid-cols-5 gap-x-16 gap-y-16 md__gap-x-3;
+}

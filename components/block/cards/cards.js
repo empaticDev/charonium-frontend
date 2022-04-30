@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind'
 import styles from './cards.module.scss'
 import { BlockWrapper } from '@components/block'
-import { SharedBlockManager } from '@components/shared'
+import { SharedPartialManager } from '@components/shared'
 
 export default function Cards({ cards }) {
 	let cx = classNames.bind(styles)
@@ -13,7 +13,7 @@ export default function Cards({ cards }) {
 	return (
 		<BlockWrapper className={className} spacing="none">
 			<div className={className}>
-				{cards && <SharedBlockManager blocks={cards} />}
+				{cards && <SharedPartialManager partials={cards} />}
 			</div>
 		</BlockWrapper>
 	)

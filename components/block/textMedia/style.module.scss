@@ -10,20 +10,6 @@
 	}
 }
 
-.pretitle {
-	@apply text-lg mb-4 text-skin-brand;
-}
-
-.title {
-	@apply text-4xl font-heading font-bold;
-}
-.content {
-	@apply prose lg__prose-lg mt-6 font-normal;
-}
-.footer {
-	@apply mt-10 flex gap-4;
-}
-
 .content-left {
 	@screen md {
 		@apply flex flex-row-reverse;

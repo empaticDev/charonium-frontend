@@ -1,0 +1,7 @@
+.list {
+	@apply flex flex-col;
+
+	> li {
+		@apply py-6 border-b-1 border-contrast-300 text-lg font-normal;
+	}
+}

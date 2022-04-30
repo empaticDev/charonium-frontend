@@ -1,25 +1,29 @@
 /** @define heading */
 
 .heading {
-	@apply py-4;
+	@apply mb-4 text-skin-base;
 }
 
 .title {
-	@apply font-heading font-bold text-skin-base py-6;
-}
-
-.h1 {
-	@apply text-5xl uppercase;
-}
-
-.h2 {
-	@apply text-3xl;
-}
-
-.h3 {
-	@apply text-2xl;
+	@apply font-heading font-bold mb-6;
 }
 
 .caption {
-	@apply text-2xl font-sans font-normal text-skin-brand normal-case;
+	@apply text-2xl font-sans font-normal text-skin-brand normal-case mb-4;
+}
+
+.h1 {
+	@apply text-6xl uppercase;
+}
+
+.h2 {
+	@apply text-4xl normal-case;
+}
+
+.h3 {
+	@apply text-3xl uppercase;
+}
+
+.footer {
+	@apply text-2xl text-skin-inverted;
 }

@@ -1,0 +1,29 @@
+/** @define teamMember */
+
+.teammember {
+	@apply w-full text-center;
+}
+
+.avatarwrapper {
+	@apply h-fit;
+}
+
+.description {
+	@apply flex flex-row justify-center items-center gap-4 mt-6;
+}
+
+.name {
+	@apply text-lg font-heading;
+}
+
+.imagewrapper {
+	@apply border-2 border-brand-300 rounded-full w-16 h-16 relative;
+}
+
+.info {
+	@apply text-left;
+}
+
+.text {
+	@apply font-normal py-0.5;
+}

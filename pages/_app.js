@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
 			<LayoutDefault>
 				<Component {...pageProps} />
 			</LayoutDefault>
-			<LayoutFooter />
+			<LayoutFooter {...pageProps.footer} />
 		</>
 	)
 }

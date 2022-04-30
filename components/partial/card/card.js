@@ -11,12 +11,16 @@ export default function Card({ title, content, image }) {
 		card: true,
 	})
 
-	const imageURL = image.data.attributes.url
+	let imageURL = ''
+
+	if (image.data != null) {
+		imageURL = image.data.attributes.url
+	}
 
 	return (
 		<div className={className}>
 			<div className={styles.image}>
-				<Image src={imageURL} width={117} height={117} />
+				{image.data && <Image src={imageURL} width={117} height={117} />}
 			</div>
 			<h2 className={styles.title}>{title}</h2>
 			<div className={styles.content}>

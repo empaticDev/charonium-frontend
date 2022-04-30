@@ -1,10 +1,11 @@
-import { BlockTextMedia, BlockCards, BlockTimeline } from '@components/block'
 import {
-	PartialButton,
-	PartialCard,
-	PartialTimelineDate,
-	PartialFooterSection,
-} from '@components/partial'
+	BlockTextMedia,
+	BlockCards,
+	BlockTimeline,
+	BlockTeam,
+	BlockFAQ,
+	BlockPartners,
+} from '@components/block'
 
 const getBlockComponent = ({ __typename, ...block }, index) => {
 	let Block
@@ -21,17 +22,14 @@ const getBlockComponent = ({ __typename, ...block }, index) => {
 		case 'ComponentBlocksTimeline':
 			Block = BlockTimeline
 			break
-		case 'ComponentPartialsButton':
-			Block = PartialButton
+		case 'ComponentBlocksTeam':
+			Block = BlockTeam
 			break
-		case 'ComponentPartialsCard':
-			Block = PartialCard
+		case 'ComponentBlocksFaqs':
+			Block = BlockFAQ
 			break
-		case 'ComponentPartialsTimelineDate':
-			Block = PartialTimelineDate
-			break
-		case 'ComponentPartialsFooterSection':
-			Block = PartialFooterSection
+		case 'ComponentBlocksPartners':
+			Block = BlockPartners
 			break
 	}
 

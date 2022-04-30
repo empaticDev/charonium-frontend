@@ -1,0 +1,71 @@
+/** @define timelineDot */
+
+.dot {
+	//styles here
+	@apply inline-flex flex-col pl-12;
+	scroll-snap-align: start;
+
+	@screen md {
+		@apply flex-col-reverse p-0 mr-10 pl-4;
+	}
+
+	&:not(:last-child) {
+		@apply mb-4;
+
+		@screen md {
+			@apply mb-0;
+		}
+	}
+}
+
+.header {
+	@apply relative flex flex-row py-4;
+
+	@screen md {
+		@apply pb-0 pt-10 z-10;
+	}
+
+	/* stylelint-disable-next-line plugin/selector-bem-pattern*/
+	&::before {
+		content: '';
+		@apply inline-block w-4 h-4 absolute -left-8 top-1/2 rounded-full bg-brand -translate-y-1/2;
+		box-shadow: 0em 0em 0em 0.325em
+			hsla(
+				var(--clr-brand-default-h),
+				var(--clr-brand-default-s),
+				var(--clr-brand-default-l),
+				0.4
+			);
+
+		@screen md {
+			@apply left-auto top-5 bottom-1/2;
+		}
+	}
+}
+
+.title {
+	@apply font-heading;
+
+	@screen md {
+		//@apply text-lg;
+	}
+}
+
+.marker {
+	//styles here
+}
+
+.entries {
+	@apply relative mr-4 ml-4;
+
+	@screen md {
+		@apply ml-0;
+	}
+
+	&::before {
+		@screen md {
+			content: '';
+			@apply absolute left-2 -bottom-4 w-[0.0625rem] h-full bg-skin-bg-inverted;
+		}
+	}
+}

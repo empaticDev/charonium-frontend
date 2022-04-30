@@ -1,0 +1,17 @@
+/** @define timelineEntry */
+
+.entry {
+	@apply relative font-normal text-lg pl-4 mt-2 mb-6 leading-none whitespace-nowrap;
+
+	@screen md {
+		@apply mt-0 mb-8 pl-6 ml-[0.15rem];
+	}
+}
+
+.marker {
+	@apply absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-skin-bg border border-skin-inverted;
+
+	@screen md {
+		@apply w-3 h-3;
+	}
+}

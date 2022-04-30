@@ -1,17 +1,22 @@
 import classNames from 'classnames/bind'
 import styles from './footerSection.module.scss'
 
+import { PartialHeading } from '@components/partial'
+
 let cx = classNames.bind(styles)
 
-export default function footerSection({ title, description }) {
+export default function footerSection({ header, list, input, downloads }) {
 	let className = cx({
 		footersection: true,
 	})
 
 	return (
 		<div className={className}>
-			<div className={styles.title}>{title}</div>
-			<p className={styles.description}>{description}</p>
+			<PartialHeading title={header.title} heading={'footer'} />
+			<p className={styles.description}>{header.description}</p>
+			{list ? 'socialslist' : ''}
+			{input ? input.placeholder : ''}
+			{downloads ? 'downloads' : ''}
 		</div>
 	)
 }
