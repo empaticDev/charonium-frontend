@@ -2,6 +2,8 @@
 @use 'sass:map';
 
 :root,
+::before,
+::after,
 [data-theme='default'] {
 	//contrast
 
