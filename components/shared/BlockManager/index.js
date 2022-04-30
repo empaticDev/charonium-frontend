@@ -6,14 +6,6 @@ import {
 	BlockFAQ,
 	BlockPartners,
 } from '@components/block'
-import {
-	PartialButton,
-	PartialCard,
-	PartialTimelineDate,
-	PartialFooterSection,
-	PartialTeamMember,
-	PartialPartner,
-} from '@components/partial'
 
 const getBlockComponent = ({ __typename, ...block }, index) => {
 	let Block
@@ -30,24 +22,6 @@ const getBlockComponent = ({ __typename, ...block }, index) => {
 		case 'ComponentBlocksTimeline':
 			Block = BlockTimeline
 			break
-		case 'ComponentPartialsButton':
-			Block = PartialButton
-			break
-		case 'ComponentPartialsCard':
-			Block = PartialCard
-			break
-		case 'ComponentPartialsTimelineDate':
-			Block = PartialTimelineDate
-			break
-		case 'ComponentFooterSocial':
-			Block = PartialFooterSection
-			break
-		case 'ComponentFooterNewsletter':
-			Block = PartialFooterSection
-			break
-		case 'ComponentFooterDownloads':
-			Block = PartialFooterSection
-			break
 		case 'ComponentBlocksTeam':
 			Block = BlockTeam
 			break
@@ -56,12 +30,6 @@ const getBlockComponent = ({ __typename, ...block }, index) => {
 			break
 		case 'ComponentBlocksPartners':
 			Block = BlockPartners
-			break
-		case 'Team':
-			Block = PartialTeamMember
-			break
-		case 'Partner':
-			Block = PartialPartner
 			break
 	}
 
