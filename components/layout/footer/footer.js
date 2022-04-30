@@ -2,7 +2,7 @@ import classNames from 'classnames/bind'
 import styles from './footer.module.scss'
 
 import { BlockWrapper } from '@components/block'
-import { SharedBlockManager } from '@components/shared'
+import { SharedPartialManager } from '@components/shared'
 
 let cx = classNames.bind(styles)
 
@@ -18,12 +18,12 @@ export default function Footer({ footerBlocks, menu, alternate }) {
 			<footer className={className}>
 				<BlockWrapper>
 					<div className={styles.inner}>
-						<SharedBlockManager blocks={footerBlocks} />
+						<SharedPartialManager partials={footerBlocks} />
 					</div>
 				</BlockWrapper>
 				<div className={styles.menu}>
 					{menu.pages.map((item) => (
-						<a>{item.text}</a>
+						<a key={item.text}>{item.text}</a>
 					))}
 				</div>
 			</footer>

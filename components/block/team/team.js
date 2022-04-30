@@ -1,16 +1,26 @@
 import classNames from 'classnames/bind'
 import styles from './team.module.scss'
 
-import { BlockTextMedia, BlockWrapper } from '@components/block'
+import { BlockWrapper } from '@components/block'
+import { PartialTextBlock } from '@components/partial'
 
-import { SharedBlockManager } from '@components/shared'
+import { SharedPartialManager } from '@components/shared'
 
 let cx = classNames.bind(styles)
 
-export default function Team({ title, description, members }) {
+export default function Team({ spacing, title, label, content, heading, ctas, members }) {
 	let className = cx({
 		team: true,
 	})
+
+	let textBlockProps = {
+		spacing: 'medium',
+		title: title,
+		label: label,
+		content: content,
+		heading: heading,
+		ctas: ctas
+	}
 
 	const membersLocal = [
 		members.data[0].attributes,
@@ -19,25 +29,21 @@ export default function Team({ title, description, members }) {
 	]
 
 	return (
-		<div className={className}>
+		<BlockWrapper>
+			<div className={className}>
 			<div className={styles.graphic}>
 				<div className={styles.spacing}></div>
 				<div className={styles.box}></div>
 			</div>
 			<div className={styles.inner}>
-				<BlockTextMedia
-					title={title}
-					content={description}
-					alignment="left"
-					heading="h2"
-					noimage="true"
-				/>
-				<BlockWrapper spacing={'none'}>
-					<div className={styles.content}>
-						<SharedBlockManager blocks={membersLocal} />
-					</div>
-				</BlockWrapper>
+				<PartialTextBlock {...textBlockProps}/>
+				
+				<div className={styles.content}>
+					<SharedPartialManager partials={membersLocal} />
+				</div>
+				
 			</div>
-		</div>
+			</div>
+		</BlockWrapper>
 	)
 }

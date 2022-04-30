@@ -1,18 +1,27 @@
 import classNames from 'classnames/bind'
 import styles from './partners.module.scss'
 
-import { BlockTextMedia, BlockWrapper } from '@components/block'
+import { BlockWrapper } from '@components/block'
+import { PartialTextBlock } from '@components/partial'
 
-import { SharedBlockManager } from '@components/shared'
+import { SharedPartialManager } from '@components/shared'
 
 import { PartialHeading, PartialPartner } from '@components/partial'
 
 let cx = classNames.bind(styles)
 
-export default function Partners({ label, title, description, partners }) {
+export default function Partners({ label, title, content, heading, partners }) {
 	let className = cx({
 		partners: true,
 	})
+
+	let textBlockProps = {
+		spacing: 'medium',
+		title: title,
+		label: label,
+		content: content,
+		heading: heading,
+	}
 
 	const partnersLocal = [
 		partners.data[0].attributes,
@@ -25,10 +34,9 @@ export default function Partners({ label, title, description, partners }) {
 	return (
 		<>
 			<BlockWrapper>
-				<PartialHeading title={title} label={label} heading="h2" />
-				<p className={styles.description}>{description}</p>
+				<PartialTextBlock {...textBlockProps}/>
 				<div className={styles.images}>
-					<SharedBlockManager blocks={partnersLocal} />
+					<SharedPartialManager partials={partnersLocal} />
 				</div>
 				<PartialHeading title={'Become a Partner'} heading="h3" />
 				<p className={styles.description}>

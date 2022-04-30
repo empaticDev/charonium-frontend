@@ -2,7 +2,7 @@
 
 .block {
 	// @apply py-xl-5xl border-b-1; //with white border
-	@apply py-xl-5xl; //without
+	@apply py-xl-5xl overflow-hidden; //without
 
 	&__inner {
 		@apply w-9/10 max-w-7xl mx-auto;
