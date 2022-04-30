@@ -1,11 +1,15 @@
 /** @define heading */
 
 .heading {
-	@apply py-4 text-skin-base;
+	@apply mb-4 text-skin-base;
 }
 
 .title {
-	@apply font-heading font-bold py-6;
+	@apply font-heading font-bold mb-6;
+}
+
+.caption {
+	@apply text-2xl font-sans font-normal text-skin-brand normal-case mb-4;
 }
 
 .h1 {
@@ -22,8 +26,4 @@
 
 .footer {
 	@apply text-2xl text-skin-inverted;
-}
-
-.caption {
-	@apply text-2xl font-sans font-normal text-skin-brand normal-case;
 }

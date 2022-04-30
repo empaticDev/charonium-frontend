@@ -4,6 +4,9 @@ import styles from './heading.module.scss'
 let cx = classNames.bind(styles)
 
 export default function Heading({ label, title, heading }) {
+
+	heading = heading ? heading : 'h2'
+
 	let className = cx({
 		heading: true,
 		h1: heading === 'h1' ? true : false,
