@@ -1,0 +1,40 @@
+/** @define timeline */
+
+.timeline {
+	@apply flex justify-center;
+	scroll-snap-type: x mandatory;
+
+	@screen md {
+		@apply justify-start overflow-y-auto;
+	}
+}
+
+.list {
+	//styles here
+	@apply relative inline-flex flex-col;
+
+	@screen md {
+		@apply flex-row justify-between;
+	}
+
+	&::before {
+		content: '';
+		@apply absolute top-6 left-6 bottom-0 w-[0.0625rem] rounded-full -translate-x-1/2;
+		background-image: linear-gradient(white 33%, rgba(255, 255, 255, 0) 0%);
+		background-position: right;
+		background-size: 0.0625rem 0.35rem;
+		background-repeat: repeat-y;
+
+		@screen md {
+			@apply top-auto bottom-11 right-0 left-8 w-auto h-1 translate-x-0;
+			background-image: linear-gradient(
+				to right,
+				white 33%,
+				rgba(255, 255, 255, 0) 0%
+			);
+			background-position: bottom;
+			background-size: 0.35rem 0.0625rem;
+			background-repeat: repeat-x;
+		}
+	}
+}
