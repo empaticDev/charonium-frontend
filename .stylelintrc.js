@@ -32,10 +32,6 @@ module.exports = {
 		'unit-allowed-list': ['em', 'rem', '%', 'ch', 'vh', 'vw', 's', 'fr'],
 		indentation: 'tab',
 		'selector-class-pattern': null,
-		'plugin/selector-bem-pattern': {
-			preset: 'bem',
-			componentSelectors: customBemSelector,
-		},
 		'scss/function-no-unknown': [
 			true,
 			{
