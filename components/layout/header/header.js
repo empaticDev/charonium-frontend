@@ -13,18 +13,18 @@ export default function Header(props) {
 
 	return (
 		<header className={className}>
-			<div className={styles.navwrapper}>
-				<div className={styles.mainnav}>
-					<div className={styles.logo}>
-						<Logo />
-					</div>
-					<div className={styles.navelements}>
-						<a>Social</a>
-						<a>Services</a>
-						<a>Partner</a>
-						<a>Market</a>
-					</div>
-				</div>
+			<div className={styles.logo}>
+				<Logo />
+			</div>
+			<div className={styles.menu}>
+				<nav className={styles.mainnav}>
+					<ul className={styles.navelements}>
+						<li><a>Social</a></li>
+						<li><a>Services</a></li>
+						<li><a>Partner</a></li>
+						<li><a>Market</a></li>
+					</ul>
+				</nav>
 				<PartialButton
 					label={'Wallet verbinden'}
 					secondary={true}
@@ -32,6 +32,8 @@ export default function Header(props) {
 					href={'https://charonium.com'}
 				/>
 			</div>
+			<div className={styles.menu__backdrop}></div>
+			<button className={styles.menu__button}>Menu</button>
 		</header>
 	)
 }
