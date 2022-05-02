@@ -6,6 +6,7 @@ import {
 	PartialTeamMember,
 	PartialPartner,
 	PartialInput,
+	PartialDownload,
 } from '@components/partial'
 
 const getPartialComponent = ({ __typename, ...partial }, index) => {
@@ -38,6 +39,9 @@ const getPartialComponent = ({ __typename, ...partial }, index) => {
 			break
 		case 'ComponentPartialsInput':
 			Partial = PartialInput
+			break
+		case 'ComponentPartialsDownload':
+			Partial = PartialDownload
 			break
 	}
 

@@ -2,7 +2,13 @@ import classNames from 'classnames/bind'
 import styles from './footerSection.module.scss'
 import FeatherIcon from 'feather-icons-react'
 
-import { PartialHeading, PartialInput } from '@components/partial'
+import {
+	PartialHeading,
+	PartialInput,
+	PartialDownload,
+} from '@components/partial'
+
+import { SharedPartialManager } from '@components/shared'
 
 let cx = classNames.bind(styles)
 
@@ -42,7 +48,7 @@ export default function footerSection({ header, links, input, downloads }) {
 			) : (
 				''
 			)}
-			{downloads ? 'downloads' : ''}
+			{downloads ? <SharedPartialManager partials={downloads} /> : ''}
 		</div>
 	)
 }

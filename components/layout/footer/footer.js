@@ -16,10 +16,7 @@ export default function Footer({ ...props }) {
 
 	let footerBlocks = props.footer.footerBlocks
 	let menu = props.footer.menu
-
 	let about = props.aboutUs
-
-	console.log('footer', about)
 
 	return (
 		<>
