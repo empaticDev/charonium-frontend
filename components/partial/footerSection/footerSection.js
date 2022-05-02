@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind'
 import styles from './footerSection.module.scss'
+import FeatherIcon from 'feather-icons-react'
 
 import { PartialHeading, PartialInput } from '@components/partial'
 
@@ -10,6 +11,19 @@ const socialLinks = (list) => {
 		<>
 			{list.map((item) => (
 				<a href={item.link} target={'__' + item.target} key={item.text}>
+					<FeatherIcon
+						className={styles.icon}
+						icon={
+							item.text === 'Discord'
+								? 'message-circle'
+								: item.text.toLowerCase()
+						}
+						size="16"
+					/>
+					{console.log(
+						'footer section',
+						item.text === 'Discord' ? 'chat' : item.text.toLowerCase()
+					)}
 					{item.text}
 				</a>
 			))}

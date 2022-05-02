@@ -6,6 +6,10 @@
 	}
 
 	> button {
-		@apply bg-gradient-to-tr from-brand-500 to-yellow-400 w-fit h-8 rounded-md px-1;
+		@apply grid bg-gradient-to-tr from-brand-500 to-yellow-400 w-8 h-8 rounded-md px-1 place-items-center;
+
+		> svg {
+			@apply w-4 h-4;
+		}
 	}
 }

@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind'
 import styles from './input.module.scss'
+import FeatherIcon from 'feather-icons-react'
 
 let cx = classNames.bind(styles)
 
@@ -53,7 +54,9 @@ export default function Input({ placeholder, link }) {
 		<>
 			<form className={className} onSubmit={handleSubmit}>
 				<input type="email" placeholder={placeholder} required />
-				<button type="submit">Subscribe</button>
+				<button type="submit">
+					<FeatherIcon icon={'send'} />
+				</button>
 			</form>
 		</>
 	)
