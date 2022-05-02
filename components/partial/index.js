@@ -11,6 +11,7 @@ import PartialTimelineEntry from './timelineEntry/timelineEntry'
 import PartialTimelineDot from './timelineDot/timelineDot'
 import PartialInput from './input/input'
 import PartialDownload from './download/download'
+import PartialListItem from './listItem/listItem'
 
 export {
 	PartialAccordion,
@@ -26,4 +27,5 @@ export {
 	PartialPartner,
 	PartialInput,
 	PartialDownload,
+	PartialListItem,
 }

@@ -6,11 +6,22 @@ import { PartialTextBlock } from '@components/partial'
 
 import { SharedPartialManager } from '@components/shared'
 
-import { PartialHeading, PartialPartner } from '@components/partial'
+import { PartialHeading, PartialButton } from '@components/partial'
 
 let cx = classNames.bind(styles)
 
-export default function Partners({ label, title, content, heading, partners }) {
+export default function Partners({
+	label,
+	title,
+	content,
+	heading,
+	partners,
+	subtitle,
+	subcontent,
+	listTitle,
+	list,
+	cta,
+}) {
 	let className = cx({
 		partners: true,
 	})
@@ -31,19 +42,27 @@ export default function Partners({ label, title, content, heading, partners }) {
 		partners.data[4].attributes,
 	]
 
+	console.log('partners', list)
+
 	return (
 		<>
 			<BlockWrapper>
-				<PartialTextBlock {...textBlockProps}/>
+				<PartialTextBlock {...textBlockProps} />
 				<div className={styles.images}>
 					<SharedPartialManager partials={partnersLocal} />
 				</div>
-				<PartialHeading title={'Become a Partner'} heading="h3" />
-				<p className={styles.description}>
-					{
-						'Our valuable partner network enables our users to quickly find a place to store their fragments in convenient locations near them. As a partner, you get special access. And here are the usps.'
-					}
-				</p>
+				<PartialHeading title={subtitle} heading="h3" />
+				<p className={styles.description}>{subcontent}</p>
+				<div className={styles.lower}>
+					<div className={styles.placeholder}>image</div>
+					<div className={styles.list}>
+						<div className={styles.listtitle}>{listTitle}</div>
+						<SharedPartialManager partials={list} />
+						<div className={styles.ctawrapper}>
+							<PartialButton label={cta.label} />
+						</div>
+					</div>
+				</div>
 			</BlockWrapper>
 		</>
 	)

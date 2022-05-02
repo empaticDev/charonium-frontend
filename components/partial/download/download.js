@@ -11,8 +11,6 @@ export default function Download({ title, media }) {
 
 	let mediaURL = media.data.attributes.url
 
-	console.log('download', mediaURL)
-
 	return (
 		<div className={className}>
 			<a href={mediaURL} download={title}>

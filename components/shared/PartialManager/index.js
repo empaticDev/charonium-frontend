@@ -7,6 +7,7 @@ import {
 	PartialPartner,
 	PartialInput,
 	PartialDownload,
+	PartialListItem,
 } from '@components/partial'
 
 const getPartialComponent = ({ __typename, ...partial }, index) => {
@@ -42,6 +43,9 @@ const getPartialComponent = ({ __typename, ...partial }, index) => {
 			break
 		case 'ComponentPartialsDownload':
 			Partial = PartialDownload
+			break
+		case 'ComponentPartialsListElement':
+			Partial = PartialListItem
 			break
 	}
 

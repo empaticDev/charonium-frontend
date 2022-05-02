@@ -9,3 +9,19 @@
 .images {
 	@apply h-fit w-full mt-20 mb-28 grid grid-cols-2 md__grid-cols-5 gap-x-16 gap-y-16 md__gap-x-3;
 }
+
+.lower {
+	@apply flex flex-row mt-20;
+}
+
+.listtitle {
+	@apply font-heading text-base font-bold mb-8 uppercase;
+}
+
+.ctawrapper {
+	@apply my-16;
+}
+
+.placeholder {
+	@apply w-1/2;
+}
