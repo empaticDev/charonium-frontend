@@ -26,8 +26,11 @@ export default function Footer({ footerBlocks, menu, alternate }) {
 					</div>
 				</BlockWrapper>
 				<div className={styles.menu}>
+					{console.log('footer', menu)}
 					{menu.pages.map((item) => (
-						<a key={item.text}>{item.text}</a>
+						<a key={item.text} href={item.link}>
+							{item.text}
+						</a>
 					))}
 				</div>
 			</footer>
