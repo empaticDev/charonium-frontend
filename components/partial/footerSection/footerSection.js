@@ -1,11 +1,39 @@
 import classNames from 'classnames/bind'
 import styles from './footerSection.module.scss'
+import FeatherIcon from 'feather-icons-react'
 
-import { PartialHeading } from '@components/partial'
+import {
+	PartialHeading,
+	PartialInput,
+	PartialDownload,
+} from '@components/partial'
+
+import { SharedPartialManager } from '@components/shared'
 
 let cx = classNames.bind(styles)
 
-export default function footerSection({ header, list, input, downloads }) {
+const socialLinks = (list) => {
+	return (
+		<>
+			{list.map((item) => (
+				<a href={item.link} target={'__' + item.target} key={item.text}>
+					<FeatherIcon
+						className={styles.icon}
+						icon={
+							item.text === 'Discord'
+								? 'message-circle'
+								: item.text.toLowerCase()
+						}
+						size="16"
+					/>
+					{item.text}
+				</a>
+			))}
+		</>
+	)
+}
+
+export default function footerSection({ header, links, input, downloads }) {
 	let className = cx({
 		footersection: true,
 	})
@@ -14,9 +42,13 @@ export default function footerSection({ header, list, input, downloads }) {
 		<div className={className}>
 			<PartialHeading title={header.title} heading={'footer'} />
 			<p className={styles.description}>{header.description}</p>
-			{list ? 'socialslist' : ''}
-			{input ? input.placeholder : ''}
-			{downloads ? 'downloads' : ''}
+			{links ? <div className={styles.links}>{socialLinks(links)}</div> : ''}
+			{input ? (
+				<PartialInput placeholder={input.placeholder} link={input.link} />
+			) : (
+				''
+			)}
+			{downloads ? <SharedPartialManager partials={downloads} /> : ''}
 		</div>
 	)
 }

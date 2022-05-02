@@ -4,26 +4,39 @@ import styles from './footer.module.scss'
 import { BlockWrapper } from '@components/block'
 import { SharedPartialManager } from '@components/shared'
 
+import { PartialFooterSection } from '@components/partial'
+
 let cx = classNames.bind(styles)
 
-export default function Footer({ footerBlocks, menu, alternate }) {
+export default function Footer({ ...props }) {
 	let className = cx({
 		footer: true,
-		footer__alternate: alternate,
+		footer__alternate: props.footer.alternate,
 	})
+
+	let footerBlocks = props.footer.footerBlocks
+	let menu = props.footer.menu
+	let about = props.aboutUs
 
 	return (
 		<>
-			<div className={styles.graphic}>graphic</div>
+			<div className={styles.graphic}>
+				<div className={styles.spacing}></div>
+				<div className={styles.curve1}></div>
+				<div className={styles.curve2}></div>
+			</div>
 			<footer className={className}>
 				<BlockWrapper>
 					<div className={styles.inner}>
 						<SharedPartialManager partials={footerBlocks} />
+						<PartialFooterSection header={about} />
 					</div>
 				</BlockWrapper>
 				<div className={styles.menu}>
 					{menu.pages.map((item) => (
-						<a key={item.text}>{item.text}</a>
+						<a key={item.text} href={item.link}>
+							{item.text}
+						</a>
 					))}
 				</div>
 			</footer>

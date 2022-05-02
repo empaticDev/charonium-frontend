@@ -1,5 +1,3 @@
-/** @define footer */
-
 .footer {
 	@apply bg-gradient-radial-at-b from-brand to-brand-500;
 
@@ -8,12 +6,34 @@
 	}
 }
 
-.inner {
-	@apply grid grid-cols-1 md__grid-cols-2 gap-x-40 gap-y-20;
+.curve1 {
+	@apply absolute h-full z-0 bg-contrast-50 -left-5p;
+
+	width: 108%;
+	border-radius: 50% / 100%;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.curve2 {
+	@apply absolute h-full z-0 bg-contrast-50 -left-1/4 opacity-50;
+
+	width: 135%;
+	border-radius: 50% / 100%;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.spacing {
+	@apply absolute w-full z-0 bg-contrast-50 outline-4 outline-contrast-50 h-10;
 }
 
 .graphic {
-	@apply w-full h-80 bg-gradient-radial-at-top from-transparent to-brand-500;
+	@apply w-full h-80 bg-gradient-to-t from-brand-500 to-transparent relative overflow-hidden;
+}
+
+.inner {
+	@apply grid grid-cols-1 md__grid-cols-2 gap-x-40 gap-y-20;
 }
 
 .menu {

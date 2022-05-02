@@ -5,6 +5,9 @@ import {
 	PartialFooterSection,
 	PartialTeamMember,
 	PartialPartner,
+	PartialInput,
+	PartialDownload,
+	PartialListItem,
 } from '@components/partial'
 
 const getPartialComponent = ({ __typename, ...partial }, index) => {
@@ -17,9 +20,9 @@ const getPartialComponent = ({ __typename, ...partial }, index) => {
 		case 'ComponentPartialsCard':
 			Partial = PartialCard
 			break
-        case 'ComponentPartialsAccordionItem':
-            Partial = PartialAccordion
-            break
+		case 'ComponentPartialsAccordionItem':
+			Partial = PartialAccordion
+			break
 		case 'ComponentFooterSocial':
 			Partial = PartialFooterSection
 			break
@@ -34,6 +37,15 @@ const getPartialComponent = ({ __typename, ...partial }, index) => {
 			break
 		case 'Partner':
 			Partial = PartialPartner
+			break
+		case 'ComponentPartialsInput':
+			Partial = PartialInput
+			break
+		case 'ComponentPartialsDownload':
+			Partial = PartialDownload
+			break
+		case 'ComponentPartialsListElement':
+			Partial = PartialListItem
 			break
 	}
 

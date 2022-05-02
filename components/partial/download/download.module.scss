@@ -1,0 +1,11 @@
+.download {
+	@apply border-b-1 border-contrast-50 max-w-sm;
+
+	> a {
+		@apply w-full flex flex-row justify-between my-3 py-3 font-medium text-skin-inverted;
+
+		> svg {
+			@apply w-6 h-6;
+		}
+	}
+}

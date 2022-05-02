@@ -9,6 +9,9 @@ import PartialAccordion from './accordion/accordion'
 import PartialTimeline from './timeline/timeline'
 import PartialTimelineEntry from './timelineEntry/timelineEntry'
 import PartialTimelineDot from './timelineDot/timelineDot'
+import PartialInput from './input/input'
+import PartialDownload from './download/download'
+import PartialListItem from './listItem/listItem'
 
 export {
 	PartialAccordion,
@@ -22,4 +25,7 @@ export {
 	PartialTimelineEntry,
 	PartialTeamMember,
 	PartialPartner,
+	PartialInput,
+	PartialDownload,
+	PartialListItem,
 }
