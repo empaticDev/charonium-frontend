@@ -14,7 +14,11 @@ export default function Footer({ footerBlocks, menu, alternate }) {
 
 	return (
 		<>
-			<div className={styles.graphic}>graphic</div>
+			<div className={styles.graphic}>
+				<div className={styles.spacing}></div>
+				<div className={styles.curve1}></div>
+				<div className={styles.curve2}></div>
+			</div>
 			<footer className={className}>
 				<BlockWrapper>
 					<div className={styles.inner}>
