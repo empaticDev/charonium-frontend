@@ -11,7 +11,7 @@ export default function Cards({ cards }) {
 	})
 
 	return (
-		<BlockWrapper className={className} spacing="none">
+		<BlockWrapper spacing="small">
 			<div className={className}>
 				{cards && <SharedPartialManager partials={cards} />}
 			</div>

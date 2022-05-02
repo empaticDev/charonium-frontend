@@ -2,6 +2,7 @@
 
 .cards {
 	@apply grid justify-between gap-8 max-w-5xl mx-auto;
+
 	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 
 	@screen lg {
