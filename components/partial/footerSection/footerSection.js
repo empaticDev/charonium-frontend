@@ -20,10 +20,6 @@ const socialLinks = (list) => {
 						}
 						size="16"
 					/>
-					{console.log(
-						'footer section',
-						item.text === 'Discord' ? 'chat' : item.text.toLowerCase()
-					)}
 					{item.text}
 				</a>
 			))}
