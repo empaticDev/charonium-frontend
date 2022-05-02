@@ -9,3 +9,11 @@
 .description {
 	@apply font-sans font-normal text-skin-inverted text-xl py-4;
 }
+
+.links {
+	@apply grid grid-cols-1 sm__grid-cols-2 max-w-sm;
+
+	> a {
+		@apply text-skin-inverted font-medium text-base;
+	}
+}

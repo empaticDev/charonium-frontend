@@ -1,0 +1,11 @@
+.input {
+	@apply bg-contrast-100 max-w-sm flex flex-row rounded-lg py-1 pl-3 pr-1 my-2;
+
+	> input {
+		@apply bg-transparent text-sm font-sans text-yellow-50 w-full;
+	}
+
+	> button {
+		@apply bg-gradient-to-tr from-brand-500 to-yellow-400 w-fit h-8 rounded-md px-1;
+	}
+}
