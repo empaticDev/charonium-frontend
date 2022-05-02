@@ -1,8 +1,8 @@
 .input {
-	@apply bg-contrast-100 max-w-sm flex flex-row rounded-lg py-1 pl-3 pr-1 my-2;
+	@apply bg-contrast-100 max-w-sm flex flex-row rounded-lg items-center p-1;
 
 	> input {
-		@apply bg-transparent text-sm font-sans text-yellow-50 w-full;
+		@apply bg-transparent text-sm font-sans text-yellow-50 w-full border-none;
 	}
 
 	> button {
