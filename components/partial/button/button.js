@@ -20,6 +20,8 @@ const getLink = (type, page, href, download) => {
 		case 'download':
 			link = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${download.data.attributes.url}`
 			break
+		default:
+			return
 	}
 
 	return link
@@ -44,17 +46,19 @@ export default function Button({
 	const isDownload = type === 'download' && download != null ? true : false
 	//console.log('btn link', link)
 
-	return (
-		<>
-			{type === 'internal' ? (
+	switch (type) {
+		case 'internal':
+			return (
 				<Link href={link}>
 					<a className={className}>{label}</a>
 				</Link>
-			) : (
+			)
+		break
+		default:
+			return (
 				<a href={link} className={className} download={isDownload}>
 					{label}
 				</a>
-			)}
-		</>
-	)
+			)
+	}
 }
