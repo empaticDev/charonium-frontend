@@ -29,7 +29,9 @@ export default function Footer({ ...props }) {
 				<BlockWrapper>
 					<div className={styles.inner}>
 						<SharedPartialManager partials={footerBlocks} />
-						<PartialFooterSection header={about} />
+						<div className={styles.about}>
+							<PartialFooterSection header={about} />
+						</div>
 					</div>
 				</BlockWrapper>
 				<div className={styles.menu}>

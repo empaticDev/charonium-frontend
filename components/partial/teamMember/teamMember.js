@@ -22,8 +22,6 @@ export default function TeamMember({
 	const avatarH = 300
 	const avatarW = avatarH * 0.8
 
-	console.log('teammember', avatarH, avatarW)
-
 	return (
 		<>
 			<div className={className}>
