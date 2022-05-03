@@ -49,8 +49,6 @@ export default function Partners({
 		partners.data[4].attributes,
 	]
 
-	console.log('partners', list)
-
 	return (
 		<>
 			<BlockWrapper>

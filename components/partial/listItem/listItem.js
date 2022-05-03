@@ -8,8 +8,6 @@ export default function ListItem({ content }) {
 		listItem: true,
 	})
 
-	console.log('listitem', content)
-
 	return (
 		<div className={className}>
 			<div className={styles.marker}></div>
