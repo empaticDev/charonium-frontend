@@ -12,8 +12,12 @@ import PartialTimelineDot from './timelineDot/timelineDot'
 import PartialInput from './input/input'
 import PartialDownload from './download/download'
 import PartialListItem from './listItem/listItem'
+import PartialNavAnchor from './navAnchor/navAnchor'
+import PartialNavAnchorLink from './navAnchorLink/navAnchorLink'
 
 export {
+	PartialNavAnchor,
+	PartialNavAnchorLink,
 	PartialAccordion,
 	PartialButton,
 	PartialTextBlock,

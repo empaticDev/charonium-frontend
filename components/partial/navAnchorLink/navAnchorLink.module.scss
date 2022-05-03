@@ -1,0 +1,9 @@
+/* @define navAnchorLink */
+
+.item {
+	@apply text-skin-base duration-200;
+
+	&:hover {
+		@apply text-skin-brand;
+	}
+}
