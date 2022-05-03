@@ -19,15 +19,20 @@ export default function TeamMember({
 	const avatarURL = avatar.data.attributes.url
 	const imageURL = image.data.attributes.url
 
+	const avatarH = 300
+	const avatarW = avatarH * 0.8
+
+	console.log('teammember', avatarH, avatarW)
+
 	return (
 		<>
 			<div className={className}>
 				<div className={styles.avatarwrapper}>
-					<Image src={avatarURL} width={'390'} height={'500'} />
+					<Image src={avatarURL} width={avatarW} height={avatarH} />
 				</div>
 				<div className={styles.description}>
 					<div className={styles.imagewrapper}>
-						<Image src={imageURL} layout={'fill'} />
+						<Image src={imageURL} layout="fill" />
 					</div>
 					<div className={styles.info}>
 						<div className={styles.name}>{Nickname}</div>

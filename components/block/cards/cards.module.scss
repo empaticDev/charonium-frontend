@@ -1,9 +1,11 @@
 /** @define cards */
 
 .cards {
-	@apply grid justify-between gap-8 max-w-5xl mx-auto;
+	@apply grid justify-between gap-8 max-w-5xl mx-auto grid-cols-1 justify-items-center;
 
-	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+	@screen md {
+		grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+	}
 
 	@screen lg {
 		@apply gap-16;
