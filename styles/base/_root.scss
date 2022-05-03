@@ -43,7 +43,7 @@
 
 	html,
 	body {
-		@apply font-sans leading-normal bg-skin-bg text-skin-base;
+		@apply font-sans leading-normal bg-skin-bg text-skin-base scroll-smooth;
 		-moz-osx-font-smoothing: grayscale;
 		-webkit-font-smoothing: antialiased;
 		text-rendering: optimizeLegibility;

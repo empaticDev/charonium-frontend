@@ -1,17 +1,20 @@
 import classNames from 'classnames/bind'
 import styles from './header.module.scss'
 import Logo from './assets/logo.svg'
-import { PartialButton } from '@components/partial'
+import { PartialNavAnchor, PartialButton } from '@components/partial'
 import { useState, useEffect } from 'react'
 
 let cx = classNames.bind(styles)
 
-export default function Header(props) {
+export default function Header({ ...props }) {
 
 	const toggleBtnLabel = 'Menu'
 	const toggleBtnLabelActive = 'Close'
 	const [hambugerOpen, setHamburgerOpen] = useState(false)
 	const [hamburgerLabel, setHamburgerLabel] = useState(toggleBtnLabel)
+
+	const blocks = props?.page?.attributes.blocks
+	const anchorItems = blocks?.filter(block => block.anchor);
 
 	function toggleMenu(e) {
     	e.preventDefault(); 	
@@ -39,14 +42,7 @@ export default function Header(props) {
 				<Logo />
 			</div>
 			<div className={styles.menu}>
-				<nav className={styles.mainnav}>
-					<ul className={styles.navelements}>
-						<li><a>Social</a></li>
-						<li><a>Services</a></li>
-						<li><a>Partner</a></li>
-						<li><a>Market</a></li>
-					</ul>
-				</nav>
+				<PartialNavAnchor className={styles.mainnav} anchorItems={anchorItems}/>
 				<PartialButton
 					label={'Wallet verbinden'}
 					secondary={true}

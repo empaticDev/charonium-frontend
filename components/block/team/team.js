@@ -8,7 +8,7 @@ import { SharedPartialManager } from '@components/shared'
 
 let cx = classNames.bind(styles)
 
-export default function Team({ spacing, title, label, content, heading, ctas, members }) {
+export default function Team({ spacing, id, anchor, title, label, content, heading, ctas, members }) {
 	let className = cx({
 		team: true,
 	})
@@ -29,7 +29,7 @@ export default function Team({ spacing, title, label, content, heading, ctas, me
 	]
 
 	return (
-		<BlockWrapper>
+		<BlockWrapper id={id} anchor={anchor}>
 			<div className={className}>
 			<div className={styles.graphic}>
 				<div className={styles.spacing}></div>

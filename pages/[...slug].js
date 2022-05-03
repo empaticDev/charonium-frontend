@@ -36,6 +36,9 @@ export async function getStaticProps({ params, preview = null }) {
 			footer: {
 				...data?.footer.data.attributes,
 			},
+			aboutUs: {
+				...data?.aboutUs.data.attributes,
+			},
 		},
 	}
 }

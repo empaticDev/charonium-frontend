@@ -4,7 +4,7 @@
 	@apply fixed flex flex-col justify-between right-0 top-0 h-screen max-w-90 bg-skin-bg z-99 p-8 rounded-tl-md rounded-bl-md duration-300 translate-x-full;
 
 	@screen md {
-		@apply static flex-row flex-1 justify-between w-auto max-w-none h-auto bg-transparent right-auto top-auto p-0 ml-8 z-auto duration-0 translate-x-0;
+		@apply static flex-row flex-1 justify-between items-center w-auto max-w-none h-auto bg-transparent right-auto top-auto p-0 ml-8 z-auto duration-0 translate-x-0;
 	}
 }
 
@@ -38,18 +38,6 @@
 
 	@screen md {
 		@apply flex space-x-10 items-center;
-	}
-}
-
-.navelements {
-	@apply font-medium text-lg space-y-4 uppercase;
-
-	@screen md {
-		@apply flex space-y-0 space-x-10 items-center;
-	}
-
-	a {
-		@apply text-skin-base;
 	}
 }
 
