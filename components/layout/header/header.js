@@ -2,13 +2,35 @@ import classNames from 'classnames/bind'
 import styles from './header.module.scss'
 import Logo from './assets/logo.svg'
 import { PartialButton } from '@components/partial'
+import { useState, useEffect } from 'react'
 
 let cx = classNames.bind(styles)
 
 export default function Header(props) {
+
+	const toggleBtnLabel = 'Menu'
+	const toggleBtnLabelActive = 'Close'
+	const [hambugerOpen, setHamburgerOpen] = useState(false)
+	const [hamburgerLabel, setHamburgerLabel] = useState(toggleBtnLabel)
+
+	function toggleMenu(e) {
+    	e.preventDefault(); 	
+		setHamburgerOpen(!hambugerOpen)
+  	}
+
+	useEffect(() => {
+		// Set text on menu toggle button 
+		if(hambugerOpen) {
+			setHamburgerLabel(toggleBtnLabelActive)
+		} else {
+			setHamburgerLabel(toggleBtnLabel)
+		}
+	});
+
 	let className = cx({
 		header: true,
-		header__alternate: props.alternate,
+		'header--alternate': props.alternate,
+		'header--open': hambugerOpen
 	})
 
 	return (
@@ -32,8 +54,8 @@ export default function Header(props) {
 					href={'https://charonium.com'}
 				/>
 			</div>
-			<div className={styles.menu__backdrop}></div>
-			<button className={styles.menu__button}>Menu</button>
+			<div className={styles.menu__backdrop} onClick={toggleMenu}></div>
+			<button className={styles.menu__button} onClick={toggleMenu}>{hamburgerLabel}</button>
 		</header>
 	)
 }

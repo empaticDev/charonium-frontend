@@ -1,26 +1,35 @@
 /** @define header */
 
-.header {
-	@apply flex items-center px-6 py-4 bg-skin-bg text-2xl;
-
-	&--alternate {
-		@apply bg-skin-bg;
-	}
-}
-
 .menu {
-	@apply fixed flex flex-col justify-between right-0 top-0 h-screen max-w-90 bg-skin-bg z-99 p-8 rounded-tl-md rounded-bl-md;
+	@apply fixed flex flex-col justify-between right-0 top-0 h-screen max-w-90 bg-skin-bg z-99 p-8 rounded-tl-md rounded-bl-md duration-300 translate-x-full;
 
 	@screen md {
-		@apply static flex-row flex-1 justify-between w-auto max-w-none h-auto bg-transparent right-auto top-auto p-0 ml-8 z-auto;
+		@apply static flex-row flex-1 justify-between w-auto max-w-none h-auto bg-transparent right-auto top-auto p-0 ml-8 z-auto duration-0 translate-x-0;
 	}
 }
 
 .menu__backdrop {
-	@apply fixed inset-0 bg-skin-brand;
+	@apply fixed inset-0 bg-skin-brand opacity-0 pointer-events-none z-50;
 
 	@screen md {
 		@apply hidden;
+	}
+}
+
+.header {
+	@apply flex items-center justify-between px-6 py-4 bg-skin-bg text-2xl;
+
+	&--alternate {
+		@apply bg-skin-bg;
+	}
+
+	&--open {
+		.menu {
+			@apply translate-x-0;
+		}
+		.menu__backdrop {
+			@apply opacity-80 pointer-events-auto;
+		}
 	}
 }
 
@@ -33,10 +42,10 @@
 }
 
 .navelements {
-	@apply font-medium text-lg space-x-10 uppercase;
+	@apply font-medium text-lg space-y-4 uppercase;
 
 	@screen md {
-		@apply flex space-x-10 items-center;
+		@apply flex space-y-0 space-x-10 items-center;
 	}
 
 	a {
@@ -59,5 +68,9 @@
 }
 
 .menu__button {
-	@apply absolute right-0 top-0;
+	@apply relative z-99;
+
+	@screen md {
+		@apply hidden;
+	}
 }
