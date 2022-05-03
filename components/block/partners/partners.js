@@ -34,6 +34,13 @@ export default function Partners({
 		heading: heading,
 	}
 
+	let textBlockB = {
+		spacing: 'medium',
+		title: subtitle,
+		content: subcontent,
+		heading: 'h3',
+	}
+
 	const partnersLocal = [
 		partners.data[0].attributes,
 		partners.data[1].attributes,
@@ -51,8 +58,7 @@ export default function Partners({
 				<div className={styles.images}>
 					<SharedPartialManager partials={partnersLocal} />
 				</div>
-				<PartialHeading title={subtitle} heading="h3" />
-				<p className={styles.description}>{subcontent}</p>
+				<PartialTextBlock {...textBlockB} />
 				<div className={styles.lower}>
 					<div className={styles.placeholder}>image</div>
 					<div className={styles.list}>
