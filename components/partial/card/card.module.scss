@@ -1,7 +1,7 @@
 /** @define card */
 
 .card {
-	@apply bg-contrast-100 p-10 border-1 border-contrast-200 shadow-md rounded-3xl mt-8 mb-0 max-w-xs;
+	@apply bg-contrast-100 p-10 border-1 border-contrast-200 shadow-md rounded-3xl mt-8 mb-0 max-w-xs duration-300;
 
 	&:hover {
 		@apply border-1 border-contrast-700 mt-0 mb-8;
