@@ -9,14 +9,10 @@ import { PartialFooterSection } from '@components/partial'
 
 let cx = classNames.bind(styles)
 
-const createLink = () => {
-	return 0
-}
-
 export default function Footer({ ...props }) {
 	let className = cx({
 		footer: true,
-		footer__alternate: props.footer.alternate,
+		// footer__alternate: props.footer.alternate,
 	})
 
 	let footerBlocks = props.footer.footerBlocks
@@ -39,7 +35,9 @@ export default function Footer({ ...props }) {
 				</div>
 				<div className={styles.menu}>
 					{menu.pages.map((item) => (
-						<NextLink href={`/${item.page.data.attributes.slug}`}>
+						<NextLink
+							href={`/${item.page.data.attributes.slug}`}
+							key={item.text}>
 							<a>{item.text}</a>
 						</NextLink>
 					))}
