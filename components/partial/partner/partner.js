@@ -9,24 +9,26 @@ export default function Partner({ name, link, logo }) {
 		partner: true,
 	})
 
-	const logoURL = logo.data[0].attributes.url
-	const logoW = logo.data[0].attributes.width
-	const logoH = logo.data[0].attributes.height
+	const logoURL = logo.data && logo.data.attributes.url
+	const logoW = logo.data && logo.data.attributes.width
+	const logoH = logo.data && logo.data.attributes.height
 
 	return (
 		<>
-			<div className={className}>
-				<div className={styles.image}>
-					<a href={link}>
-						<Image
-							src={logoURL}
-							layout="responsive"
-							width={logoW}
-							height={logoH}
-						/>
-					</a>
+			{logo && (
+				<div className={className}>
+					<div className={styles.image}>
+						<a href={link}>
+							<Image
+								src={logoURL}
+								layout="responsive"
+								width={logoW}
+								height={logoH}
+							/>
+						</a>
+					</div>
 				</div>
-			</div>
+			)}
 		</>
 	)
 }

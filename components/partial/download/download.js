@@ -14,7 +14,7 @@ export default function Download({ title, media }) {
 	return (
 		<div className={className}>
 			<a href={mediaURL} download={title}>
-				<p>{title}</p>
+				{title && <p>{title}</p>}
 				<FeatherIcon icon={'arrow-down'} />
 			</a>
 		</div>

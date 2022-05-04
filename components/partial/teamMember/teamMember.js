@@ -29,16 +29,20 @@ export default function TeamMember({
 					<div className={styles.spacing}></div>
 					<div className={styles.box}></div>
 				</div>
-				<div className={styles.avatarwrapper}>
-					<Image src={avatarURL} width={avatarW} height={avatarH} />
-				</div>
-				<div className={styles.description}>
-					<div className={styles.imagewrapper}>
-						<Image src={imageURL} layout="fill" />
+				{avatar && (
+					<div className={styles.avatarwrapper}>
+						<Image src={avatarURL} width={avatarW} height={avatarH} />
 					</div>
+				)}
+				<div className={styles.description}>
+					{image && (
+						<div className={styles.imagewrapper}>
+							<Image src={imageURL} layout="fill" />
+						</div>
+					)}
 					<div className={styles.info}>
 						<div className={styles.name}>{Nickname}</div>
-						<p className={styles.text}>{interest}</p>
+						{interest && <p className={styles.text}>{interest}</p>}
 						<p className={styles.text}>{position}</p>
 					</div>
 				</div>

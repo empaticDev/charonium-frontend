@@ -15,13 +15,7 @@ export default function Text({ title, text }) {
 		text: true,
 	})
 
-	// let textMediaProps = {
-	// 	title: title,
-	// 	label: label,
-	// 	content: content,
-	// 	heading: heading,
-	// 	ctas: ctas,
-	// }
+	// todo: adjust text wrapping from prose class?
 
 	return (
 		<BlockWrapper>

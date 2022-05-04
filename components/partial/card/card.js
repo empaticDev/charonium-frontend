@@ -22,9 +22,11 @@ export default function Card({ title, content, image }) {
 			<div className={styles.image}>
 				{image.data && <Image src={imageURL} width={117} height={117} />}
 			</div>
-			<h2 className={styles.title}>{title}</h2>
+			{title && <h2 className={styles.title}>{title}</h2>}
 			<div className={styles.content}>
-				<ReactMarkdown children={content} remarkPlugins={[remarkGfm]} />
+				{content && (
+					<ReactMarkdown children={content} remarkPlugins={[remarkGfm]} />
+				)}
 			</div>
 		</div>
 	)
