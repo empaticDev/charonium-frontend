@@ -3,35 +3,28 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
 import rehypeSanitize from 'rehype-sanitize'
-import styles from './textblock.module.scss'
+import styles from './text.module.scss'
 
-import { SharedPartialManager } from '@components/shared'
+import { BlockWrapper } from '@components/block'
 import { PartialHeading } from '@components/partial'
 
-export default function TextBlock(props) {
-	let cx = classNames.bind(styles)
+let cx = classNames.bind(styles)
 
+export default function Text({ title, text }) {
 	let className = cx({
-		textBlock: true,
-		'spacing--medium':
-			props.spacing != undefined && props.spacing === 'medium' ? true : false,
+		text: true,
 	})
 
-	const hasLink = props.ctas != null ? true : false
+	// todo: adjust text wrapping from prose class?
 
 	return (
-		<div className={className}>
-			{props.title && (
-				<PartialHeading
-					title={props.title}
-					label={props.label}
-					heading={props.heading}
-				/>
-			)}
-			{props.content && (
+		<BlockWrapper>
+			<div className={className}>
+				{title && <PartialHeading title={title} heading={'h2'} />}
+
 				<div className={styles.content}>
 					<ReactMarkdown
-						children={props.content}
+						children={text}
 						remarkPlugins={[remarkGfm]}
 						rehypePlugins={[
 							rehypeRaw,
@@ -57,12 +50,7 @@ export default function TextBlock(props) {
 						]}
 					/>
 				</div>
-			)}
-			{hasLink && (
-				<div className={styles.footer}>
-					<SharedPartialManager partials={props.ctas} />
-				</div>
-			)}
-		</div>
+			</div>
+		</BlockWrapper>
 	)
 }

@@ -1,7 +1,11 @@
 /** @define teamMember */
 
 .teammember {
-	@apply w-full text-center;
+	@apply w-full text-center relative bg-gradient-radial-at-t from-brand-500 to-transparent;
+
+	@screen md {
+		@apply bg-none;
+	}
 }
 
 .avatarwrapper {
@@ -26,4 +30,28 @@
 
 .text {
 	@apply font-normal py-0.5;
+}
+
+.graphic {
+	@apply w-screen absolute overflow-hidden;
+	height: 76%;
+
+	@screen md {
+		@apply hidden;
+	}
+}
+
+.box {
+	@apply absolute h-2/3 z-0 bg-contrast-50 -left-1/3;
+
+	width: 160%;
+	border-radius: 50% / 100%;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.spacing {
+	@apply hidden md__block absolute w-full z-0 bg-contrast-50 outline-4 outline-contrast-50;
+
+	height: 10%;
 }

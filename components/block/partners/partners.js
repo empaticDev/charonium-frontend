@@ -43,13 +43,11 @@ export default function Partners({
 		heading: 'h3',
 	}
 
-	const partnersLocal = [
-		partners.data[0].attributes,
-		partners.data[1].attributes,
-		partners.data[2].attributes,
-		partners.data[3].attributes,
-		partners.data[4].attributes,
-	]
+	const partnersLocal = []
+
+	partners.data.forEach((element) => {
+		partnersLocal.push(element.attributes)
+	})
 
 	return (
 		<>
@@ -62,10 +60,10 @@ export default function Partners({
 				<div className={styles.lower}>
 					<div className={styles.placeholder}>image</div>
 					<div className={styles.list}>
-						<div className={styles.listtitle}>{listTitle}</div>
-						<SharedPartialManager partials={list} />
+						{listTitle && <div className={styles.listtitle}>{listTitle}</div>}
+						{list && <SharedPartialManager partials={list} />}
 						<div className={styles.ctawrapper}>
-							<PartialButton label={cta.label} />
+							{cta.label && <PartialButton label={cta.label} />}
 						</div>
 					</div>
 				</div>

@@ -40,15 +40,13 @@ export default function footerSection({ header, links, input, downloads }) {
 
 	return (
 		<div className={className}>
-			{header ? <PartialHeading title={header.title} heading={'footer'} /> : ''}
-			{header ? <p className={styles.description}>{header.description}</p> : ''}
-			{links ? <div className={styles.links}>{socialLinks(links)}</div> : ''}
-			{input ? (
+			{header && <PartialHeading title={header.title} heading={'footer'} />}
+			{header && <p className={styles.description}>{header.description}</p>}
+			{links && <div className={styles.links}>{socialLinks(links)}</div>}
+			{input && (
 				<PartialInput placeholder={input.placeholder} link={input.link} />
-			) : (
-				''
 			)}
-			{downloads ? <SharedPartialManager partials={downloads} /> : ''}
+			{downloads && <SharedPartialManager partials={downloads} />}
 		</div>
 	)
 }

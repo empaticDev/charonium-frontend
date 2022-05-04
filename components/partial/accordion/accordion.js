@@ -44,9 +44,7 @@ export default function Accordion({ title, content }) {
 				{/* <FeatherIcon icon={'chevron-down'} /> */}
 			</button>
 
-			<div className={contentClass}>
-				<p>{content}</p>
-			</div>
+			<div className={contentClass}>{content && <p>{content}</p>}</div>
 		</div>
 	)
 }
