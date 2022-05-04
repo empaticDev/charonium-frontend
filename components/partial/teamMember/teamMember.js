@@ -25,6 +25,10 @@ export default function TeamMember({
 	return (
 		<>
 			<div className={className}>
+				<div className={styles.graphic}>
+					<div className={styles.spacing}></div>
+					<div className={styles.box}></div>
+				</div>
 				<div className={styles.avatarwrapper}>
 					<Image src={avatarURL} width={avatarW} height={avatarH} />
 				</div>
