@@ -1,0 +1,9 @@
+.default {
+	@apply flex flex-col md__flex-row-reverse;
+
+	> * {
+		@screen md {
+			@apply w-1/2 flex-row;
+		}
+	}
+}

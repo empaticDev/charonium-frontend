@@ -3,18 +3,21 @@
 }
 
 .box {
-	@apply absolute h-2/3 z-0 bg-contrast-50 -left-1/3;
+	@apply absolute h-2/3 z-0 bg-contrast-50 -left-2/3 md__-left-1/3 -top-1/3;
 
-	top: 10%;
-
-	width: 166%;
+	width: 300%;
 	border-radius: 50% / 100%;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
+
+	@screen md {
+		width: 166%;
+		top: 10%;
+	}
 }
 
 .spacing {
-	@apply absolute w-full z-0 bg-contrast-50 outline-4 outline-contrast-50;
+	@apply hidden md__block absolute w-full z-0 bg-contrast-50 outline-4 outline-contrast-50;
 
 	height: 10%;
 }
@@ -24,7 +27,7 @@
 }
 
 .content {
-	@apply flex flex-row;
+	@apply flex flex-col md__flex-row gap-y-4;
 }
 
 .graphic {

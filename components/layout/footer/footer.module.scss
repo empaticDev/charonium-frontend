@@ -29,11 +29,19 @@
 }
 
 .graphic {
-	@apply w-full h-80 bg-gradient-to-t from-brand-500 to-transparent relative overflow-hidden;
+	@apply w-full h-80 relative overflow-hidden;
 }
 
 .inner {
-	@apply grid grid-cols-1 md__grid-cols-2 gap-x-40 gap-y-20;
+	@apply max-w-4xl block mx-auto;
+}
+
+.sections {
+	@apply grid gap-16 w-9/10 mx-auto py-xl-5xl;
+
+	@screen md {
+		@apply grid-cols-2 w-full;
+	}
 }
 
 .menu {

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 import { getAllPages } from '../lib/api'
-import { SharedBlockManager } from '@components/shared'
+import { SharedBlockManager, SharedHeroManager } from '@components/shared'
 
 export default function Home({ page }) {
 	return (
@@ -11,6 +11,7 @@ export default function Home({ page }) {
 			</Head>
 
 			<h2> page: {page.attributes.title}</h2>
+			<SharedHeroManager blocks={page.attributes.hero} />
 			<SharedBlockManager blocks={page.attributes.blocks} />
 		</>
 	)
