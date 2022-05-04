@@ -140,6 +140,9 @@ module.exports = {
 			zIndex: {
 				99: 99,
 			},
+			transitionDuration: {
+        		'0': '0ms',
+      		},
 			transitionDelay: {
 				0: '0ms',
 			},

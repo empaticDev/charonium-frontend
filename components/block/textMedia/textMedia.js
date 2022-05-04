@@ -8,6 +8,8 @@ import { PartialTextBlock } from '@components/partial'
 let cx = classNames.bind(styles)
 
 export default function TextMedia({
+	id,
+	anchor,
 	title,
 	label,
 	content,
@@ -36,7 +38,7 @@ export default function TextMedia({
 	// }
 
 	return (
-		<BlockWrapper className={className}>
+		<BlockWrapper className={className} id={id} anchor={anchor}>
 			<div className={className}>
 				<div>{noimage ? '' : 'image'}</div>
 				<PartialTextBlock {...textMediaProps} />

@@ -11,6 +11,8 @@ import { PartialHeading, PartialButton } from '@components/partial'
 let cx = classNames.bind(styles)
 
 export default function Partners({
+	id,
+	anchor,
 	label,
 	title,
 	content,
@@ -51,7 +53,7 @@ export default function Partners({
 
 	return (
 		<>
-			<BlockWrapper>
+			<BlockWrapper id={id} anchor={anchor}>
 				<PartialTextBlock {...textBlockProps} />
 				<div className={styles.images}>
 					<SharedPartialManager partials={partnersLocal} />
