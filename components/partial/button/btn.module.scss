@@ -2,9 +2,17 @@
 
 .btn {
 	padding: 0.5em 1.5em;
-	@apply rounded inline-flex font-semibold whitespace-nowrap uppercase text-base bg-skin-brand text-skin-inverted;
+	@apply rounded inline-flex font-semibold whitespace-nowrap uppercase text-base bg-skin-brand text-skin-inverted border-2 border-solid border-skin-base;
+
+	&:hover {
+		@apply bg-skin-bg text-skin-base border-2 border-solid border-brand;
+	}
 }
 
 .secondary {
 	@apply bg-skin-bg text-skin-base border-2 border-solid border-brand;
+
+	&:hover {
+		@apply text-base bg-skin-brand text-skin-inverted border-skin-base;
+	}
 }
