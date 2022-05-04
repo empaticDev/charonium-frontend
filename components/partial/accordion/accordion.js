@@ -12,15 +12,23 @@ export default function Accordion({ title, content }) {
 	})
 
 	const [expanded, setExpanded] = useState(false)
+	const [hiding, setHiding] = useState(false)
 
 	function toggle() {
-		setExpanded(!expanded)
+		if (expanded) {
+			setHiding(expanded)
+			setTimeout(() => setExpanded(!expanded), 150)
+		} else {
+			setExpanded(!expanded)
+			setHiding(expanded)
+		}
 	}
 
 	var contentClass = cx({
 		content: true,
 		show: expanded,
 		hide: !expanded,
+		hiding: hiding,
 	})
 
 	var titleClass = cx({
