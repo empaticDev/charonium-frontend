@@ -1,5 +1,70 @@
 /** @define accordion */
 
 .accordion {
-	//styles here
+	@apply w-full relative mx-auto h-fit p-2 rounded-md transition-all;
+}
+
+.title {
+	@apply p-4 relative border-b-1 border-contrast-300 w-full text-left flex flex-row font-normal text-lg;
+
+	> .svg {
+		@apply w-4 h-4;
+	}
+
+	&:hover {
+		@apply text-brand-300;
+	}
+
+	&::after {
+		@apply text-xl absolute right-7;
+		content: '+';
+	}
+
+	&.expanded {
+		@apply border-none;
+
+		> .svg {
+			@apply rotate-180;
+		}
+
+		&::after {
+			@apply text-xl;
+			content: '-';
+		}
+	}
+}
+
+.content {
+	@apply w-full p-4 border-b-1 border-contrast-300 font-normal text-lg;
+	animation: fadeIn 0.5s forwards;
+}
+
+.show {
+	@apply block;
+}
+
+.hiding {
+	animation: fadeOut 0.3s forwards;
+}
+
+.hide {
+	@apply hidden;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }

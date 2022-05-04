@@ -7,7 +7,14 @@ import { PartialTextBlock } from '@components/partial'
 
 let cx = classNames.bind(styles)
 
-export default function Faq({ spacing, title, label, content, heading, ctas, accordion }) {
+export default function Faq({
+	title,
+	label,
+	content,
+	heading,
+	ctas,
+	accordion,
+}) {
 	let className = cx({
 		faq: true,
 	})
@@ -18,14 +25,14 @@ export default function Faq({ spacing, title, label, content, heading, ctas, acc
 		label: label,
 		content: content,
 		heading: heading,
-		ctas: ctas
+		ctas: ctas,
 	}
 
 	//console.log('accordion', accordion)
 
 	return (
 		<BlockWrapper className={className} spacing={'small'}>
-			<PartialTextBlock {...textBlockProps}/>
+			<PartialTextBlock {...textBlockProps} />
 			{accordion && <SharedPartialManager partials={accordion} />}
 		</BlockWrapper>
 	)
