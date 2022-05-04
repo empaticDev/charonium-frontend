@@ -5,6 +5,7 @@ import {
 	BlockTeam,
 	BlockFAQ,
 	BlockPartners,
+	BlockText,
 } from '@components/block'
 
 const getBlockComponent = ({ __typename, ...block }, index) => {
@@ -30,6 +31,9 @@ const getBlockComponent = ({ __typename, ...block }, index) => {
 			break
 		case 'ComponentBlocksPartners':
 			Block = BlockPartners
+			break
+		case 'ComponentBlocksText':
+			Block = BlockText
 			break
 	}
 

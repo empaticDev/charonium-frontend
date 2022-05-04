@@ -5,6 +5,7 @@ import BlockTimeline from './timeline/timeline'
 import BlockTeam from './team/team'
 import BlockFAQ from './faq/faq'
 import BlockPartners from './partners/partners'
+import BlockText from './text/text'
 
 export {
 	BlockWrapper,
@@ -14,4 +15,5 @@ export {
 	BlockTeam,
 	BlockFAQ,
 	BlockPartners,
+	BlockText,
 }
