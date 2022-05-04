@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind'
 import styles from './footer.module.scss'
+import NextLink from 'next/link'
 
 import { BlockWrapper } from '@components/block'
 import { SharedPartialManager } from '@components/shared'
@@ -7,6 +8,10 @@ import { SharedPartialManager } from '@components/shared'
 import { PartialFooterSection } from '@components/partial'
 
 let cx = classNames.bind(styles)
+
+const createLink = () => {
+	return 0
+}
 
 export default function Footer({ ...props }) {
 	let className = cx({
@@ -20,25 +25,23 @@ export default function Footer({ ...props }) {
 
 	return (
 		<>
-			<div className={styles.graphic}>
-				<div className={styles.spacing}></div>
-				<div className={styles.curve1}></div>
-				<div className={styles.curve2}></div>
-			</div>
 			<footer className={className}>
-				<BlockWrapper>
-					<div className={styles.inner}>
+				<div className={styles.graphic}>
+					<div className={styles.spacing}></div>
+					<div className={styles.curve1}></div>
+					<div className={styles.curve2}></div>
+				</div>
+				<div className={styles.inner}>
+					<div className={styles.sections}>
 						<SharedPartialManager partials={footerBlocks} />
-						<div className={styles.about}>
-							<PartialFooterSection header={about} />
-						</div>
+						<PartialFooterSection header={about} />
 					</div>
-				</BlockWrapper>
+				</div>
 				<div className={styles.menu}>
 					{menu.pages.map((item) => (
-						<a key={item.text} href={item.link}>
-							{item.text}
-						</a>
+						<NextLink href={`/${item.page.data.attributes.slug}`}>
+							<a>{item.text}</a>
+						</NextLink>
 					))}
 				</div>
 			</footer>

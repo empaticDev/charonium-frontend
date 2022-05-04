@@ -20,7 +20,7 @@ export default function Default({ textBlock, content, ctas, image }) {
 		ctas: ctas,
 	}
 
-	console.log('default header', ctas)
+	// todo preload image: <Image priority={true} />
 
 	return (
 		<BlockWrapper>
