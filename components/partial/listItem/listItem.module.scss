@@ -1,8 +1,8 @@
 .listItem {
-	@apply font-normal text-base my-4 flex flex-row gap-4 items-center;
+	@apply font-normal flex flex-row gap-4 prose-lg items-center my-6;
 
 	> .marker {
-		@apply w-2 h-2 -left-8 rounded-full bg-brand;
+		@apply w-2 h-2 rounded-full bg-brand;
 		box-shadow: 0em 0em 0em 0.325em
 			hsla(
 				var(--clr-brand-default-h),
@@ -10,5 +10,9 @@
 				var(--clr-brand-default-l),
 				0.4
 			);
+	}
+
+	> p {
+		@apply mt-0;
 	}
 }

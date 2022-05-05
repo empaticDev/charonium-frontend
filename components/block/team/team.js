@@ -38,7 +38,7 @@ export default function Team({
 	})
 
 	return (
-		<BlockWrapper id={id} anchor={anchor}>
+		<BlockWrapper id={id} anchor={anchor} fullWidth={true}>
 			<div className={className}>
 				<div className={styles.graphic}>
 					<div className={styles.spacing}></div>

@@ -12,10 +12,10 @@
 
 .btn {
 	padding: 0.5em 1.5em;
-	@apply rounded inline-flex font-semibold whitespace-nowrap uppercase text-base bg-skin-brand text-skin-inverted border-2 border-solid border-skin-base duration-300;
+	@apply rounded inline-flex font-semibold whitespace-nowrap uppercase text-base bg-skin-brand text-skin-inverted border-2 border-solid border-brand duration-300;
 
 	&:hover {
-		@apply bg-skin-bg text-skin-base border-2 border-solid border-brand;
+		@apply bg-skin-bg text-skin-base;
 
 		& > .iconwrapper {
 			@apply bg-transparent;
@@ -27,7 +27,7 @@
 	@apply bg-skin-bg text-skin-base border-2 border-solid border-brand;
 
 	&:hover {
-		@apply text-base bg-skin-brand text-skin-inverted border-skin-base;
+		@apply text-base bg-skin-brand text-skin-inverted;
 	}
 }
 
