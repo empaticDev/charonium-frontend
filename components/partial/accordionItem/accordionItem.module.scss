@@ -1,0 +1,75 @@
+/** @define accordion */
+
+.item {
+	@apply w-full relative mx-auto h-fit p-2 transition-all border-b-1 border-contrast-300;
+}
+
+.icon {
+	@apply w-6 h-6 duration-200 rotate-0;
+}
+
+.title {
+	@apply p-4 relative w-full text-left flex flex-row font-normal text-xl justify-between items-center;
+
+	> .svg {
+		@apply w-4 h-4;
+	}
+
+	&:hover {
+		@apply text-brand;
+	}
+
+	&.expanded {
+		> .icon {
+			@apply rotate-180;
+		}
+	}
+}
+
+.content {
+	@apply hidden w-full font-normal max-h-0 duration-1000;
+	//animation: fadeIn 0.5s forwards;
+}
+
+.inner {
+	@apply p-4 prose md__prose-lg duration-200 opacity-0 -translate-y-4;
+}
+
+.show {
+	@apply block;
+}
+
+.animating {
+	//animating styles
+}
+
+.hiding {
+	@apply max-h-screen overflow-auto;
+
+	.inner {
+		@apply opacity-100 translate-y-0 delay-100;
+	}
+	//animation: fadeOut 0.3s forwards;
+}
+
+.hide {
+	//@apply hidden;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
