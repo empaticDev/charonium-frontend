@@ -15,9 +15,7 @@ export default function Footer({ ...props }) {
 		// footer__alternate: props.footer.alternate,
 	})
 
-	let footerBlocks = props.footer.footerBlocks
-		? props.footer.footerBlocks
-		: null
+	let footerBlocks = props.footer?.footerBlocks
 	let menu = props.footer.menu ? props.footer.menu : null
 	let about = props.aboutUs ? props.aboutUs : null
 

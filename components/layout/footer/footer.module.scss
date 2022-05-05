@@ -49,7 +49,7 @@
 }
 
 .menu {
-	@apply p-3 w-full text-sm font-normal flex flex-row-reverse gap-8;
+	@apply py-8 w-full text-sm font-normal flex flex-row-reverse gap-8 max-w-90 mx-auto;
 
 	> a {
 		@apply text-contrast-50;
