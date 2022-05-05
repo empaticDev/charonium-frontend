@@ -2,8 +2,7 @@ import classNames from 'classnames/bind'
 import styles from './faq.module.scss'
 
 import { BlockWrapper } from '@components/block'
-import { SharedPartialManager } from '@components/shared'
-import { PartialTextBlock } from '@components/partial'
+import { PartialTextBlock, PartialAccordion } from '@components/partial'
 
 let cx = classNames.bind(styles)
 
@@ -31,9 +30,9 @@ export default function Faq({
 	//console.log('accordion', accordion)
 
 	return (
-		<BlockWrapper className={className} spacing={'small'}>
+		<BlockWrapper className={className}>
 			<PartialTextBlock {...textBlockProps} />
-			{accordion && <SharedPartialManager partials={accordion} />}
+			{accordion && <PartialAccordion accordion={accordion} />}
 		</BlockWrapper>
 	)
 }

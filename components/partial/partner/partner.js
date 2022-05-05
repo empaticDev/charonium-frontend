@@ -9,23 +9,23 @@ export default function Partner({ name, link, logo }) {
 		partner: true,
 	})
 
-	const logoURL = logo.data && logo.data.attributes.url
-	const logoW = logo.data && logo.data.attributes.width
-	const logoH = logo.data && logo.data.attributes.height
+	const logoURL = logo.data?.attributes.url
+	const logoW = logo.data?.attributes.width
+	const logoH = logo.data?.attributes.height
 
+	let image 
+
+	if(link != null) {
+		image = <a href={link} className={styles.link} target="_blank"><Image src={logoURL} layout="fill"/></a>
+	} else {
+		image = <Image src={logoURL} layout="fill" />
+	}
 	return (
 		<>
 			{logo && (
 				<div className={className}>
 					<div className={styles.image}>
-						<a href={link}>
-							<Image
-								src={logoURL}
-								layout="responsive"
-								width={logoW}
-								height={logoH}
-							/>
-						</a>
+						{image}
 					</div>
 				</div>
 			)}

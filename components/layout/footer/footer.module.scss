@@ -6,6 +6,14 @@
 	}
 }
 
+.graphic {
+	@apply w-full h-[20vw] relative overflow-hidden;
+
+	@screen lg {
+		@apply max-h-64;
+	}
+}
+
 .curve1 {
 	@apply absolute h-full z-0 bg-contrast-50 -left-5p;
 
@@ -28,14 +36,6 @@
 	@apply absolute w-full z-0 bg-contrast-50 outline-4 outline-contrast-50 h-10;
 }
 
-.graphic {
-	@apply w-full h-60 relative overflow-hidden;
-
-	@screen lg {
-		@apply h-80;
-	}
-}
-
 .inner {
 	@apply max-w-4xl block mx-auto;
 }
@@ -49,7 +49,7 @@
 }
 
 .menu {
-	@apply p-3 w-full text-sm font-normal flex flex-row-reverse gap-8;
+	@apply py-8 w-full text-sm font-normal flex flex-row-reverse gap-8 max-w-90 mx-auto;
 
 	> a {
 		@apply text-contrast-50;

@@ -1,5 +1,5 @@
 :root {
-	/* @link https://utopia.fyi/space/calculator?c=320,16,1.125,1440,16,1.25,7,2,&s=0.75|0.5|0.25,1.5|2|3|4|5|8|10|12.5,3xl-4xl|2xl-8xl|3xl-6xl */
+	/* @link https://utopia.fyi/space/calculator/?c=320,16,1.125,1440,16,1.25,7,2,1440&s=0.75|0.5|0.25,1.5|2|3|4|5|8|10|12.5,xl-4xl|2xl-8xl|xl-6xl|xl-3xl */
 
 	--fluid-min-width: 320;
 	--fluid-max-width: 1440;
@@ -48,8 +48,9 @@
 	/* Custom pairs */
 
 	// prettier-ignore
+	--space-xl-3xl: calc(((var(--fc-xl-min) / 16) * 1rem) + (var(--fc-3xl-max) - var(--fc-xl-min)) * var(--fluid-bp));
+	// prettier-ignore
 	--space-xl-4xl: calc(((var(--fc-xl-min) / 16) * 1rem) + (var(--fc-4xl-max) - var(--fc-xl-min)) * var(--fluid-bp));
-
 	// prettier-ignore
 	--space-xl-6xl: calc(((var(--fc-xl-min) / 16) * 1rem) + (var(--fc-6xl-max) - var(--fc-xl-min)) * var(--fluid-bp));
 }

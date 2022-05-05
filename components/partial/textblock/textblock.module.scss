@@ -8,7 +8,15 @@
 	@apply text-4xl font-heading font-bold;
 }
 .content {
-	@apply prose md__prose-lg mt-6 font-normal;
+	@apply prose  mt-6 font-normal;
+
+	@screen md {
+		@apply prose-lg;
+	}
+
+	@screen lg {
+		@apply prose-xl;
+	}
 }
 .footer {
 	@apply mt-10 flex gap-4;
@@ -19,6 +27,6 @@
 		@apply py-0;
 	}
 	&--medium {
-		@apply mb-16;
+		@apply mb-xl-3xl;
 	}
 }

@@ -18,8 +18,6 @@ export default function page({ page }) {
 			<Head>
 				<title>{page.attributes.title}</title>
 			</Head>
-
-			<h2> page: {page.attributes.title}</h2>
 			<SharedHeroManager blocks={page.attributes.hero} />
 			<SharedBlockManager blocks={page.attributes.blocks} />
 		</>

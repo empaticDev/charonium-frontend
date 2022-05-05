@@ -17,7 +17,7 @@ export default function TextBlock(props) {
 			props.spacing != undefined && props.spacing === 'medium' ? true : false,
 	})
 
-	const hasLink = props.ctas != null ? true : false
+	const hasLink = props.ctas != null && props.ctas.length > 0 ? true : false
 
 	return (
 		<div className={className}>
@@ -26,6 +26,7 @@ export default function TextBlock(props) {
 					title={props.title}
 					label={props.label}
 					heading={props.heading}
+					as={props.as}
 				/>
 			)}
 			{props.content && (

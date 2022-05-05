@@ -9,9 +9,9 @@ export default function ListItem({ content }) {
 	})
 
 	return (
-		<div className={className}>
+		<li className={className}>
 			<div className={styles.marker}></div>
 			<p>{content ? content : ''}</p>
-		</div>
+		</li>
 	)
 }

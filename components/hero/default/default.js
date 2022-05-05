@@ -2,7 +2,7 @@ import classNames from 'classnames/bind'
 import Image from 'next/image'
 
 import styles from './default.module.scss'
-import { BlockWrapper } from '@components/block'
+import { HeroWrapper } from '@components/hero'
 import { PartialTextBlock } from '@components/partial'
 
 let cx = classNames.bind(styles)
@@ -16,6 +16,7 @@ export default function Default({ textBlock, content, ctas, image }) {
 		title: textBlock.title,
 		label: textBlock.label,
 		heading: textBlock.heading,
+		as: 'h1',
 		content: content,
 		ctas: ctas,
 	}
@@ -23,11 +24,11 @@ export default function Default({ textBlock, content, ctas, image }) {
 	// todo preload image: <Image priority={true} />
 
 	return (
-		<BlockWrapper>
+		<HeroWrapper>
 			<div className={className}>
 				<div>{image ? '' : 'Hero Default image'}</div>
 				<PartialTextBlock {...textMediaProps} />
 			</div>
-		</BlockWrapper>
+		</HeroWrapper>
 	)
 }

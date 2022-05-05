@@ -5,6 +5,7 @@ import PartialHeading from './heading/heading'
 import PartialFooterSection from './footerSection/footerSection'
 import PartialTeamMember from './teamMember/teamMember'
 import PartialPartner from './partner/partner'
+import PartialAccordionItem from './accordionItem/accordionItem'
 import PartialAccordion from './accordion/accordion'
 import PartialTimeline from './timeline/timeline'
 import PartialTimelineEntry from './timelineEntry/timelineEntry'
@@ -18,6 +19,7 @@ import PartialNavAnchorLink from './navAnchorLink/navAnchorLink'
 export {
 	PartialNavAnchor,
 	PartialNavAnchorLink,
+	PartialAccordionItem,
 	PartialAccordion,
 	PartialButton,
 	PartialTextBlock,

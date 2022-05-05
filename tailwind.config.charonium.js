@@ -36,20 +36,17 @@ const screensizes = {
 module.exports = {
 	separator: '__',
 	textSizes: {
-		xs: '.75rem',
-		sm: '.875rem',
-		base: '1rem',
-		lg: '1.125rem',
-		xl: '1.25rem',
-		'2xl': '1.5rem',
-		'3xl': '1.875rem',
-		'4xl': '2.25rem',
-		'5xl': '3rem',
+		'4xl':{
+			min: '2rem',
+			max: '2.5rem',
+			minvw: screensizes.sm,
+			maxvw: screensizes.xl,
+		},
 		'6xl': {
 			min: '2.25rem',
 			max: '3.75rem',
-			minvw: '40em',
-			maxvw: '90em',
+			minvw: screensizes.sm,
+			maxvw: screensizes.xl,
 		},
 	},
 	theme: {
@@ -66,7 +63,6 @@ module.exports = {
 			semibold: '600',
 			bold: 'bold',
 		},
-		fontSize: {},
 		screens: screensizes,
 		colors: {
 			transparent: 'transparent',
@@ -168,6 +164,7 @@ module.exports = {
 			},
 			spacing: {
 				'5p': '5%',
+				'xl-3xl': 'var(--space-xl-3xl, 2rem)',
 				'xl-5xl': 'var(--space-xl-4xl,4rem)',
 				'xl-8xl': 'var(--space-xl-6xl,6rem)',
 			},

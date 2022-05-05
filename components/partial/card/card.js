@@ -4,7 +4,7 @@ import remarkGfm from 'remark-gfm'
 import styles from './card.module.scss'
 import Image from 'next/image'
 
-export default function Card({ title, content, image }) {
+export default function Card({ title, content, image, as }) {
 	let cx = classNames.bind(styles)
 
 	let className = cx({
@@ -17,12 +17,14 @@ export default function Card({ title, content, image }) {
 		imageURL = image.data.attributes.url
 	}
 
+	const Title = as != undefined ? as : 'p'
+
 	return (
 		<div className={className}>
 			<div className={styles.image}>
 				{image.data && <Image src={imageURL} width={117} height={117} />}
 			</div>
-			{title && <h2 className={styles.title}>{title}</h2>}
+			{title && <Title className={styles.title}>{title}</Title>}
 			<div className={styles.content}>
 				{content && (
 					<ReactMarkdown children={content} remarkPlugins={[remarkGfm]} />
