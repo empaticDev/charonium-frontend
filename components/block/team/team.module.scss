@@ -23,11 +23,15 @@
 }
 
 .inner {
-	@apply relative;
+	@apply relative w-9/10 max-w-7xl mx-auto;
 }
 
 .content {
-	@apply flex flex-col md__flex-row gap-y-4;
+	@apply flex flex-col gap-y-16;
+
+	@screen md {
+		@apply flex-row gap-y-4;
+	}
 }
 
 .graphic {
