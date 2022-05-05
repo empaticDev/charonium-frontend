@@ -63,7 +63,7 @@ export default function Partners({
 						{listTitle && <div className={styles.listtitle}>{listTitle}</div>}
 						{list && <SharedPartialManager partials={list} />}
 						<div className={styles.ctawrapper}>
-							{cta.label && <PartialButton label={cta.label} />}
+							{cta.label && <PartialButton label={cta.label} icon={cta.icon} />}
 						</div>
 					</div>
 				</div>
