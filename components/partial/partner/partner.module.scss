@@ -1,7 +1,15 @@
 .partner {
-	@apply w-full relative object-center p-6 align-middle;
+	@apply w-full relative object-center align-middle;
 }
 
 .image {
-	@apply h-full flex flex-col justify-center;
+	@apply relative h-8;
+
+	img {
+		@apply object-contain;
+	}
+}
+
+.link {
+	@apply relative block h-full;
 }
