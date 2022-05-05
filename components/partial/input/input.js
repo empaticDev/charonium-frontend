@@ -2,6 +2,8 @@ import classNames from 'classnames/bind'
 import styles from './input.module.scss'
 import FeatherIcon from 'feather-icons-react'
 
+import { useState } from 'react'
+
 let cx = classNames.bind(styles)
 
 export default function Input({ placeholder, link }) {
@@ -50,6 +52,17 @@ export default function Input({ placeholder, link }) {
 		alert(`Is this your email: ${result.data}`)
 	}
 
+	//  	const Checkbox = () => {
+	// 		const [isChecked, setIsChecked] = useState(false)
+	// 		return (
+	// 		<div>
+	// 			<input type="checkbox" id="checkbox" checked={isChecked} />
+	// <label htmlFor="checkbox">I agree to Terms of Service </label>
+	// <p>The checkboxis {isChecked ? "checked" : "unchecked"}</p>
+	//  </div>
+	// )
+	// }
+
 	return (
 		<>
 			<svg
@@ -62,10 +75,16 @@ export default function Input({ placeholder, link }) {
 				</linearGradient>
 			</svg>
 			<form className={className} onSubmit={handleSubmit}>
-				<input type="email" placeholder={placeholder} required />
-				<button type="submit">
-					<FeatherIcon icon={'send'} />
-				</button>
+				<div className={styles.email}>
+					<input type="email" placeholder={placeholder} required />
+					<button type="submit">
+						<FeatherIcon icon={'send'} />
+					</button>
+				</div>
+				<div className={styles.legal}>
+					<input type="checkbox" id="accept" />
+					<label htmlFor="accept">Accept the terms and condition.</label>
+				</div>
 			</form>
 		</>
 	)
