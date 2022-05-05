@@ -52,6 +52,15 @@ export default function Input({ placeholder, link }) {
 
 	return (
 		<>
+			<svg
+				style={{ width: 0, height: 0, position: 'absolute' }}
+				aria-hidden="true"
+				focusable="false">
+				<linearGradient id="gradient" x1="0" x2="1" y1="1" y2="0">
+					<stop offset="0%" stopColor="#22C1C3" />
+					<stop offset="100%" stopColor="#FDBB2D" />
+				</linearGradient>
+			</svg>
 			<form className={className} onSubmit={handleSubmit}>
 				<input type="email" placeholder={placeholder} required />
 				<button type="submit">
