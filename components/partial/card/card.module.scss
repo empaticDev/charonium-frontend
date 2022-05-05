@@ -1,10 +1,10 @@
 /** @define card */
 
 .card {
-	@apply bg-contrast-100 p-10 border-1 border-contrast-200 shadow-md rounded-3xl mt-5 mb-0 max-w-xs duration-300;
+	@apply self-end bg-contrast-100 p-10 border-1 border-contrast-200 shadow-md rounded-lg max-w-xs duration-300;
 
 	&:hover {
-		@apply border-1 border-contrast-300 mt-0 mb-5;
+		@apply border-1 border-contrast-300 -translate-y-4;
 
 		box-shadow: -1em -1em 5em rgba(87, 197, 253, 0.15),
 			1em 1em 5em rgba(87, 197, 253, 0.15);
