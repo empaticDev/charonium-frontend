@@ -1,5 +1,5 @@
 import {
-	PartialAccordion,
+	PartialAccordionItem,
 	PartialButton,
 	PartialCard,
 	PartialFooterSection,
@@ -21,7 +21,7 @@ const getPartialComponent = ({ __typename, ...partial }, index) => {
 			Partial = PartialCard
 			break
 		case 'ComponentPartialsAccordionItem':
-			Partial = PartialAccordion
+			Partial = PartialAccordionItem
 			break
 		case 'ComponentFooterSocial':
 			Partial = PartialFooterSection
