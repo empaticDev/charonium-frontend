@@ -35,7 +35,23 @@ const screensizes = {
 
 module.exports = {
 	separator: '__',
-	textSizes: {},
+	textSizes: {
+		xs: '.75rem',
+		sm: '.875rem',
+		base: '1rem',
+		lg: '1.125rem',
+		xl: '1.25rem',
+		'2xl': '1.5rem',
+		'3xl': '1.875rem',
+		'4xl': '2.25rem',
+		'5xl': '3rem',
+		'6xl': {
+			min: '2.25rem',
+			max: '3.75rem',
+			minvw: '40em',
+			maxvw: '90em',
+		},
+	},
 	theme: {
 		debugScreens: {
 			position: ['bottom', 'left'],
@@ -50,14 +66,7 @@ module.exports = {
 			semibold: '600',
 			bold: 'bold',
 		},
-		textSizes: {
-			'4xl': {
-				min: '1.75rem',
-				max: '5rem',
-				minvw: '40em',
-				maxvw: '96em',
-			},
-		},
+		fontSize: {},
 		screens: screensizes,
 		colors: {
 			transparent: 'transparent',
@@ -141,8 +150,8 @@ module.exports = {
 				99: 99,
 			},
 			transitionDuration: {
-        		'0': '0ms',
-      		},
+				0: '0ms',
+			},
 			transitionDelay: {
 				0: '0ms',
 			},
@@ -169,7 +178,7 @@ module.exports = {
 						fontWeight: 'inherit',
 						a: false,
 						p: {
-							letterSpacing: "0.05em"
+							letterSpacing: '0.05em',
 						},
 						strong: {
 							color: 'inherit',
@@ -228,6 +237,7 @@ module.exports = {
 	},
 	plugins: [
 		require('tailwindcss-fluid')({
+			suffix: '',
 			textSizes: true,
 		}),
 		require('@tailwindcss/aspect-ratio'),

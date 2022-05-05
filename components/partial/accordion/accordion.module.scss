@@ -4,8 +4,12 @@
 	@apply w-full relative mx-auto h-fit p-2 rounded-md transition-all border-b-1 border-contrast-300;
 }
 
+.icon {
+	@apply w-6 h-6 duration-200 rotate-0;
+}
+
 .title {
-	@apply p-4 relative w-full text-left flex flex-row font-normal text-lg;
+	@apply p-4 relative w-full text-left flex flex-row font-normal text-xl justify-between items-center;
 
 	> .svg {
 		@apply w-4 h-4;
@@ -15,19 +19,9 @@
 		@apply text-brand-300;
 	}
 
-	&::after {
-		@apply text-xl absolute right-7;
-		content: '+';
-	}
-
 	&.expanded {
-		> .svg {
+		> .icon {
 			@apply rotate-180;
-		}
-
-		&::after {
-			@apply text-xl;
-			content: '-';
 		}
 	}
 }

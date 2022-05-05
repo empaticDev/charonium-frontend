@@ -9,7 +9,9 @@
 }
 
 .marker {
-	@apply absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-skin-bg border border-skin-inverted;
+	@apply absolute left-0 top-2 -translate-y-1/2 w-2 h-2 rounded-full bg-skin-bg border border-skin-inverted;
+
+	top: 0.6rem;
 
 	@screen md {
 		@apply w-3 h-3;
@@ -17,5 +19,5 @@
 }
 
 .title {
-	@apply font-bold mb-2;
+	@apply font-bold mt-1 text-sm;
 }

@@ -41,7 +41,9 @@ export default function Accordion({ title, content }) {
 		<div className={className}>
 			<button className={titleClass} onClick={toggle}>
 				{title}
-				{/* <FeatherIcon icon={'chevron-down'} /> */}
+				<div className={styles.icon}>
+					<FeatherIcon icon={'chevron-down'} />
+				</div>
 			</button>
 
 			<div className={contentClass}>{content && <p>{content}</p>}</div>
