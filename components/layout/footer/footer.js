@@ -25,7 +25,6 @@ export default function Footer({ ...props }) {
 		<>
 			<footer className={className}>
 				<div className={styles.graphic}>
-					<div className={styles.spacing}></div>
 					<div className={styles.curve1}></div>
 					<div className={styles.curve2}></div>
 				</div>
