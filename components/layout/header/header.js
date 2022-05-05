@@ -3,6 +3,7 @@ import styles from './header.module.scss'
 import Logo from './assets/logo.svg'
 import { PartialNavAnchor, PartialButton } from '@components/partial'
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 let cx = classNames.bind(styles)
 
@@ -16,6 +17,8 @@ export default function Header({ ...props }) {
 	const blocks = props?.page?.attributes.blocks
 	const anchorItems = blocks?.filter(block => block.anchor);
 
+	const router = useRouter()
+
 	function toggleMenu(e) {
     	e.preventDefault(); 	
 		setHamburgerOpen(!hambugerOpen)
@@ -28,7 +31,14 @@ export default function Header({ ...props }) {
 		} else {
 			setHamburgerLabel(toggleBtnLabel)
 		}
-	});
+
+		const handleRouteChange = (url, { shallow }) => {
+			setHamburgerOpen(!hambugerOpen)
+    	}
+
+		router.events.on('hashChangeStart', handleRouteChange)
+	}, []);
+	
 
 	let className = cx({
 		header: true,
