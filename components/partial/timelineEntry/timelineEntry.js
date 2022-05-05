@@ -12,8 +12,8 @@ export default function TimelineEntry({ id, name, title }) {
 		<li className={className}>
 			<div className={styles.marker}></div>
 			<div>
-				{title && <p className={styles.title}>{title}</p>}
 				{name}
+				{title && <p className={styles.title}>{title}</p>}
 			</div>
 		</li>
 	)
