@@ -8,12 +8,40 @@
 	}
 }
 
-.avatarwrapper {
-	@apply h-fit;
+.avatarWrapper {
+	@apply h-60 w-48 relative mx-auto;
+
+	@screen md {
+		@apply h-80 w-64;
+	}
+}
+
+.notloaded {
+	.avatar {
+		@apply opacity-0 transition-all duration-1000;
+	}
+
+	.image {
+		@apply opacity-0 transition-all duration-1000;
+	}
+}
+
+.loaded {
+	.avatar {
+		@apply opacity-100 transition-all duration-1000;
+	}
+
+	.image {
+		@apply opacity-100 transition-all duration-1000;
+	}
 }
 
 .description {
-	@apply flex flex-row justify-center gap-4 mt-6;
+	@apply flex flex-row justify-center gap-4 mt-2;
+
+	@screen md {
+		@apply mt-6;
+	}
 }
 
 .name {

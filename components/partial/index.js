@@ -15,6 +15,8 @@ import PartialDownload from './download/download'
 import PartialListItem from './listItem/listItem'
 import PartialNavAnchor from './navAnchor/navAnchor'
 import PartialNavAnchorLink from './navAnchorLink/navAnchorLink'
+import PartialNewsletterForm from './newsletterForm/newsletterForm'
+import PartialNewsletterSubscribe from './newsletterSubscribe/newsletterSubscribe'
 
 export {
 	PartialNavAnchor,
@@ -34,4 +36,6 @@ export {
 	PartialInput,
 	PartialDownload,
 	PartialListItem,
+	PartialNewsletterForm,
+	PartialNewsletterSubscribe,
 }

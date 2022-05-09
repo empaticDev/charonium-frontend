@@ -4,29 +4,29 @@ import Logo from './assets/logo.svg'
 import { PartialNavAnchor, PartialButton } from '@components/partial'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 let cx = classNames.bind(styles)
 
 export default function Header({ ...props }) {
-
 	const toggleBtnLabel = 'Menu'
 	const toggleBtnLabelActive = 'Close'
 	const [hambugerOpen, setHamburgerOpen] = useState(false)
 	const [hamburgerLabel, setHamburgerLabel] = useState(toggleBtnLabel)
 
 	const blocks = props?.page?.attributes.blocks
-	const anchorItems = blocks?.filter(block => block.anchor);
+	const anchorItems = blocks?.filter((block) => block.anchor)
 
 	const router = useRouter()
 
 	function toggleMenu(e) {
-    	e.preventDefault(); 	
+		e.preventDefault()
 		setHamburgerOpen(!hambugerOpen)
-  	}
+	}
 
 	useEffect(() => {
-		// Set text on menu toggle button 
-		if(hambugerOpen) {
+		// Set text on menu toggle button
+		if (hambugerOpen) {
 			setHamburgerLabel(toggleBtnLabelActive)
 		} else {
 			setHamburgerLabel(toggleBtnLabel)
@@ -34,25 +34,31 @@ export default function Header({ ...props }) {
 
 		const handleRouteChange = (url, { shallow }) => {
 			setHamburgerOpen(!hambugerOpen)
-    	}
+		}
 
 		router.events.on('hashChangeStart', handleRouteChange)
-	}, []);
-	
+	}, [])
 
 	let className = cx({
 		header: true,
 		'header--alternate': props.alternate,
-		'header--open': hambugerOpen
+		'header--open': hambugerOpen,
 	})
 
 	return (
 		<header className={className}>
 			<div className={styles.logo}>
-				<Logo />
+				<Link href={'/'}>
+					<a>
+						<Logo />
+					</a>
+				</Link>
 			</div>
 			<div className={styles.menu}>
-				<PartialNavAnchor className={styles.mainnav} anchorItems={anchorItems}/>
+				<PartialNavAnchor
+					className={styles.mainnav}
+					anchorItems={anchorItems}
+				/>
 				<PartialButton
 					label={'Wallet verbinden'}
 					secondary={true}
@@ -61,7 +67,9 @@ export default function Header({ ...props }) {
 				/>
 			</div>
 			<div className={styles.menu__backdrop} onClick={toggleMenu}></div>
-			<button className={styles.menu__button} onClick={toggleMenu}>{hamburgerLabel}</button>
+			<button className={styles.menu__button} onClick={toggleMenu}>
+				{hamburgerLabel}
+			</button>
 		</header>
 	)
 }

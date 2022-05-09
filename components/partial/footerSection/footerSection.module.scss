@@ -11,7 +11,7 @@
 }
 
 .links {
-	@apply grid grid-cols-1 sm__grid-cols-2 max-w-sm;
+	@apply grid grid-cols-2 max-w-sm;
 
 	> a {
 		@apply text-skin-inverted font-medium text-base flex flex-row items-center p-2 gap-2;
