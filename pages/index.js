@@ -5,27 +5,29 @@ import { SharedBlockManager, SharedHeroManager } from '@components/shared'
 
 import { client } from '../lib/shopify'
 
-export default function Home({ page }) {
+export default function Home({ page, products }) {
 	return (
 		<>
 			<Head>
 				<title>{page.attributes.title}</title>
 			</Head>
 			<SharedHeroManager blocks={page.attributes.hero} />
-			<SharedBlockManager blocks={page.attributes.blocks} />
+			<SharedBlockManager blocks={page.attributes.blocks} products={products} />
 		</>
 	)
 }
 
 export async function getStaticProps() {
 	const data = await getAllPages()
+	let products = []
 
-	// const products = await client.product.fetchAll() // Fetch product
-
-	client.product.fetchAll().then((products) => {
-		// Do something with the products
-		console.log(products)
-	})
+	try {
+		products = await client.product.fetchAll() // Fetch products
+	} catch (error) {
+		// send some meaningful error message through to shop component
+		console.log(error)
+		products = []
+	}
 
 	return {
 		props: {
@@ -38,9 +40,7 @@ export async function getStaticProps() {
 			aboutUs: {
 				...data?.aboutUs.data.attributes,
 			},
-			// products: {
-			// 	products,
-			// },
+			products: JSON.parse(JSON.stringify(products)),
 		},
 	}
 }

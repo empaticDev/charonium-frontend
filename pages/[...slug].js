@@ -19,7 +19,7 @@ export default function page({ page }) {
 				<title>{page.attributes.title}</title>
 			</Head>
 			<SharedHeroManager blocks={page.attributes.hero} />
-			<SharedBlockManager blocks={page.attributes.blocks} />
+			<SharedBlockManager blocks={page.attributes.blocks} products={products} />
 		</>
 	)
 }
@@ -38,6 +38,7 @@ export async function getStaticProps({ params, preview = null }) {
 			aboutUs: {
 				...data?.aboutUs.data.attributes,
 			},
+			products: JSON.parse(JSON.stringify(products)),
 		},
 	}
 }

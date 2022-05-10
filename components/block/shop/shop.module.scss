@@ -1,0 +1,11 @@
+.shop {
+	@apply flex flex-col md__flex-row;
+}
+
+.image {
+	@apply w-full md__w-1/2;
+}
+
+.content {
+	@apply w-full md__w-1/2;
+}
