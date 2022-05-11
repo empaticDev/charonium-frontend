@@ -25,37 +25,22 @@ export default function Shop({ header, description, products }) {
 
 	const addToCart = async () => {
 		try {
-			let checkoutID = await client.checkout.create() // create new checkout
-			console.log(checkoutID)
+			// let checkoutID = await client.checkout.create() // create new checkout
+			// console.log('shop.addToCart - create checkout', checkoutID)
+			const product = products[selectedProduct]
+			const variant = product.variants[selectedVariant]
+
+			// console.log('shop.addToCart - variant checkout', variant)
+
+			addProductToCart([
+				{
+					variantId: variant.id,
+					quantity: 1,
+				},
+			])
 		} catch (error) {
-			console.log('shop.addToCart - create checkout', error)
+			console.log('shop.addToCart - error', error)
 		}
-
-		// try {
-		// 	const product = products[selectedProduct]
-		// 	const variant = product.variants[selectedVariant]
-
-		// 	console.log('addToCart variant:', variant)
-
-		// 	// const checkoutId = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0SW1hZ2UvMTgyMTc3ODc1OTI='
-		// 	const lineItemsToAdd = [
-		// 		{
-		// 			variantId: variant.id,
-		// 			quantity: 1,
-		// 		},
-		// 	]
-
-		// 	console.log('shop.addToCart', lineItemsToAdd)
-
-		// 	addProductToCart([
-		// 		{
-		// 			variantId: variant.id,
-		// 			quantity: 1,
-		// 		},
-		// 	])
-		// } catch (e) {
-		// 	console.log(e)
-		// }
 	}
 
 	return (
