@@ -1,5 +1,5 @@
 import { client } from '../../../lib/shopify'
-import { addProductToCart } from '../../../lib/cart'
+import { addProductToCart, getCart } from '../../../lib/cart'
 import classNames from 'classnames/bind'
 import styles from './shop.module.scss'
 import { useState } from 'react'
@@ -25,26 +25,37 @@ export default function Shop({ header, description, products }) {
 
 	const addToCart = async () => {
 		try {
-			if (productQuantity < 1) return
-
-			const product = products[selectedProduct]
-
-			const variants = product.variants
-
-			console.log('Fired')
-			const variantId = selectedVariant
-				? variants.find(({ title }) => title === selectedVariant).id
-				: variants[0].id
-
-			addProductToCart([
-				{
-					variantId,
-					quantity: Number(productQuantity),
-				},
-			])
-		} catch (e) {
-			console.log(e)
+			let checkoutID = await client.checkout.create() // create new checkout
+			console.log(checkoutID)
+		} catch (error) {
+			console.log('shop.addToCart - create checkout', error)
 		}
+
+		// try {
+		// 	const product = products[selectedProduct]
+		// 	const variant = product.variants[selectedVariant]
+
+		// 	console.log('addToCart variant:', variant)
+
+		// 	// const checkoutId = 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0SW1hZ2UvMTgyMTc3ODc1OTI='
+		// 	const lineItemsToAdd = [
+		// 		{
+		// 			variantId: variant.id,
+		// 			quantity: 1,
+		// 		},
+		// 	]
+
+		// 	console.log('shop.addToCart', lineItemsToAdd)
+
+		// 	addProductToCart([
+		// 		{
+		// 			variantId: variant.id,
+		// 			quantity: 1,
+		// 		},
+		// 	])
+		// } catch (e) {
+		// 	console.log(e)
+		// }
 	}
 
 	return (
@@ -104,12 +115,13 @@ export default function Shop({ header, description, products }) {
 							</div>
 						)}
 						{selectedVariant >= 0 && (
-							<div className={styles.buttonwrapper}>
-								<PartialButton
-									label={'Add to Cart'}
-									className={styles.buybutton}
-								/>
-							</div>
+							<>
+								<div className={styles.buttonwrapper}>
+									<div className={styles.pseudobutton} onClick={addToCart}>
+										<PartialButton label={'Add to Cart'} />
+									</div>
+								</div>
+							</>
 						)}
 					</div>
 				</div>
