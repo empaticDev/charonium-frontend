@@ -29,7 +29,7 @@
 }
 
 .buttonwrapper {
-	@apply flex w-full max-w-lg justify-end;
+	@apply flex w-full max-w-lg justify-between flex-row-reverse;
 }
 
 .pseudobutton {

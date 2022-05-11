@@ -22,6 +22,7 @@ export default function Shop({ header, description, products }) {
 
 	const [selectedProduct, setSelectedProduct] = useState(-1) // out of range so none selected by default
 	const [selectedVariant, setSelectedVariant] = useState(-1) // out of range so none selected by default
+	const [addedToCart, setAddedToCart] = useState('no') // out of range so none selected by default
 
 	const addToCart = async () => {
 		try {
@@ -30,15 +31,16 @@ export default function Shop({ header, description, products }) {
 			const product = products[selectedProduct]
 			const variant = product.variants[selectedVariant]
 
-			// console.log('shop.addToCart - variant checkout', variant)
-
 			addProductToCart([
 				{
 					variantId: variant.id,
 					quantity: 1,
 				},
 			])
+
+			setAddedToCart('Added to Cart!')
 		} catch (error) {
+			setAddedToCart('error adding to cart')
 			console.log('shop.addToCart - error', error)
 		}
 	}
@@ -105,6 +107,7 @@ export default function Shop({ header, description, products }) {
 									<div className={styles.pseudobutton} onClick={addToCart}>
 										<PartialButton label={'Add to Cart'} />
 									</div>
+									{addedToCart != 'no' ? addedToCart : ''}
 								</div>
 							</>
 						)}
