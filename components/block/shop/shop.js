@@ -45,6 +45,19 @@ export default function Shop({ header, description, products }) {
 		}
 	}
 
+	const handleCheckout = () => {
+		// console.log('handleCheckout', window.localStorage.getItem('cart'))
+
+		let str = window.localStorage.getItem('cart')
+		try {
+			let obj = JSON.parse(str)
+			console.log('handleCheckout', obj.webUrl)
+			window.open(obj.webUrl)
+		} catch (ex) {
+			console.error('handleCheckout error', ex)
+		}
+	}
+
 	return (
 		<BlockWrapper>
 			<div className={className}>
@@ -109,6 +122,17 @@ export default function Shop({ header, description, products }) {
 									</div>
 									{addedToCart != 'no' ? addedToCart : ''}
 								</div>
+								{addedToCart != 'no' ? (
+									<div className={styles.buttonwrapper}>
+										<div
+											className={styles.pseudobutton}
+											onClick={handleCheckout}>
+											<PartialButton label={'Checkout'} />
+										</div>
+									</div>
+								) : (
+									''
+								)}
 							</>
 						)}
 					</div>
