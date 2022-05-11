@@ -14,8 +14,6 @@ let productList = []
 const getBlockComponent = ({ __typename, ...block }, index) => {
 	let Block
 
-	console.log('BMan index, products:', productList)
-
 	switch (__typename) {
 		case 'ComponentBlocksTextMedia':
 			Block = BlockTextMedia

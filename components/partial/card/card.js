@@ -27,10 +27,6 @@ export default function Card({ title, content, image, as }) {
 		loaded: imageLoaded,
 	})
 
-	const handleLoad = () => {
-		setImageLoaded(true)
-	}
-
 	return (
 		<div className={className}>
 			<div className={imageClass}>

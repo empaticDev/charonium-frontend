@@ -9,3 +9,29 @@
 .content {
 	@apply w-full md__w-1/2;
 }
+
+.store {
+	@apply flex flex-col gap-32;
+}
+
+.products {
+	@apply flex flex-col gap-8;
+}
+
+.variants {
+	@apply flex flex-col gap-8;
+}
+
+.radios {
+	> input {
+		@apply hidden;
+	}
+}
+
+.buttonwrapper {
+	@apply flex w-full max-w-lg justify-end;
+}
+
+.buybutton {
+	@apply w-fit;
+}
