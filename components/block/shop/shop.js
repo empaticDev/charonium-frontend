@@ -36,9 +36,7 @@ export default function Shop({ header, description, products }) {
 					variantId: variant.id,
 					quantity: 1,
 				},
-			])
-
-			setAddedToCart('Added to Cart!')
+			]).then(setAddedToCart('Added to Cart!'))
 		} catch (error) {
 			setAddedToCart('error adding to cart')
 			console.log('shop.addToCart - error', error)
@@ -72,8 +70,9 @@ export default function Shop({ header, description, products }) {
 					<div className={styles.store}>
 						<div className={styles.products}>
 							{products.map((product, index) => (
-								<div className={styles.radios}>
+								<div className={styles.radios} key={product.id}>
 									<input
+										readOnly
 										type="radio"
 										name="products"
 										checked={selectedProduct === index}
@@ -96,8 +95,9 @@ export default function Shop({ header, description, products }) {
 							<div className={styles.variants}>
 								<p className={styles.variants__header}>Material auswählen</p>
 								{products[selectedProduct].variants.map((variant, index) => (
-									<div className={styles.radios}>
+									<div className={styles.radios} key={variant.id}>
 										<input
+											readOnly
 											type="radio"
 											name="variants"
 											checked={selectedVariant === index}
