@@ -7,6 +7,7 @@ import BlockFAQ from './faq/faq'
 import BlockPartners from './partners/partners'
 import BlockText from './text/text'
 import BlockShop from './shop/shop'
+import BlockCart from './cart/cart'
 
 export {
 	BlockWrapper,
@@ -18,4 +19,5 @@ export {
 	BlockPartners,
 	BlockText,
 	BlockShop,
+	BlockCart,
 }

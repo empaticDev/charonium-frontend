@@ -15,8 +15,6 @@ export default function Text({ title, text }) {
 		text: true,
 	})
 
-	// todo: adjust text wrapping from prose class?
-
 	return (
 		<BlockWrapper>
 			<div className={className}>

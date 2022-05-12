@@ -22,10 +22,10 @@ export async function getStaticProps() {
 	let products = []
 
 	try {
-		products = await client.product.fetchAll() // Fetch products
+		products = await client.product.fetchAll()
 	} catch (error) {
-		// send some meaningful error message through to shop component
-		console.log(error)
+		// todo: send some meaningful error message through to shop component
+		console.log('Error fetching products from Shopify', error)
 		products = []
 	}
 

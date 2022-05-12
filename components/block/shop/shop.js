@@ -52,6 +52,14 @@ export default function Shop({ header, description, products }) {
 		}
 	}
 
+	const cartPage = {
+		data: {
+			attributes: {
+				slug: 'cart',
+			},
+		},
+	}
+
 	return (
 		<BlockWrapper>
 			<div className={className}>
@@ -123,8 +131,13 @@ export default function Shop({ header, description, products }) {
 										<div
 											className={styles.pseudobutton}
 											onClick={handleCheckout}>
-											<PartialButton label={'Checkout'} />
+											<PartialButton label={'Checkout Now'} />
 										</div>
+										<PartialButton
+											label={'View Cart'}
+											type={'internal'}
+											page={cartPage}
+										/>
 									</div>
 								) : (
 									''
