@@ -22,12 +22,10 @@ export default function Shop({ header, description, products }) {
 
 	const [selectedProduct, setSelectedProduct] = useState(-1) // out of range so none selected by default
 	const [selectedVariant, setSelectedVariant] = useState(-1) // out of range so none selected by default
-	const [addedToCart, setAddedToCart] = useState('no') // out of range so none selected by default
+	const [addedToCart, setAddedToCart] = useState('no')
 
 	const addToCart = async () => {
 		try {
-			// let checkoutID = await client.checkout.create() // create new checkout
-			// console.log('shop.addToCart - create checkout', checkoutID)
 			const product = products[selectedProduct]
 			const variant = product.variants[selectedVariant]
 
@@ -38,21 +36,19 @@ export default function Shop({ header, description, products }) {
 				},
 			]).then(setAddedToCart('Added to Cart!'))
 		} catch (error) {
-			setAddedToCart('error adding to cart')
-			console.log('shop.addToCart - error', error)
+			setAddedToCart('Error adding to cart')
+			console.log('Error adding to cart (shop.js)', error)
 		}
 	}
 
 	const handleCheckout = () => {
-		// console.log('handleCheckout', window.localStorage.getItem('cart'))
-
 		let str = window.localStorage.getItem('cart')
 		try {
 			let obj = JSON.parse(str)
-			console.log('handleCheckout', obj.webUrl)
 			window.open(obj.webUrl)
-		} catch (ex) {
-			console.error('handleCheckout error', ex)
+		} catch (error) {
+			setAddedToCart('Error checking out')
+			console.error('Error handling checkout (shop.js)', error)
 		}
 	}
 
@@ -122,7 +118,7 @@ export default function Shop({ header, description, products }) {
 									</div>
 									{addedToCart != 'no' ? addedToCart : ''}
 								</div>
-								{addedToCart != 'no' ? (
+								{addedToCart === 'Added to Cart!' ? (
 									<div className={styles.buttonwrapper}>
 										<div
 											className={styles.pseudobutton}
