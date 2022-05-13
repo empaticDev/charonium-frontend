@@ -7,16 +7,56 @@
 }
 
 .productstable {
-	@apply border-separate;
-	border-spacing: 1em;
+	@apply border-separate  w-full max-w-4xl;
+	border-spacing: 2em 1em;
+
+	> thead {
+		@apply font-heading uppercase text-sm;
+	}
+}
+
+.productlabel {
+	@apply flex justify-items-center gap-4;
+
+	&__text {
+		@apply flex flex-col gap-1 p-0;
+
+		&__title {
+			@apply prose;
+		}
+
+		&__variant {
+			@apply font-heading uppercase;
+		}
+	}
+
+	&__image {
+		@apply w-8 h-8 relative;
+	}
 }
 
 .centered {
 	@apply text-center;
 }
 
+.quantity {
+	@apply flex gap-4 justify-items-center p-4 justify-center;
+}
+
 .deleteButton {
 	@apply underline text-contrast-500;
+}
+
+.total {
+	@apply font-heading uppercase text-sm text-center;
+}
+
+.buttons {
+	@apply max-w-3xl flex flex-row justify-end my-8 gap-8;
+
+	> .pseudobutton {
+		@apply cursor-pointer;
+	}
 }
 
 .emptycart {

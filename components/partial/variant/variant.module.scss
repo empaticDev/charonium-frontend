@@ -1,5 +1,5 @@
 .variant {
-	@apply p-4 border-1 border-contrast-400 shadow-md rounded-lg w-full max-w-lg duration-300 text-left flex flex-col gap-2 prose md__prose-lg;
+	@apply p-4 border-1 border-contrast-400 shadow-md rounded-lg w-full max-w-lg duration-300 text-left flex flex-col gap-2 prose md__prose-lg cursor-pointer;
 
 	&:hover {
 		@apply border-contrast-700;

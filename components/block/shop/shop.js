@@ -1,8 +1,9 @@
 import { client } from '../../../lib/shopify'
-import { addProductToCart, getCart } from '../../../lib/cart'
+import Cookies from 'js-cookie'
+import { addProductToCart, getCartRemote } from '../../../lib/cart'
 import classNames from 'classnames/bind'
 import styles from './shop.module.scss'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import { BlockWrapper } from '@components/block'
 import {
@@ -23,6 +24,17 @@ export default function Shop({ header, description, products }) {
 	const [selectedProduct, setSelectedProduct] = useState(-1) // out of range so none selected by default
 	const [selectedVariant, setSelectedVariant] = useState(-1) // out of range so none selected by default
 	const [addedToCart, setAddedToCart] = useState('no')
+	const [cartUpdated, setCartUpdated] = useState(0)
+	const [cart, setCart] = useState('false')
+
+	const checkoutId = Cookies.get('checkoutId')
+
+	useEffect(() => {
+		getCartRemote(checkoutId).then((cart) => {
+			console.log('shop useeffect:', cart)
+			setCart(cart)
+		})
+	}, [cartUpdated])
 
 	const addToCart = async () => {
 		try {
@@ -34,7 +46,11 @@ export default function Shop({ header, description, products }) {
 					variantId: variant.id,
 					quantity: 1,
 				},
-			]).then(setAddedToCart('Added to Cart!'))
+			]).then(() => {
+				setAddedToCart('Added to Cart!')
+				setCartUpdated(cartUpdated + 1)
+				setSelectedProduct(-1)
+			})
 		} catch (error) {
 			setAddedToCart('Error adding to cart')
 			console.log('Error adding to cart (shop.js)', error)
@@ -83,6 +99,7 @@ export default function Shop({ header, description, products }) {
 										onClick={() => {
 											setSelectedProduct(index)
 											setSelectedVariant(-1)
+											setAddedToCart('no')
 										}}
 										id={product.id}
 									/>
@@ -120,13 +137,17 @@ export default function Shop({ header, description, products }) {
 						)}
 						{selectedVariant >= 0 && (
 							<>
-								<div className={styles.buttonwrapper}>
-									<div className={styles.pseudobutton} onClick={addToCart}>
-										<PartialButton label={'Add to Cart'} />
-									</div>
-									{addedToCart != 'no' ? addedToCart : ''}
-								</div>
 								{addedToCart === 'Added to Cart!' ? (
+									''
+								) : (
+									<div className={styles.buttonwrapper}>
+										<div className={styles.pseudobutton} onClick={addToCart}>
+											<PartialButton label={'Add to Cart'} />
+										</div>
+										{addedToCart != 'no' ? addedToCart : ''}
+									</div>
+								)}
+								{addedToCart === 'Added to Cart!' && cart === 'false' ? (
 									<div className={styles.buttonwrapper}>
 										<div
 											className={styles.pseudobutton}
@@ -142,6 +163,28 @@ export default function Shop({ header, description, products }) {
 								) : (
 									''
 								)}
+							</>
+						)}
+						{/* check if there is a cart, then show it here  */}
+						{cart === 'false' || cart.totalPrice == 0 ? (
+							''
+						) : (
+							<>
+								<div className={styles.currentcart}>
+									<p>Current cart total:</p>
+									<p>€{cart.totalPrice}</p>
+								</div>
+
+								<div className={styles.buttonwrapper}>
+									<div className={styles.pseudobutton} onClick={handleCheckout}>
+										<PartialButton label={'Checkout Now'} />
+									</div>
+									<PartialButton
+										label={'View Cart'}
+										type={'internal'}
+										page={cartPage}
+									/>
+								</div>
 							</>
 						)}
 					</div>

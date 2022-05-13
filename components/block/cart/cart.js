@@ -4,6 +4,7 @@ import classNames from 'classnames/bind'
 import styles from './cart.module.scss'
 import { useState, useEffect } from 'react'
 import Cookies from 'js-cookie'
+import Image from 'next/image'
 
 import { BlockWrapper } from '@components/block'
 import { PartialTextBlock, PartialButton } from '@components/partial'
@@ -18,12 +19,14 @@ export default function Cart({ header, content }) {
 	const checkoutId = Cookies.get('checkoutId')
 	const [cartLoaded, setCartLoaded] = useState(false)
 	const [productList, setProductList] = useState([])
+	const [cost, setCost] = useState(0)
 	const [updated, setUpdated] = useState(0)
 	const [loading, setLoading] = useState(false)
 
 	useEffect(() => {
 		getCartRemote(checkoutId).then((checkout) => {
 			setProductList(checkout.lineItems)
+			setCost(checkout.totalPrice)
 			setCartLoaded(true)
 			setLoading(false)
 		})
@@ -62,12 +65,28 @@ export default function Cart({ header, content }) {
 			})
 	}
 
+	function handleCheckout() {
+		let str = window.localStorage.getItem('cart')
+		try {
+			let obj = JSON.parse(str)
+			window.open(obj.webUrl)
+		} catch (error) {
+			setAddedToCart('Error checking out')
+			console.error('Error handling checkout (shop.js)', error)
+		}
+	}
+
 	const homePage = {
 		data: {
 			attributes: {
 				slug: '',
 			},
 		},
+	}
+
+	// variant image: image: {id: "gid://shopify/ProductImage/33251377971425", src: "https://cdn.shopify.com/s/files/1/0606/6362/8001/products/bronze1.png?v=1635241995", altText: null, width: 1920, height: 1080, …}
+	const shopifyLoader = ({ src, width, quality }) => {
+		return `${src}?w=${width}&q=${quality || 75}`
 	}
 
 	return (
@@ -85,64 +104,98 @@ export default function Cart({ header, content }) {
 				{cartLoaded && (
 					<div className={styles.products}>
 						{productList.length > 0 ? (
-							<table className={styles.productstable}>
-								<thead>
-									<tr className={styles.tablerow}>
-										<th>Product</th>
-										<th></th>
-										<th>Quantity</th>
-										<th></th>
-										<th>Unit Price</th>
-										<th>Total</th>
-										<th></th>
-									</tr>
-								</thead>
-
-								<tbody>
-									{productList.map((product, index) => (
-										<tr key={product.id}>
-											<td>
-												{product.title}; {product.variant.title}
-											</td>
-											<td>
-												<button
-													disabled={loading}
-													onClick={() =>
-														decrease(product.id, product.quantity)
-													}>
-													-
-												</button>
-											</td>
-											<td className={styles.centered}>
-												{loading ? '...' : product.quantity}
-											</td>
-											<td>
-												<button
-													disabled={loading}
-													onClick={() =>
-														increase(product.id, product.quantity)
-													}>
-													+
-												</button>
-											</td>
-											<td className={styles.centered}>
-												€{product.variant.price}
-											</td>
-											<td className={styles.centered}>
-												€{product.variant.price * product.quantity}
-											</td>
-											<td>
-												<button
-													disabled={loading}
-													className={styles.deleteButton}
-													onClick={() => remove(product.id)}>
-													Remove
-												</button>
-											</td>
+							<>
+								<table className={styles.productstable}>
+									<thead>
+										<tr className={styles.tablerow}>
+											<th>Product</th>
+											<th className={styles.centered}>Quantity</th>
+											<th className={styles.centered}>Unit Price</th>
+											<th className={styles.centered}>Total</th>
+											<th></th>
 										</tr>
-									))}
-								</tbody>
-							</table>
+									</thead>
+
+									<tbody>
+										{productList.map((product, index) => (
+											<tr key={product.id} className={styles.productrow}>
+												<td>
+													<div className={styles.productlabel}>
+														<div className={styles.productlabel__image}>
+															<Image
+																loader={shopifyLoader}
+																src={product.variant.image.src}
+																layout={'fill'}
+															/>
+														</div>
+														<div className={styles.productlabel__text}>
+															<p className={styles.productlabel__text__title}>
+																{product.title}
+															</p>
+															<p className={styles.productlabel__text__variant}>
+																{product.variant.title}
+															</p>
+														</div>
+													</div>
+												</td>
+												<td className={styles.quantity}>
+													<button
+														disabled={loading}
+														onClick={() =>
+															decrease(product.id, product.quantity)
+														}>
+														-
+													</button>
+													<p>{product.quantity}</p>
+													<button
+														disabled={loading}
+														onClick={() =>
+															increase(product.id, product.quantity)
+														}>
+														+
+													</button>
+												</td>
+												<td className={styles.centered}>
+													€{product.variant.price}
+												</td>
+												<td className={styles.centered}>
+													€{product.variant.price * product.quantity}
+												</td>
+												<td>
+													<button
+														disabled={loading}
+														className={styles.deleteButton}
+														onClick={() => remove(product.id)}>
+														Remove
+													</button>
+												</td>
+											</tr>
+										))}
+										<tr></tr>
+										<tr></tr>
+										<tr className={styles.total}>
+											<td></td>
+											<td></td>
+											<td>Total</td>
+											<td>€{cost}</td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+								<div className={styles.buttons}>
+									<PartialButton
+										label={'Continue Shopping'}
+										type={'internal'}
+										secondary={true}
+										page={homePage}
+									/>
+									<div
+										className={styles.pseudobutton}
+										onClick={() => handleCheckout()}>
+										<PartialButton label={'Checkout Now'} />
+									</div>
+								</div>
+							</>
 						) : (
 							<div className={styles.emptycart}>
 								<p>Your cart is empty.</p>

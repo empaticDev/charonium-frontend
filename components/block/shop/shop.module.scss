@@ -11,7 +11,7 @@
 }
 
 .store {
-	@apply flex flex-col gap-32 mt-8;
+	@apply flex flex-col gap-8 mt-8;
 }
 
 .products {
@@ -19,7 +19,7 @@
 }
 
 .variants {
-	@apply flex flex-col gap-8;
+	@apply flex flex-col gap-8 mt-8;
 }
 
 .radios {
@@ -33,5 +33,9 @@
 }
 
 .pseudobutton {
-	@apply w-fit h-fit;
+	@apply w-fit h-fit cursor-pointer;
+}
+
+.currentcart {
+	@apply flex flex-row justify-end gap-8 max-w-lg text-lg;
 }
