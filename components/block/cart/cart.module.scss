@@ -1,3 +1,26 @@
 .cart {
 	// add styles here
 }
+
+.products {
+	@apply py-4 text-left;
+}
+
+.productstable {
+	@apply border-separate;
+	border-spacing: 1em;
+}
+
+.centered {
+	@apply text-center;
+}
+
+.deleteButton {
+	@apply underline text-contrast-500;
+}
+
+.emptycart {
+	> p {
+		@apply my-4;
+	}
+}
