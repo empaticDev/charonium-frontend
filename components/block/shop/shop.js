@@ -15,6 +15,8 @@ import {
 
 let cx = classNames.bind(styles)
 
+let vat = 0.19
+
 export default function Shop({ header, description, products }) {
 	let className = cx({
 		shop: true,
@@ -212,12 +214,32 @@ export default function Shop({ header, description, products }) {
 								{addedToCart === 'Added to Cart!' ? (
 									''
 								) : (
-									<div className={styles.buttonwrapper}>
-										<div className={styles.pseudobutton} onClick={addToCart}>
-											<PartialButton label={'Add to Cart'} />
+									<>
+										<div className={styles.currentcart}>
+											<p>Tax:</p>
+											<p>
+												€
+												{products[selectedProduct].variants[selectedVariant]
+													.price * vat}
+											</p>
 										</div>
-										{addedToCart != 'no' ? addedToCart : ''}
-									</div>
+										<div className={styles.currentcart}>
+											<p>Item total:</p>
+											<p>
+												€
+												{
+													products[selectedProduct].variants[selectedVariant]
+														.price
+												}
+											</p>
+										</div>
+										<div className={styles.buttonwrapper}>
+											<div className={styles.pseudobutton} onClick={addToCart}>
+												<PartialButton label={'Add to Cart'} />
+											</div>
+											{addedToCart != 'no' ? addedToCart : ''}
+										</div>
+									</>
 								)}
 								{addedToCart === 'Added to Cart!' && cart === 'false' ? (
 									<div className={styles.buttonwrapper}>
@@ -243,7 +265,7 @@ export default function Shop({ header, description, products }) {
 						) : (
 							<>
 								<div className={styles.currentcart}>
-									<p>Current cart total:</p>
+									<p>Cart total:</p>
 									<p>€{currentPrice}</p>
 								</div>
 
