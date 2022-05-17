@@ -35,8 +35,12 @@ export default function Shop({ header, description, products }) {
 	useEffect(() => {
 		getCartRemote(checkoutId).then((cart) => {
 			setCart(cart)
-			initialCartPrice = cart.totalPrice
-			setCurrentPrice(cart.totalPrice)
+			try {
+				initialCartPrice = cart.totalPrice
+				setCurrentPrice(cart.totalPrice)
+			} catch (error) {
+				console.log('no cart yet')
+			}
 		})
 	}, [cartUpdated])
 
