@@ -61,7 +61,7 @@ export default function Header({ ...props }) {
 				/>
 				<PartialButton
 					label={'Wallet verbinden'}
-					secondary={true}
+					style={'Secondary'}
 					type={'external'}
 					href={'https://charonium.com'}
 				/>

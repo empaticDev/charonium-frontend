@@ -13,7 +13,9 @@ const getLink = (type, page, href, download) => {
 			link = `/${page.data.attributes.slug}`
 			break
 		case 'anchor':
-			link = href
+			link = href.toLowerCase()
+			link = encodeURIComponent(link).replace(/%20/g, '-')
+			link = `#${link}`
 			break
 		case 'external':
 			link = href
@@ -31,7 +33,7 @@ const getLink = (type, page, href, download) => {
 export default function Button({
 	label,
 	type,
-	secondary,
+	style,
 	page,
 	href,
 	download,
@@ -39,7 +41,7 @@ export default function Button({
 }) {
 	let className = cx({
 		btn: true,
-		secondary: secondary,
+		secondary: style === 'Secondary' ? true : false,
 		icon: icon,
 	})
 
@@ -47,6 +49,10 @@ export default function Button({
 
 	const link = getLink(type, page, href, download)
 	const isDownload = type === 'download' && download != null ? true : false
+
+	if (icon === 'arrow_down') {
+		icon = 'arrow-down'
+	}
 
 	switch (type) {
 		case 'internal':
@@ -136,7 +142,6 @@ export default function Button({
 		default:
 			return (
 				<>
-					{console.log('button', icon)}
 					{icon && (
 						<svg
 							style={{ width: 0, height: 0, position: 'absolute' }}

@@ -22,7 +22,7 @@
 		@apply bg-skin-bg text-skin-base;
 
 		& > .iconwrapper {
-			@apply bg-transparent;
+			@apply bg-skin-bg;
 		}
 	}
 }
