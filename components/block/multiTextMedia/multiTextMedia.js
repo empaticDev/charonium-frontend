@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind'
 import Image from 'next/image'
+import { useState } from 'react'
 
 import styles from './multiTextMedia.module.scss'
 import { BlockWrapper } from '@components/block'
@@ -16,12 +17,13 @@ export default function MultiTextMedia({
 	ctas,
 	align,
 	image,
-	noimage,
 }) {
 	let className = cx({
 		multiTextMedia: true,
 		'content-left': align === 'left' ? true : false,
 	})
+
+	const [imageLoaded, setImageLoaded] = useState(false)
 
 	let imageURL = ''
 
@@ -29,18 +31,40 @@ export default function MultiTextMedia({
 		imageURL = image.data.attributes.url
 	}
 
+	let imageClass = cx({
+		imagewrapper: true,
+		notloaded: !imageLoaded,
+		loaded: imageLoaded,
+	})
+
 	return (
 		<BlockWrapper className={className} id={id} anchor={anchor}>
-			{console.log('multi text', hstyle)}
 			<div className={className}>
-				<div className={styles.imagewrapper}>
-					<Image src={imageURL} layout={'fill'} objectFit={'contain'} />
+				<div className={imageClass}>
+					<Image
+						src={imageURL}
+						layout={'fill'}
+						objectFit={'contain'}
+						onLoad={(event) => {
+							const target = event.target
+							// next/image use an 1x1 px git as placeholder. We only want the onLoad event on the actual image
+							if (target.src.indexOf('data:image/gif;base64') < 0) {
+								setImageLoaded(true)
+							}
+						}}
+					/>
 				</div>
 				<div>
 					<PartialHeading label={label} />
 					<div className={styles.content}>
 						{textblocks.map(({ title, text }) => (
-							<PartialTextBlock title={title} content={text} heading={hstyle} />
+							<div key={title}>
+								<PartialTextBlock
+									title={title}
+									content={text}
+									heading={hstyle}
+								/>
+							</div>
 						))}
 					</div>
 				</div>

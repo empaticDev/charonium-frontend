@@ -38,7 +38,6 @@ export default function Card({ title, content, image, as }) {
 						height={117}
 						onLoad={(event) => {
 							const target = event.target
-
 							// next/image use an 1x1 px git as placeholder. We only want the onLoad event on the actual image
 							if (target.src.indexOf('data:image/gif;base64') < 0) {
 								setImageLoaded(true)

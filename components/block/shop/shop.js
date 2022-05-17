@@ -31,7 +31,6 @@ export default function Shop({ header, description, products }) {
 
 	useEffect(() => {
 		getCartRemote(checkoutId).then((cart) => {
-			console.log('shop useeffect:', cart)
 			setCart(cart)
 		})
 	}, [cartUpdated])
