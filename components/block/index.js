@@ -8,6 +8,7 @@ import BlockPartners from './partners/partners'
 import BlockText from './text/text'
 import BlockShop from './shop/shop'
 import BlockCart from './cart/cart'
+import BlockMultiTextMedia from './multiTextMedia/multiTextMedia'
 
 export {
 	BlockWrapper,
@@ -20,4 +21,5 @@ export {
 	BlockText,
 	BlockShop,
 	BlockCart,
+	BlockMultiTextMedia,
 }

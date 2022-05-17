@@ -1,0 +1,23 @@
+/** @define multiTextMedia */
+
+.multiTextMedia {
+	@apply flex flex-col md__flex-row;
+
+	> * {
+		@screen md {
+			@apply w-1/2 flex-row;
+		}
+	}
+}
+
+.content-left {
+	@screen md {
+		@apply flex flex-row-reverse;
+	}
+}
+
+.content {
+	> * {
+		@apply mb-16;
+	}
+}

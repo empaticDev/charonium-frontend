@@ -8,6 +8,7 @@ import {
 	BlockText,
 	BlockShop,
 	BlockCart,
+	BlockMultiTextMedia,
 } from '@components/block'
 
 let productList = []
@@ -42,6 +43,9 @@ const getBlockComponent = ({ __typename, ...block }, index) => {
 			break
 		case 'ComponentBlocksCart':
 			Block = BlockCart
+			break
+		case 'ComponentBlocksDoubleTextMedia':
+			Block = BlockMultiTextMedia
 			break
 	}
 
