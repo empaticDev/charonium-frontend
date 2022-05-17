@@ -26,12 +26,17 @@ export default function Shop({ header, description, products }) {
 	const [addedToCart, setAddedToCart] = useState('no')
 	const [cartUpdated, setCartUpdated] = useState(0)
 	const [cart, setCart] = useState('false')
+	const [currentPrice, setCurrentPrice] = useState(0)
 
 	const checkoutId = Cookies.get('checkoutId')
+
+	let initialCartPrice = 0
 
 	useEffect(() => {
 		getCartRemote(checkoutId).then((cart) => {
 			setCart(cart)
+			initialCartPrice = cart.totalPrice
+			setCurrentPrice(cart.totalPrice)
 		})
 	}, [cartUpdated])
 
@@ -97,6 +102,7 @@ export default function Shop({ header, description, products }) {
 										checked={selectedProduct === index}
 										onClick={() => {
 											setSelectedProduct(index)
+											setCurrentPrice(cart.totalPrice)
 											setSelectedVariant(-1)
 											setAddedToCart('no')
 										}}
@@ -177,7 +183,14 @@ export default function Shop({ header, description, products }) {
 											type="radio"
 											name="variants"
 											checked={selectedVariant === index}
-											onClick={() => setSelectedVariant(index)}
+											onClick={() => {
+												setSelectedVariant(index)
+												setCurrentPrice(
+													(
+														parseInt(cart.totalPrice) + parseInt(variant.price)
+													).toFixed(2)
+												)
+											}}
 											id={variant.id}
 										/>
 										<label htmlFor={variant.id}>
@@ -221,13 +234,13 @@ export default function Shop({ header, description, products }) {
 							</>
 						)}
 						{/* check if there is a cart, then show it here  */}
-						{cart === 'false' || cart.totalPrice == 0 ? (
+						{cart === 'false' ? (
 							''
 						) : (
 							<>
 								<div className={styles.currentcart}>
 									<p>Current cart total:</p>
-									<p>€{cart.totalPrice}</p>
+									<p>€{currentPrice}</p>
 								</div>
 
 								<div className={styles.buttonwrapper}>
