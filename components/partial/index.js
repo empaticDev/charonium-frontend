@@ -17,6 +17,8 @@ import PartialNavAnchor from './navAnchor/navAnchor'
 import PartialNavAnchorLink from './navAnchorLink/navAnchorLink'
 import PartialNewsletterForm from './newsletterForm/newsletterForm'
 import PartialNewsletterSubscribe from './newsletterSubscribe/newsletterSubscribe'
+import PartialProduct from './product/product'
+import PartialVariant from './variant/variant'
 
 export {
 	PartialNavAnchor,
@@ -38,4 +40,6 @@ export {
 	PartialListItem,
 	PartialNewsletterForm,
 	PartialNewsletterSubscribe,
+	PartialProduct,
+	PartialVariant,
 }

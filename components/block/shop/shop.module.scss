@@ -1,0 +1,41 @@
+.shop {
+	@apply flex flex-col md__flex-row;
+}
+
+.image {
+	@apply w-full md__w-1/2;
+}
+
+.content {
+	@apply w-full md__w-1/2;
+}
+
+.store {
+	@apply flex flex-col gap-8 mt-8;
+}
+
+.products {
+	@apply flex flex-col gap-8;
+}
+
+.variants {
+	@apply flex flex-col gap-8 mt-8;
+}
+
+.radios {
+	> input {
+		@apply hidden;
+	}
+}
+
+.buttonwrapper {
+	@apply flex w-full max-w-lg justify-between flex-row-reverse;
+}
+
+.pseudobutton {
+	@apply w-fit h-fit cursor-pointer;
+}
+
+.currentcart {
+	@apply flex flex-row justify-end gap-8 max-w-lg text-lg;
+}

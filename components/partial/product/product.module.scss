@@ -1,0 +1,29 @@
+.product {
+	@apply p-4 border-1 border-contrast-400 shadow-md rounded-lg w-full max-w-lg duration-300 text-left flex flex-col gap-2 cursor-pointer;
+
+	&:hover {
+		@apply border-contrast-700;
+
+		box-shadow: -1em -1em 5em rgba(87, 197, 253, 0.15),
+			1em 1em 5em rgba(87, 197, 253, 0.15);
+	}
+}
+
+.selected {
+	@apply border-contrast-700;
+
+	box-shadow: -1em -1em 5em rgba(87, 197, 253, 0.15),
+		1em 1em 5em rgba(87, 197, 253, 0.15);
+}
+
+.title {
+	@apply flex font-heading text-base w-full justify-between uppercase;
+}
+
+.price {
+	@apply w-fit;
+}
+
+.description {
+	@apply prose md__prose-lg;
+}

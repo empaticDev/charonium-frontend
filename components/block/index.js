@@ -6,6 +6,9 @@ import BlockTeam from './team/team'
 import BlockFAQ from './faq/faq'
 import BlockPartners from './partners/partners'
 import BlockText from './text/text'
+import BlockShop from './shop/shop'
+import BlockCart from './cart/cart'
+import BlockMultiTextMedia from './multiTextMedia/multiTextMedia'
 
 export {
 	BlockWrapper,
@@ -16,4 +19,7 @@ export {
 	BlockFAQ,
 	BlockPartners,
 	BlockText,
+	BlockShop,
+	BlockCart,
+	BlockMultiTextMedia,
 }

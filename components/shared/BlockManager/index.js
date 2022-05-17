@@ -6,12 +6,15 @@ import {
 	BlockFAQ,
 	BlockPartners,
 	BlockText,
+	BlockShop,
+	BlockCart,
+	BlockMultiTextMedia,
 } from '@components/block'
+
+let productList = []
 
 const getBlockComponent = ({ __typename, ...block }, index) => {
 	let Block
-
-	//console.log('blockData', block)
 
 	switch (__typename) {
 		case 'ComponentBlocksTextMedia':
@@ -35,17 +38,33 @@ const getBlockComponent = ({ __typename, ...block }, index) => {
 		case 'ComponentBlocksText':
 			Block = BlockText
 			break
+		case 'ComponentBlocksShop':
+			Block = BlockShop
+			break
+		case 'ComponentBlocksCart':
+			Block = BlockCart
+			break
+		case 'ComponentBlocksDoubleTextMedia':
+			Block = BlockMultiTextMedia
+			break
+	}
+
+	if (__typename === 'ComponentBlocksShop') {
+		block['products'] = productList
 	}
 
 	return Block ? <Block key={`index-${index}`} {...block} /> : null
 }
 
-const BlockManager = ({ blocks }) => {
+const BlockManager = ({ blocks, products }) => {
+	productList = products
+
 	return <>{blocks.map(getBlockComponent)}</>
 }
 
 BlockManager.defaultProps = {
 	blocks: [],
+	products: [],
 }
 
 export default BlockManager
