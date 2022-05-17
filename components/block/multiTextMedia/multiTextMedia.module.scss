@@ -21,3 +21,11 @@
 		@apply mb-16;
 	}
 }
+
+.imagewrapper {
+	@apply relative;
+
+	> * {
+		@apply absolute left-0 bottom-0;
+	}
+}

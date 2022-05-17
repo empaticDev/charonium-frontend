@@ -23,24 +23,19 @@ export default function MultiTextMedia({
 		'content-left': align === 'left' ? true : false,
 	})
 
-	// todo image data from api + add to api
-	// if (image.data != null) {
-	// 	imageURL = image.data.attributes.url
-	// }
+	let imageURL = ''
 
-	// let textMediaProps = {
-	// 	title: title,
-	// 	label: label,
-	// 	content: content,
-	// 	heading: heading,
-	// 	ctas: ctas,
-	// }
+	if (image.data != null) {
+		imageURL = image.data.attributes.url
+	}
 
 	return (
 		<BlockWrapper className={className} id={id} anchor={anchor}>
 			{console.log('multi text', hstyle)}
 			<div className={className}>
-				<div>{noimage ? '' : 'image'}</div>
+				<div className={styles.imagewrapper}>
+					<Image src={imageURL} layout={'fill'} objectFit={'contain'} />
+				</div>
 				<div>
 					<PartialHeading label={label} />
 					<div className={styles.content}>
