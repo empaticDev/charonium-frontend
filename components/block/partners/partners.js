@@ -41,7 +41,7 @@ export default function Partners({
 		title: subtitle,
 		content: subcontent,
 		heading: 'h3',
-		as: 'h3'
+		as: 'h3',
 	}
 
 	const partnersLocal = []
@@ -62,9 +62,7 @@ export default function Partners({
 					<div className={styles.placeholder}>image</div>
 					<div className={styles.list}>
 						{listTitle && <div className={styles.listtitle}>{listTitle}</div>}
-						<ul>
-							{list && <SharedPartialManager partials={list} />}
-						</ul>
+						<ul>{list && <SharedPartialManager partials={list} />}</ul>
 						<div className={styles.ctawrapper}>
 							{cta.label && <PartialButton label={cta.label} icon={cta.icon} />}
 						</div>
