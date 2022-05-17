@@ -111,6 +111,7 @@ export default function Shop({ header, description, products }) {
 											setCurrentPrice(cart.totalPrice)
 											setSelectedVariant(-1)
 											setAddedToCart('no')
+											document.getElementById('variantlist').scrollIntoView()
 										}}
 										id={product.id}
 									/>
@@ -122,7 +123,7 @@ export default function Shop({ header, description, products }) {
 									</label>
 								</div>
 							))}
-							<div className={styles.asterisk}>
+							<div className={styles.asterisk} id="variantlist">
 								<p>* Inclusive gratis</p>
 								<svg
 									viewBox="0 0 40 21"
@@ -268,7 +269,6 @@ export default function Shop({ header, description, products }) {
 									<p>Cart total:</p>
 									<p>€{currentPrice}</p>
 								</div>
-
 								<div className={styles.buttonwrapper}>
 									<div className={styles.pseudobutton} onClick={handleCheckout}>
 										<PartialButton label={'Checkout Now'} />
