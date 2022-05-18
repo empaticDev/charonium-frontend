@@ -2,7 +2,7 @@
 
 .block {
 	// @apply py-xl-5xl border-b-1; //with white border
-	@apply py-xl-5xl overflow-hidden; //without
+	@apply py-xl-5xl relative; //without
 
 	&__inner {
 		@apply w-9/10 max-w-7xl mx-auto;
@@ -16,4 +16,18 @@
 	&--small {
 		@apply py-16;
 	}
+}
+
+.graphic1 {
+	@apply absolute -left-[20vw] -top-[20vw];
+	> svg {
+		@apply fill-bg;
+
+		filter: drop-shadow(-2rem -2rem 4rem #72b8d1);
+		// transform: rotate(180deg);
+	}
+}
+
+.hide {
+	@apply hidden;
 }

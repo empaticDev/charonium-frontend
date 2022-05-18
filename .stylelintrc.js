@@ -29,7 +29,7 @@ module.exports = {
 	plugins: ['stylelint-prettier', 'stylelint-selector-bem-pattern'],
 	rules: {
 		'prettier/prettier': true,
-		'unit-allowed-list': ['em', 'rem', '%', 'ch', 'vh', 'vw', 's', 'fr'],
+		'unit-allowed-list': ['em', 'rem', '%', 'ch', 'vh', 'vw', 's', 'fr', 'deg'],
 		indentation: 'tab',
 		'selector-class-pattern': null,
 		'scss/function-no-unknown': [
