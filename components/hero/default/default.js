@@ -26,8 +26,18 @@ export default function Default({ textBlock, content, ctas, image }) {
 	return (
 		<HeroWrapper>
 			<div className={className}>
-				<div>{image ? '' : 'Hero Default image'}</div>
-				<PartialTextBlock {...textMediaProps} />
+				<div className={styles.imagewrapper}>
+					<div className={styles.graphic}>
+						<div className={styles.curve1}></div>
+						<div className={styles.curve2}></div>
+					</div>
+					<div className={styles.image}>
+						{image ? '' : 'Hero Default image'}
+					</div>
+				</div>
+				<div className={styles.content}>
+					<PartialTextBlock {...textMediaProps} />
+				</div>
 			</div>
 		</HeroWrapper>
 	)

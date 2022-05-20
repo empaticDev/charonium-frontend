@@ -14,11 +14,15 @@
 	padding: 0.5em 1.5em;
 	@apply rounded inline-flex font-semibold whitespace-nowrap uppercase text-base bg-skin-brand text-skin-inverted border-2 border-solid border-brand duration-300;
 
+	> svg {
+		@apply w-4 h-4;
+	}
+
 	&:hover {
 		@apply bg-skin-bg text-skin-base;
 
 		& > .iconwrapper {
-			@apply bg-transparent;
+			@apply bg-skin-bg;
 		}
 	}
 }

@@ -7,3 +7,55 @@
 		}
 	}
 }
+
+.content {
+	@apply relative z-10;
+}
+
+.imagewrapper {
+	// styles here
+	@apply relative h-60 md__h-fit;
+}
+
+.graphic {
+	@apply w-[120vw] h-[80vw] absolute overflow-hidden bg-gradient-radial-at-b from-brand-500 to-transparent -top-[45vw] opacity-60 z-0;
+
+	@screen md {
+		@apply w-[80vw] -top-[40vw];
+	}
+}
+
+.curve1 {
+	@apply absolute h-full z-0 bg-contrast-50 -left-4 top-[60vw];
+
+	width: 128%;
+	border-radius: 50% / 100%;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+
+	@screen md {
+		@apply top-[55vw] -left-1/4;
+	}
+
+	@screen 2xl {
+		@apply top-[53vw];
+	}
+}
+
+.curve2 {
+	@apply absolute h-full z-0 bg-contrast-50 -left-0 top-0;
+
+	width: 40%;
+	border-radius: 100% / 50%;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+
+	@screen md {
+		@apply -left-[50vw];
+		width: 80%;
+	}
+}
+
+.image {
+	@apply z-10 relative;
+}

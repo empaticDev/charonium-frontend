@@ -1,12 +1,15 @@
 /** @define block */
 
 .block {
-	// @apply py-xl-5xl border-b-1; //with white border
-	@apply py-xl-5xl overflow-hidden; //without
+	@apply py-xl-5xl relative;
 
 	&__inner {
 		@apply w-9/10 max-w-7xl mx-auto;
 	}
+}
+
+.top {
+	@apply relative z-10;
 }
 
 .spacing {
@@ -16,4 +19,36 @@
 	&--small {
 		@apply py-16;
 	}
+}
+
+.graphic {
+	@apply absolute z-0;
+	> svg {
+		@apply fill-bg;
+
+		filter: drop-shadow(-2rem -2rem 4rem #015b88); // brand-600
+	}
+}
+
+.one {
+	@apply -left-[20vw] -top-[15vw];
+}
+
+.two {
+	@apply -right-[12vw] -top-[20vw];
+	> svg {
+		transform: scaleX(-1);
+	}
+}
+
+.three {
+	@apply -right-[12vw] -top-[10vw];
+
+	> svg {
+		transform: rotate(150deg);
+	}
+}
+
+.hide {
+	@apply hidden;
 }

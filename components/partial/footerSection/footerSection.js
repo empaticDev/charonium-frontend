@@ -35,7 +35,7 @@ export default function footerSection({ header, links, input, downloads }) {
 	})
 
 	return (
-		<div className={className}>
+		<div className={className} id="footer">
 			{header && <PartialHeading title={header.title} heading={'footer'} />}
 			{header && <p className={styles.description}>{header.description}</p>}
 			{links && <div className={styles.links}>{socialLinks(links)}</div>}

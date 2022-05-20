@@ -13,6 +13,7 @@ export default function Faq({
 	heading,
 	ctas,
 	accordion,
+	decoration,
 }) {
 	let className = cx({
 		faq: true,
@@ -30,7 +31,7 @@ export default function Faq({
 	//console.log('accordion', accordion)
 
 	return (
-		<BlockWrapper className={className}>
+		<BlockWrapper className={className} decoration={decoration}>
 			<PartialTextBlock {...textBlockProps} />
 			{accordion && <PartialAccordion accordion={accordion} />}
 		</BlockWrapper>

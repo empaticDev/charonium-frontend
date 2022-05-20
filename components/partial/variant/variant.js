@@ -41,6 +41,7 @@ export default function Variant({ variant, selected }) {
 							src={imageURL}
 							width={40}
 							height={40}
+							objectFit={'contain'}
 							onLoad={(event) => {
 								const target = event.target
 								if (target.src.indexOf('data:image/gif;base64') < 0) {
