@@ -20,6 +20,7 @@ export default function BlockWrapper({
 
 	let innerClass = cx({
 		block__inner: fullWidth != undefined && fullWidth ? false : true,
+		top: true,
 	})
 
 	let atts = {}
@@ -33,9 +34,10 @@ export default function BlockWrapper({
 	}
 
 	let graphicClass = cx({
-		graphic1: decoration?.one,
-		graphic1: decoration?.two,
-		graphic1: decoration?.three,
+		graphic: true,
+		one: decoration?.one,
+		two: decoration?.two,
+		three: decoration?.three,
 		hide: !decoration,
 	})
 

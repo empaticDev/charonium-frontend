@@ -9,6 +9,10 @@
 	}
 }
 
+.top {
+	@apply relative z-10;
+}
+
 .spacing {
 	&--none {
 		@apply py-0;
@@ -18,13 +22,31 @@
 	}
 }
 
-.graphic1 {
-	@apply absolute -left-[20vw] -top-[20vw];
+.graphic {
+	@apply absolute z-0;
 	> svg {
 		@apply fill-bg;
 
 		filter: drop-shadow(-2rem -2rem 4rem #72b8d1);
-		// transform: rotate(180deg);
+	}
+}
+
+.one {
+	@apply -left-[20vw] -top-[20vw];
+}
+
+.two {
+	@apply -right-[12vw] -top-[10vw];
+	> svg {
+		transform: scaleX(-1);
+	}
+}
+
+.three {
+	@apply -right-[12vw] -top-[10vw];
+
+	> svg {
+		transform: rotate(150deg);
 	}
 }
 
