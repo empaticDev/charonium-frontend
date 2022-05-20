@@ -27,11 +27,11 @@ export default function Animation({ title, label, images }) {
 
 	useEffect(() => {
 		component = document.getElementById('component')
-		canvas = document.getElementById('hero-lightpass')
+		canvas = document.getElementById('animation-canvas')
 		context = canvas.getContext('2d')
 
-		canvas.width = 1158
-		canvas.height = 770
+		canvas.width = 960
+		canvas.height = 540
 
 		context.fillStyle = '#7cce2b'
 		context.fillRect(0, 0, 300, 100)
@@ -87,7 +87,7 @@ export default function Animation({ title, label, images }) {
 			<PartialHeading title={title} label={label} heading={'h2'} />
 			<div className={className} id="component" onScroll={scrollEvent}>
 				<div className={styles.wrapper}>
-					<canvas className={styles.mycanvas} id="hero-lightpass"></canvas>
+					<canvas className={styles.mycanvas} id="animation-canvas"></canvas>
 				</div>
 			</div>
 		</BlockWrapper>
