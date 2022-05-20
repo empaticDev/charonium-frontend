@@ -41,8 +41,6 @@ export default function BlockWrapper({
 		hide: !decoration,
 	})
 
-	console.log('Block:', id, decoration?.type)
-
 	return (
 		<section {...atts} className={className}>
 			<div className={graphicClass}>

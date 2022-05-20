@@ -1,0 +1,18 @@
+.animation {
+	// add styles here
+	@apply h-screen overflow-scroll;
+
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+.wrapper {
+	@apply bg-contrast-100 h-[500vh];
+}
+
+.mycanvas {
+	@apply sticky w-full h-full max-h-screen bg-red-50 opacity-30 top-0 left-0;
+}
