@@ -17,7 +17,7 @@ let cx = classNames.bind(styles)
 
 let vat = 0.19
 
-export default function Shop({ header, description, products }) {
+export default function Shop({ header, description, products, decoration }) {
 	let className = cx({
 		shop: true,
 		right: true, // align it to the right
@@ -87,7 +87,7 @@ export default function Shop({ header, description, products }) {
 	}
 
 	return (
-		<BlockWrapper>
+		<BlockWrapper decoration={decoration}>
 			<div className={className}>
 				<div className={styles.image}>image</div>
 				<div className={styles.content}>

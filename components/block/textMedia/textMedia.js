@@ -18,6 +18,7 @@ export default function TextMedia({
 	alignment,
 	image,
 	noimage,
+	decoration,
 }) {
 	let className = cx({
 		textMedia: true,
@@ -38,7 +39,11 @@ export default function TextMedia({
 	// }
 
 	return (
-		<BlockWrapper className={className} id={id} anchor={anchor}>
+		<BlockWrapper
+			className={className}
+			id={id}
+			anchor={anchor}
+			decoration={decoration}>
 			<div className={className}>
 				<div>{noimage ? '' : 'image'}</div>
 				<PartialTextBlock {...textMediaProps} />

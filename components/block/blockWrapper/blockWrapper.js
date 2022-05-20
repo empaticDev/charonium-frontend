@@ -35,11 +35,13 @@ export default function BlockWrapper({
 
 	let graphicClass = cx({
 		graphic: true,
-		one: decoration?.one,
-		two: decoration?.two,
-		three: decoration?.three,
+		one: decoration?.type == 'one' ? true : false,
+		two: decoration?.type == 'two' ? true : false,
+		three: decoration?.type == 'three' ? true : false,
 		hide: !decoration,
 	})
+
+	console.log('Block:', id, decoration?.type)
 
 	return (
 		<section {...atts} className={className}>

@@ -23,6 +23,7 @@ export default function Partners({
 	listTitle,
 	list,
 	cta,
+	decoration,
 }) {
 	let className = cx({
 		partners: true,
@@ -52,7 +53,7 @@ export default function Partners({
 
 	return (
 		<>
-			<BlockWrapper id={id} anchor={anchor}>
+			<BlockWrapper id={id} anchor={anchor} decoration={decoration}>
 				<PartialTextBlock {...textBlockProps} />
 				<div className={styles.images}>
 					<SharedPartialManager partials={partnersLocal} />
