@@ -1,7 +1,7 @@
 /** @define block */
 
 .block {
-	@apply py-xl-5xl relative;
+	@apply py-xl-5xl relative overflow-x-clip;
 
 	&__inner {
 		@apply w-9/10 max-w-7xl mx-auto;

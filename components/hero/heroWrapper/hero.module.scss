@@ -1,7 +1,7 @@
 /** @define hero */
 
 .hero {
-	@apply pt-xl-5xl overflow-hidden;
+	@apply pt-xl-5xl overflow-x-clip;
 
 	&__inner {
 		@apply w-9/10 max-w-7xl mx-auto;
