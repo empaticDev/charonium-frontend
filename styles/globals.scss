@@ -7,3 +7,7 @@
 @import 'base/mixins';
 @import 'base/root';
 /* stylelint-enable no-invalid-position-at-import-rule */
+
+.cookie-overlay {
+	@apply w-full h-full bg-skin-bg opacity-50;
+}
