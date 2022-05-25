@@ -1,8 +1,7 @@
 import classNames from 'classnames/bind'
 import styles from './animation.module.scss'
 
-import { BlockWrapper } from '@components/block'
-import { PartialHeading } from '@components/partial'
+import { PartialHeading, PartialTextBlock } from '@components/partial'
 import { useEffect, useState } from 'react'
 import React from 'react'
 
@@ -62,14 +61,48 @@ export default function Animation({ title, label, images }) {
 		})
 	}
 
+	let zukunft = {
+		title: 'Die Zukunft des Vererbens',
+		label: '3,7 mio Bitcoin für immer verloren',
+		content:
+			'Der Private Schlüssel repräsentiert die volle Kontrolle und das Eigentum an Kryptowährungen und sonstigen digitalen Vermögenswerten. Es ist essentiell, dass der Private Schlüssel unter keinen Umständen verloren geht.<p></p>CHARONIUM bietet die weltweit erste All-in-One-Lösung, die eine sichere Verwahrung und eine begleitende Auflösung der Erbschaft der digitaler Assets ermöglicht.',
+		heading: 'h2',
+	}
+
+	let fragments = {
+		title: 'Charonium Fragments',
+		content:
+			'Der Private Schlüssel des Nutzers wird auf den CHARONIUM Fragments gespeichert. Jedes einzelne Teilstück wird an einem anderen, sicheren Ort aufbewahrt.<p></p>Das heißt, wir bieten die weltweit erste kundenspezifische Lösung der Auflösung von digitalen Assets zusammen mit einer Krypto Wallet ohne kompletten Ausfall bei Verlust eines Teil-Fragments.',
+		heading: 'h3',
+	}
+
+	let key = {
+		title: 'Save Your Key',
+		content:
+			'Der Seed Phrase (Backup Phrase) besteht aus Wörtern, die aus einer Liste mit 2048 Wörtern ausgewählt werden. Die richtigen Wörter, in der richtigen Reihenfolge , ermöglicht eine Wiederherstellung.<p></p>Jedes Wort entspricht einem vierstelligen numerischen Code. Diese 4-stelligen Codes werden in der entsprechenden Zeile auf dem feuerbeständigen, Edelstahl CHARONIUM Fragment verewigt, indem sie mit einem Meißel eingraviert werden.',
+		heading: 'h3',
+	}
+
+	let obolus = {
+		title: 'Save Your Key',
+		content:
+			'Der Seed Phrase (Backup Phrase) besteht aus Wörtern, die aus einer Liste mit 2048 Wörtern ausgewählt werden. Die richtigen Wörter, in der richtigen Reihenfolge , ermöglicht eine Wiederherstellung.<p></p>Jedes Wort entspricht einem vierstelligen numerischen Code. Diese 4-stelligen Codes werden in der entsprechenden Zeile auf dem feuerbeständigen, Edelstahl CHARONIUM Fragment verewigt, indem sie mit einem Meißel eingraviert werden.',
+		heading: 'h3',
+	}
+
 	return (
-		<BlockWrapper id="component-wrapper">
-			<PartialHeading title={title} label={label} heading={'h2'} />
-			<div className={className} id="component" onScroll={scrollEvent}>
+		<div className={className} id="component-wrapper">
+			<div className={styles.content} id="component" onScroll={scrollEvent}>
 				<div className={styles.wrapper}>
 					<canvas className={styles.mycanvas} id="animation-canvas"></canvas>
+					<div className={(styles.textblock, styles.one)}>
+						<PartialTextBlock {...zukunft} />
+					</div>
+					<div className={(styles.textblock, styles.two)}>
+						<PartialTextBlock {...fragments} />
+					</div>
 				</div>
 			</div>
-		</BlockWrapper>
+		</div>
 	)
 }

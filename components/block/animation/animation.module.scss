@@ -1,5 +1,9 @@
 .animation {
 	// add styles here
+	@apply snap-start;
+}
+
+.content {
 	@apply h-screen overflow-scroll;
 
 	scrollbar-width: none;
@@ -10,9 +14,22 @@
 }
 
 .wrapper {
-	@apply h-[500vh];
+	@apply h-[500vh] relative;
 }
 
 .mycanvas {
-	@apply sticky w-full h-full max-h-screen top-0 left-0;
+	@apply sticky w-full h-full max-h-screen top-0 left-0 z-0;
+}
+
+.textblock {
+	@apply relative z-99 w-9/10 max-w-7xl mx-auto;
+}
+
+.one {
+	@apply absolute top-0 mx-auto pl-52;
+}
+
+.two {
+	//styles
+	@apply absolute top-[90vh] pl-96;
 }
