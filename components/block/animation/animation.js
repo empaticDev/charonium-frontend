@@ -6,8 +6,6 @@ import { PartialHeading } from '@components/partial'
 import { useEffect, useState } from 'react'
 import React from 'react'
 
-// import Image from 'next/image'
-
 let cx = classNames.bind(styles)
 
 export default function Animation({ title, label, images }) {
@@ -15,10 +13,14 @@ export default function Animation({ title, label, images }) {
 		animation: true,
 	})
 
-	const frameCount = 65
+	const frameCount = 476
 	const [scroll, setScroll] = useState(1)
 	const currentFrame = (index) =>
 		'animation/web-animation-' + index.toString().padStart(5, '0') + '.png'
+
+	var component
+	var canvas
+	var context
 
 	const preloadImages = () => {
 		for (let i = 1; i < frameCount; i++) {
@@ -26,10 +28,6 @@ export default function Animation({ title, label, images }) {
 			img.src = currentFrame(i)
 		}
 	}
-
-	var component
-	var canvas
-	var context
 
 	useEffect(() => {
 		preloadImages()
