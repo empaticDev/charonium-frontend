@@ -10,9 +10,9 @@
 }
 
 .wrapper {
-	@apply bg-contrast-100 h-[500vh];
+	@apply h-[500vh];
 }
 
 .mycanvas {
-	@apply sticky w-full h-full max-h-screen bg-red-50 opacity-30 top-0 left-0;
+	@apply sticky w-full h-full max-h-screen top-0 left-0;
 }

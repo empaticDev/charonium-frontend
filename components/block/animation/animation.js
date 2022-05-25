@@ -4,8 +4,9 @@ import styles from './animation.module.scss'
 import { BlockWrapper } from '@components/block'
 import { PartialHeading } from '@components/partial'
 import { useEffect, useState } from 'react'
+import React from 'react'
 
-import Image from 'next/image'
+// import Image from 'next/image'
 
 let cx = classNames.bind(styles)
 
@@ -14,62 +15,42 @@ export default function Animation({ title, label, images }) {
 		animation: true,
 	})
 
-	const frameCount = images.data.length
-	const initialImage = images.data[0].attributes.url
+	const frameCount = 65
+	const [scroll, setScroll] = useState(1)
+	const currentFrame = (index) =>
+		'animation/web-animation-' + index.toString().padStart(5, '0') + '.png'
 
-	const [scroll, setScroll] = useState(0)
-	const [currentFrame, setCurrentFrame] = useState(initialImage)
+	const preloadImages = () => {
+		for (let i = 1; i < frameCount; i++) {
+			var img = new Image()
+			img.src = currentFrame(i)
+		}
+	}
 
 	var component
 	var canvas
 	var context
-	var image
+
+	useEffect(() => {
+		preloadImages()
+	}, [])
 
 	useEffect(() => {
 		component = document.getElementById('component')
 		canvas = document.getElementById('animation-canvas')
 		context = canvas.getContext('2d')
-
 		canvas.width = 960
 		canvas.height = 540
 
-		context.fillStyle = '#7cce2b'
-		context.fillRect(0, 0, 300, 100)
-
-		const image = () => {
-			return (
-				<Image
-					src={currentFrame}
-					width={1158}
-					height={770}
-					onLoad={(event) => {
-						context.drawImage(img, 0, 0)
-					}}
-				/>
-			)
+		var img = new Image()
+		img.src = currentFrame(scroll)
+		img.onload = function () {
+			context.drawImage(img, 0, 0)
 		}
 	})
 
-	useEffect(() => {
-		setCurrentFrame(images.data[scroll].attributes.url)
-		console.log('scroll event', scroll)
-	}, [scroll])
-
-	// const preloadImages = () => {
-	// 	for (let i = 1; i < frameCount; i++) {
-	// 		const img = new Image(
-	// 			(src = { currentFrame }),
-	// 			(loader = { testLoader }),
-	// 			(width = '1158'),
-	// 			(height = '770')
-	// 		)
-	// 		img.src = currentFrame(i)
-	// 	}
-	// }
-
-	// preloadImages()
-
 	const scrollEvent = () => {
+		component = document.getElementById('component')
 		const scrollTop = component.scrollTop
 		const maxScrollTop = component.scrollHeight - window.innerHeight
 		const scrollFraction = scrollTop / maxScrollTop
@@ -78,12 +59,13 @@ export default function Animation({ title, label, images }) {
 			Math.ceil(scrollFraction * frameCount)
 		)
 
-		requestAnimationFrame(() => setScroll(frameIndex))
+		requestAnimationFrame(() => {
+			setScroll(frameIndex + 1)
+		})
 	}
 
 	return (
 		<BlockWrapper id="component-wrapper">
-			Animation
 			<PartialHeading title={title} label={label} heading={'h2'} />
 			<div className={className} id="component" onScroll={scrollEvent}>
 				<div className={styles.wrapper}>
