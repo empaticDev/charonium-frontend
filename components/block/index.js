@@ -9,6 +9,7 @@ import BlockText from './text/text'
 import BlockShop from './shop/shop'
 import BlockCart from './cart/cart'
 import BlockMultiTextMedia from './multiTextMedia/multiTextMedia'
+import BlockAnimation from './animation/animation'
 
 export {
 	BlockWrapper,
@@ -22,4 +23,5 @@ export {
 	BlockShop,
 	BlockCart,
 	BlockMultiTextMedia,
+	BlockAnimation,
 }

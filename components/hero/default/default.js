@@ -31,9 +31,7 @@ export default function Default({ textBlock, content, ctas, image }) {
 						<div className={styles.curve1}></div>
 						<div className={styles.curve2}></div>
 					</div>
-					<div className={styles.image}>
-						{image ? '' : 'Hero Default image'}
-					</div>
+					<div className={styles.image}>{image ? '' : ''}</div>
 				</div>
 				<div className={styles.content}>
 					<PartialTextBlock {...textMediaProps} />
