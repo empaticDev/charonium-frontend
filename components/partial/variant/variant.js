@@ -20,7 +20,7 @@ export default function Variant({ variant, selected }) {
 	}
 
 	let imageClass = cx({
-		image: true,
+		variantimage: true,
 		notloaded: !imageLoaded,
 		loaded: imageLoaded,
 	})
@@ -36,17 +36,14 @@ export default function Variant({ variant, selected }) {
 				<div className={styles.title}>
 					<div className={styles.imagetext}>
 						<Image
-							className={styles.variantimage}
+							className={imageClass}
 							loader={shopifyLoader}
 							src={imageURL}
 							width={40}
 							height={40}
 							objectFit={'contain'}
-							onLoad={(event) => {
-								const target = event.target
-								if (target.src.indexOf('data:image/gif;base64') < 0) {
-									setImageLoaded(true)
-								}
+							onLoadingComplete={() => {
+								setImageLoaded(true)
 							}}
 						/>
 						<p>{variant.title}</p>

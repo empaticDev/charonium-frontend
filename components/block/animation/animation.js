@@ -7,7 +7,7 @@ import React from 'react'
 
 let cx = classNames.bind(styles)
 
-export default function Animation({ title, label, images }) {
+export default function Animation({ title, label, section }) {
 	let className = cx({
 		animation: true,
 	})
@@ -21,11 +21,16 @@ export default function Animation({ title, label, images }) {
 	var canvas
 	var context
 
+	var imagesPreloaded = []
+
 	const preloadImages = () => {
 		for (let i = 1; i < frameCount; i++) {
 			var img = new Image()
 			img.src = currentFrame(i)
+			imagesPreloaded.push(img)
 		}
+
+		console.log('preloading:', imagesPreloaded)
 	}
 
 	useEffect(() => {
@@ -62,31 +67,33 @@ export default function Animation({ title, label, images }) {
 	}
 
 	let zukunft = {
-		title: 'Die Zukunft des Vererbens',
+		title: section[0].title,
 		label: '3,7 mio Bitcoin für immer verloren',
-		content:
-			'Der Private Schlüssel repräsentiert die volle Kontrolle und das Eigentum an Kryptowährungen und sonstigen digitalen Vermögenswerten. Es ist essentiell, dass der Private Schlüssel unter keinen Umständen verloren geht.<p></p>CHARONIUM bietet die weltweit erste All-in-One-Lösung, die eine sichere Verwahrung und eine begleitende Auflösung der Erbschaft der digitaler Assets ermöglicht.',
+		content: section[0].text,
 		heading: 'h2',
 	}
 
 	let fragments = {
-		title: 'Charonium Fragments',
-		content:
-			'Der Private Schlüssel des Nutzers wird auf den CHARONIUM Fragments gespeichert. Jedes einzelne Teilstück wird an einem anderen, sicheren Ort aufbewahrt.<p></p>Das heißt, wir bieten die weltweit erste kundenspezifische Lösung der Auflösung von digitalen Assets zusammen mit einer Krypto Wallet ohne kompletten Ausfall bei Verlust eines Teil-Fragments.',
+		title: section[1].title,
+		content: section[1].text,
 		heading: 'h3',
 	}
 
 	let key = {
-		title: 'Save Your Key',
-		content:
-			'Der Seed Phrase (Backup Phrase) besteht aus Wörtern, die aus einer Liste mit 2048 Wörtern ausgewählt werden. Die richtigen Wörter, in der richtigen Reihenfolge , ermöglicht eine Wiederherstellung.<p></p>Jedes Wort entspricht einem vierstelligen numerischen Code. Diese 4-stelligen Codes werden in der entsprechenden Zeile auf dem feuerbeständigen, Edelstahl CHARONIUM Fragment verewigt, indem sie mit einem Meißel eingraviert werden.',
+		title: section[2].title,
+		content: section[2].text,
 		heading: 'h3',
 	}
 
 	let obolus = {
-		title: 'Save Your Key',
-		content:
-			'Der Seed Phrase (Backup Phrase) besteht aus Wörtern, die aus einer Liste mit 2048 Wörtern ausgewählt werden. Die richtigen Wörter, in der richtigen Reihenfolge , ermöglicht eine Wiederherstellung.<p></p>Jedes Wort entspricht einem vierstelligen numerischen Code. Diese 4-stelligen Codes werden in der entsprechenden Zeile auf dem feuerbeständigen, Edelstahl CHARONIUM Fragment verewigt, indem sie mit einem Meißel eingraviert werden.',
+		title: section[3].title,
+		content: section[3].text,
+		heading: 'h3',
+	}
+
+	let nft = {
+		title: section[4].title,
+		content: section[4].text,
 		heading: 'h3',
 	}
 
@@ -100,6 +107,15 @@ export default function Animation({ title, label, images }) {
 					</div>
 					<div className={(styles.textblock, styles.two)}>
 						<PartialTextBlock {...fragments} />
+					</div>
+					<div className={(styles.textblock, styles.three)}>
+						<PartialTextBlock {...key} />
+					</div>
+					<div className={(styles.textblock, styles.three)}>
+						<PartialTextBlock {...obolus} />
+					</div>
+					<div className={(styles.textblock, styles.three)}>
+						<PartialTextBlock {...nft} />
 					</div>
 				</div>
 			</div>

@@ -33,3 +33,7 @@
 	//styles
 	@apply absolute top-[90vh] pl-96;
 }
+
+.three {
+	@apply flex flex-row-reverse pt-[60vh];
+}
