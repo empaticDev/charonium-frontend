@@ -17,7 +17,7 @@
 }
 
 .header {
-	@apply sticky top-0 flex items-center justify-between px-6 py-4 bg-skin-bg text-2xl z-99;
+	@apply sticky top-0 flex items-center justify-between px-6 py-4 text-2xl z-99;
 
 	&--alternate {
 		@apply bg-skin-bg;
@@ -30,6 +30,10 @@
 		.menu__backdrop {
 			@apply opacity-80 pointer-events-auto;
 		}
+	}
+
+	@screen lg {
+		@apply bg-gradient-to-br from-contrast-50 via-transparent to-transparent;
 	}
 }
 

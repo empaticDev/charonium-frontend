@@ -11,3 +11,7 @@
 .cookie-overlay {
 	@apply w-full h-full bg-skin-bg opacity-50;
 }
+
+.main {
+	@apply snap-y;
+}
