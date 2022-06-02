@@ -9,8 +9,6 @@ const cookieMessage =
 function MyApp({ Component, pageProps }) {
 	const [cookies, setCookies] = useState(false)
 
-	console.log(cookies)
-
 	return (
 		<>
 			<div>
