@@ -9,9 +9,13 @@
 /* stylelint-enable no-invalid-position-at-import-rule */
 
 .cookie-overlay {
-	@apply w-full h-full bg-skin-bg opacity-50;
+	@apply w-screen h-screen fixed bg-skin-bg opacity-30 z-99;
 }
 
 .main {
 	@apply snap-y;
+}
+
+.hide {
+	@apply w-screen h-screen sticky bg-skin-bg opacity-50 z-99 hidden;
 }
