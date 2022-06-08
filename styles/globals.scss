@@ -8,6 +8,6 @@
 @import 'base/root';
 /* stylelint-enable no-invalid-position-at-import-rule */
 
-.main {
-	@apply snap-y;
+html {
+	scroll-snap-type: y proximity;
 }
