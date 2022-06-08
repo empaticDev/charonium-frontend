@@ -7,6 +7,8 @@ import React from 'react'
 
 let cx = classNames.bind(styles)
 
+var imagesPreloaded = []
+
 export default function Animation({ title, label, section }) {
 	let className = cx({
 		animation: true,
@@ -14,27 +16,31 @@ export default function Animation({ title, label, section }) {
 
 	const frameCount = 476
 	const [scroll, setScroll] = useState(1)
-	const currentFrame = (index) =>
+	const getFrame = (index) =>
 		'animation/web-animation-' + index.toString().padStart(5, '0') + '.png'
 
 	var component
 	var canvas
 	var context
 
-	var imagesPreloaded = []
-
 	const preloadImages = () => {
-		for (let i = 1; i < frameCount; i++) {
+		for (let i = 1; i <= frameCount; i++) {
 			var img = new Image()
-			img.src = currentFrame(i)
+			img.src = getFrame(i)
 			imagesPreloaded.push(img)
 		}
-
-		console.log('preloading:', imagesPreloaded)
 	}
 
 	useEffect(() => {
 		preloadImages()
+
+		component = document.getElementById('component')
+		canvas = document.getElementById('animation-canvas')
+		context = canvas.getContext('2d')
+		canvas.width = 960
+		canvas.height = 540
+
+		context.drawImage(imagesPreloaded[0], 0, 0)
 	}, [])
 
 	useEffect(() => {
@@ -44,11 +50,8 @@ export default function Animation({ title, label, section }) {
 		canvas.width = 960
 		canvas.height = 540
 
-		var img = new Image()
-		img.src = currentFrame(scroll)
-		img.onload = function () {
-			context.drawImage(img, 0, 0)
-		}
+		const frameIndex = Math.min(frameCount - 1, scroll)
+		context.drawImage(imagesPreloaded[frameIndex], 0, 0)
 	})
 
 	const scrollEvent = () => {

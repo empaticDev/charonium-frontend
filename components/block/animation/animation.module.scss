@@ -10,10 +10,14 @@
 	&::-webkit-scrollbar {
 		display: none;
 	}
+
+	scroll-snap-type: y mandatory;
 }
 
 .wrapper {
 	@apply h-[500vh] relative;
+
+	scroll-snap-type: y mandatory;
 }
 
 .mycanvas {
@@ -21,18 +25,45 @@
 }
 
 .textblock {
-	@apply relative z-99 w-9/10 max-w-7xl mx-auto;
+	@apply relative z-99 w-9/10 max-w-7xl mx-auto snap-center;
 }
 
 .one {
-	@apply absolute top-0 mx-auto pl-52;
+	@apply absolute top-0 mx-auto pl-20;
+
+	@screen md {
+		@apply absolute top-0 mx-auto pl-52;
+	}
 }
 
 .two {
-	//styles
-	@apply absolute top-[90vh] pl-96;
+	@apply absolute top-[95vw] pl-20;
+
+	@screen md {
+		@apply top-[75vw] pl-56;
+	}
+
+	@screen lg {
+		@apply top-[65vw] pl-96;
+	}
+
+	@screen xl {
+		@apply top-[55vw] pl-96;
+	}
 }
 
 .three {
-	@apply flex flex-row-reverse pt-[60vh];
+	@apply flex flex-row-reverse pt-[115vw];
+
+	@screen md {
+		@apply pt-[90vw];
+	}
+
+	@screen lg {
+		@apply pt-[70vw];
+	}
+
+	@screen xl {
+		@apply pt-[50vw];
+	}
 }
