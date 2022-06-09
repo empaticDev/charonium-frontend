@@ -1,9 +1,9 @@
 .animation {
-	@apply snap-start;
+	@apply snap-start relative;
 }
 
 .content {
-	@apply h-screen overflow-scroll;
+	@apply h-screen overflow-scroll relative;
 
 	scrollbar-width: none;
 
@@ -11,25 +11,35 @@
 		display: none;
 	}
 
-	scroll-snap-type: y mandatory;
+	scroll-snap-type: y proximity;
 }
 
 .wrapper {
 	@apply h-[500vh] relative;
 
-	scroll-snap-type: y mandatory;
+	@screen md {
+		@apply h-[500vh];
+	}
 }
 
 .mycanvas {
-	@apply sticky w-full h-[56vw] max-h-screen top-0 left-0 z-0;
+	@apply sticky w-full h-[56vw] max-h-screen top-[25vw] left-0 z-0;
+
+	@screen md {
+		@apply top-[10vw];
+	}
+
+	@screen lg {
+		@apply top-0;
+	}
 }
 
 .textblock {
-	@apply relative z-99 w-9/10 max-w-7xl mx-auto snap-center;
+	@apply w-9/10 max-w-7xl mx-auto z-40 duration-500;
 }
 
 .one {
-	@apply absolute top-0 mx-auto pl-20;
+	@apply absolute top-10 mx-auto pl-20 pt-16;
 
 	@screen md {
 		@apply absolute top-0 mx-auto pl-52;
@@ -37,33 +47,65 @@
 }
 
 .two {
-	@apply absolute top-[95vw] pl-20;
+	@apply absolute top-[125vw] pl-20;
 
 	@screen md {
-		@apply top-[75vw] pl-56;
+		@apply top-[80vw] pl-[20vw];
 	}
 
 	@screen lg {
-		@apply top-[65vw] pl-96;
+		@apply top-[65vw] pl-[20vw];
 	}
 
 	@screen xl {
-		@apply top-[55vw] pl-96;
+		@apply top-[55vw] pl-[30vw];
 	}
 }
 
 .three {
-	@apply flex flex-row-reverse pt-[115vw];
+	@apply relative pl-20 pt-[200vw];
 
 	@screen md {
-		@apply pt-[90vw];
+		@apply flex flex-row-reverse pr-20 pt-[90vw];
 	}
 
 	@screen lg {
-		@apply pt-[70vw];
+		@apply flex flex-row-reverse pr-20 pt-[60vw];
 	}
 
 	@screen xl {
-		@apply pt-[50vw];
+		@apply flex flex-row-reverse pr-20 pt-[35vw];
 	}
+}
+
+.rest {
+	@apply relative pl-20 pt-[125vw];
+
+	@screen md {
+		@apply flex flex-row-reverse pr-20 pt-[95vw];
+	}
+
+	@screen lg {
+		@apply flex flex-row-reverse pr-20 pt-[60vw];
+	}
+
+	@screen xl {
+		@apply flex flex-row-reverse pr-20 pt-[35vw];
+	}
+}
+
+.overlayt {
+	@apply absolute top-0 h-10 w-full z-99 bg-gradient-to-b from-bg to-transparent;
+}
+
+.overlayb {
+	@apply absolute bottom-0 h-10 w-full z-99 bg-gradient-to-t from-bg to-transparent;
+}
+
+.hidden {
+	@apply opacity-0;
+}
+
+.visible {
+	@apply opacity-100;
 }
