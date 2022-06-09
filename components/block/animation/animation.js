@@ -7,14 +7,16 @@ import React from 'react'
 
 let cx = classNames.bind(styles)
 
-export default function Animation({ title, label, images }) {
+var imagesPreloaded = []
+
+export default function Animation({ title, label, section }) {
 	let className = cx({
 		animation: true,
 	})
 
 	const frameCount = 476
 	const [scroll, setScroll] = useState(1)
-	const currentFrame = (index) =>
+	const getFrame = (index) =>
 		'animation/web-animation-' + index.toString().padStart(5, '0') + '.png'
 
 	var component
@@ -22,28 +24,49 @@ export default function Animation({ title, label, images }) {
 	var context
 
 	const preloadImages = () => {
-		for (let i = 1; i < frameCount; i++) {
+		for (let i = 1; i <= frameCount; i++) {
 			var img = new Image()
-			img.src = currentFrame(i)
+			img.src = getFrame(i)
+			imagesPreloaded.push(img)
 		}
 	}
 
 	useEffect(() => {
 		preloadImages()
-	}, [])
 
-	useEffect(() => {
 		component = document.getElementById('component')
 		canvas = document.getElementById('animation-canvas')
 		context = canvas.getContext('2d')
 		canvas.width = 960
 		canvas.height = 540
 
-		var img = new Image()
-		img.src = currentFrame(scroll)
-		img.onload = function () {
-			context.drawImage(img, 0, 0)
-		}
+		context.drawImage(imagesPreloaded[0], 0, 0)
+	}, [])
+
+	useEffect(() => {
+		console.log('frame:', scroll)
+
+		component = document.getElementById('component')
+		canvas = document.getElementById('animation-canvas')
+		context = canvas.getContext('2d')
+		canvas.width = 960
+		canvas.height = 540
+
+		const frameIndex = Math.min(frameCount - 1, scroll)
+		context.drawImage(imagesPreloaded[frameIndex], 0, 0)
+
+		var lingradB = context.createLinearGradient(0, 500, 0, 540)
+		var lingradT = context.createLinearGradient(0, 0, 0, 40)
+		lingradB.addColorStop(0, 'rgba(18,18,18,0)')
+		lingradB.addColorStop(1, 'rgba(18,18,18,1)')
+
+		lingradT.addColorStop(0, 'rgba(18,18,18,1)')
+		lingradT.addColorStop(1, 'rgba(18,18,18,0)')
+
+		context.fillStyle = lingradB
+		context.fillRect(0, 500, 960, 40)
+		context.fillStyle = lingradT
+		context.fillRect(0, 0, 960, 40)
 	})
 
 	const scrollEvent = () => {
@@ -62,47 +85,95 @@ export default function Animation({ title, label, images }) {
 	}
 
 	let zukunft = {
-		title: 'Die Zukunft des Vererbens',
+		title: section[0].title,
 		label: '3,7 mio Bitcoin für immer verloren',
-		content:
-			'Der Private Schlüssel repräsentiert die volle Kontrolle und das Eigentum an Kryptowährungen und sonstigen digitalen Vermögenswerten. Es ist essentiell, dass der Private Schlüssel unter keinen Umständen verloren geht.<p></p>CHARONIUM bietet die weltweit erste All-in-One-Lösung, die eine sichere Verwahrung und eine begleitende Auflösung der Erbschaft der digitaler Assets ermöglicht.',
+		content: section[0].text,
 		heading: 'h2',
 	}
 
+	let zukunftStyles = cx({
+		textblock: true,
+		one: true,
+		hidden: scroll <= 25 ? false : true,
+		visible: scroll < 25 ? true : false,
+	})
+
 	let fragments = {
-		title: 'Charonium Fragments',
-		content:
-			'Der Private Schlüssel des Nutzers wird auf den CHARONIUM Fragments gespeichert. Jedes einzelne Teilstück wird an einem anderen, sicheren Ort aufbewahrt.<p></p>Das heißt, wir bieten die weltweit erste kundenspezifische Lösung der Auflösung von digitalen Assets zusammen mit einer Krypto Wallet ohne kompletten Ausfall bei Verlust eines Teil-Fragments.',
+		title: section[1].title,
+		content: section[1].text,
 		heading: 'h3',
 	}
+
+	let fragmentsStyles = cx({
+		textblock: true,
+		two: true,
+		hidden: scroll > 30 && scroll < 90 ? false : true,
+		visible: scroll > 30 && scroll < 90 ? true : false,
+	})
 
 	let key = {
-		title: 'Save Your Key',
-		content:
-			'Der Seed Phrase (Backup Phrase) besteht aus Wörtern, die aus einer Liste mit 2048 Wörtern ausgewählt werden. Die richtigen Wörter, in der richtigen Reihenfolge , ermöglicht eine Wiederherstellung.<p></p>Jedes Wort entspricht einem vierstelligen numerischen Code. Diese 4-stelligen Codes werden in der entsprechenden Zeile auf dem feuerbeständigen, Edelstahl CHARONIUM Fragment verewigt, indem sie mit einem Meißel eingraviert werden.',
+		title: section[2].title,
+		content: section[2].text,
 		heading: 'h3',
 	}
 
+	let keyStyles = cx({
+		textblock: true,
+		three: true,
+		hidden: scroll > 100 && scroll < 160 ? false : true,
+		visible: scroll > 100 && scroll < 160 ? true : false,
+	})
+
 	let obolus = {
-		title: 'Save Your Key',
-		content:
-			'Der Seed Phrase (Backup Phrase) besteht aus Wörtern, die aus einer Liste mit 2048 Wörtern ausgewählt werden. Die richtigen Wörter, in der richtigen Reihenfolge , ermöglicht eine Wiederherstellung.<p></p>Jedes Wort entspricht einem vierstelligen numerischen Code. Diese 4-stelligen Codes werden in der entsprechenden Zeile auf dem feuerbeständigen, Edelstahl CHARONIUM Fragment verewigt, indem sie mit einem Meißel eingraviert werden.',
+		title: section[3].title,
+		content: section[3].text,
 		heading: 'h3',
 	}
+
+	let obolusStyles = cx({
+		textblock: true,
+		rest: true,
+		hidden: scroll > 210 && scroll < 300 ? false : true,
+		visible: scroll > 210 && scroll < 300 ? true : false,
+	})
+
+	let nft = {
+		title: section[4].title,
+		content: section[4].text,
+		heading: 'h3',
+	}
+
+	let nftStyles = cx({
+		textblock: true,
+		rest: true,
+		hidden: scroll > 320 && scroll < 400 ? false : true,
+		visible: scroll > 320 && scroll < 400 ? true : false,
+	})
 
 	return (
 		<div className={className} id="component-wrapper">
+			<div className={styles.overlayt}></div>
 			<div className={styles.content} id="component" onScroll={scrollEvent}>
 				<div className={styles.wrapper}>
 					<canvas className={styles.mycanvas} id="animation-canvas"></canvas>
-					<div className={(styles.textblock, styles.one)}>
+					<div className={zukunftStyles}>
 						<PartialTextBlock {...zukunft} />
 					</div>
-					<div className={(styles.textblock, styles.two)}>
+					<div className={fragmentsStyles}>
 						<PartialTextBlock {...fragments} />
+					</div>
+					<div className={keyStyles}>
+						<PartialTextBlock {...key} />
+					</div>
+					<div className={obolusStyles}>
+						<PartialTextBlock {...obolus} />
+					</div>
+					<div className={nftStyles}>
+						<PartialTextBlock {...nft} />
 					</div>
 				</div>
 			</div>
+			<div className={styles.overlayb}></div>
 		</div>
 	)
 }
