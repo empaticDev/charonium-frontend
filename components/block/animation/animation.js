@@ -1,5 +1,7 @@
 import classNames from 'classnames/bind'
 import styles from './animation.module.scss'
+import NextImage from 'next/image'
+// import mobileImage from '../../../public/animation/web-animation-00476.png'
 
 import { PartialHeading, PartialTextBlock } from '@components/partial'
 import { useEffect, useState } from 'react'
@@ -9,10 +11,18 @@ let cx = classNames.bind(styles)
 
 var imagesPreloaded = []
 
-export default function Animation({ title, label, section }) {
+export default function Animation({ title, label, section, mobileImage }) {
+	const [mobileImageLoaded, setMobileImageLoaded] = useState(false)
+
 	let className = cx({
 		animation: true,
 	})
+
+	let imageURL = ''
+
+	if (mobileImage.data != null) {
+		imageURL = mobileImage.data.attributes.url
+	}
 
 	const frameCount = 476
 	const [scroll, setScroll] = useState(1)
@@ -133,8 +143,8 @@ export default function Animation({ title, label, section }) {
 	let obolusStyles = cx({
 		textblock: true,
 		rest: true,
-		hidden: scroll > 210 && scroll < 300 ? false : true,
-		visible: scroll > 210 && scroll < 300 ? true : false,
+		hidden: scroll > 190 && scroll < 280 ? false : true,
+		visible: scroll > 190 && scroll < 280 ? true : false,
 	})
 
 	let nft = {
@@ -146,8 +156,14 @@ export default function Animation({ title, label, section }) {
 	let nftStyles = cx({
 		textblock: true,
 		rest: true,
-		hidden: scroll > 320 && scroll < 400 ? false : true,
-		visible: scroll > 320 && scroll < 400 ? true : false,
+		hidden: scroll > 300 && scroll < 380 ? false : true,
+		visible: scroll > 300 && scroll < 380 ? true : false,
+	})
+
+	let imageClass = cx({
+		mobileimage: true,
+		notloaded: !mobileImageLoaded,
+		loaded: mobileImageLoaded,
 	})
 
 	return (
@@ -167,6 +183,16 @@ export default function Animation({ title, label, section }) {
 					<canvas className={styles.mycanvas} id="animation-canvas"></canvas>
 					<div className={zukunftStyles}>
 						<PartialTextBlock {...zukunft} />
+					</div>
+					<div className={imageClass}>
+						<NextImage
+							className={styles.staticimage}
+							src={imageURL}
+							layout={'fill'}
+							onLoadingComplete={() => {
+								setMobileImageLoaded(true)
+							}}
+						/>
 					</div>
 					<div className={fragmentsStyles}>
 						<PartialTextBlock {...fragments} />
