@@ -181,9 +181,6 @@ export default function Animation({ title, label, section, mobileImage }) {
 			<div className={styles.content} id="component" onScroll={scrollEvent}>
 				<div className={styles.wrapper}>
 					<canvas className={styles.mycanvas} id="animation-canvas"></canvas>
-					<div className={zukunftStyles}>
-						<PartialTextBlock {...zukunft} />
-					</div>
 					<div className={imageClass}>
 						<NextImage
 							className={styles.staticimage}
@@ -193,6 +190,9 @@ export default function Animation({ title, label, section, mobileImage }) {
 								setMobileImageLoaded(true)
 							}}
 						/>
+					</div>
+					<div className={zukunftStyles}>
+						<PartialTextBlock {...zukunft} />
 					</div>
 					<div className={fragmentsStyles}>
 						<PartialTextBlock {...fragments} />

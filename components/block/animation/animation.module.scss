@@ -23,7 +23,7 @@
 }
 
 .mycanvas {
-	@apply invisible md__visible sticky w-full h-[56vw] max-h-screen top-[-100vh] left-0 z-0;
+	@apply invisible md__visible sticky w-full h-[56vw] max-h-screen -top-[100vh] left-0 z-0;
 
 	@screen md {
 		@apply top-[10vw];
@@ -35,7 +35,7 @@
 }
 
 .mobileimage {
-	@apply visible md__invisible relative w-full h-[56vw] max-h-screen z-0;
+	@apply visible md__invisible sticky w-full h-[56vw] top-[10vh] max-h-screen z-0;
 }
 
 .notloaded {
@@ -63,7 +63,7 @@
 }
 
 .two {
-	@apply relative md__absolute top-[125vw] pl-20;
+	@apply relative md__absolute top-[105vw] pl-20;
 
 	@screen md {
 		@apply top-[80vw] pl-[20vw];
@@ -79,7 +79,7 @@
 }
 
 .three {
-	@apply relative md__absolute pl-20 pt-[120vw];
+	@apply relative md__absolute pl-20 top-[185vw];
 
 	@screen md {
 		@apply flex flex-row-reverse top-[15vw];
@@ -95,7 +95,7 @@
 }
 
 .rest {
-	@apply relative pl-20 pt-[100vw];
+	@apply relative pl-20 top-[185vw] pt-[80vw];
 
 	@screen md {
 		@apply flex flex-row-reverse pr-20 pt-[105vw];
