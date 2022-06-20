@@ -41,7 +41,7 @@
 }
 
 .asterisk {
-	@apply flex flex-row items-center gap-1;
+	@apply flex flex-col sm__flex-row items-center gap-1;
 
 	> svg {
 		@apply w-10 h-5;
