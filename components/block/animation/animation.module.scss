@@ -109,3 +109,31 @@
 .visible {
 	@apply opacity-100;
 }
+
+.graphic {
+	@apply absolute z-0 -left-[20vw] -top-[15vw];
+	> svg {
+		@apply fill-bg;
+
+		filter: drop-shadow(-2rem -2rem 4rem #015b88); // brand-600
+	}
+}
+
+// .one {
+// 	@apply -left-[20vw] -top-[15vw];
+// }
+
+// .two {
+// 	@apply -right-[12vw] -top-[20vw];
+// 	> svg {
+// 		transform: scaleX(-1);
+// 	}
+// }
+
+// .three {
+// 	@apply -right-[12vw] -top-[10vw];
+
+// 	> svg {
+// 		transform: rotate(150deg);
+// 	}
+// }
