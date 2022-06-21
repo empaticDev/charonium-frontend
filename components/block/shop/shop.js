@@ -115,7 +115,7 @@ export default function Shop({
 										checked={selectedProduct === index}
 										onClick={() => {
 											setSelectedProduct(index)
-											setCurrentPrice(cart.totalPrice)
+											cart && setCurrentPrice(cart.totalPrice)
 											setSelectedVariant(-1)
 											setAddedToCart('no')
 											document.getElementById('variantlist').scrollIntoView()
@@ -199,11 +199,13 @@ export default function Shop({
 											checked={selectedVariant === index}
 											onClick={() => {
 												setSelectedVariant(index)
-												setCurrentPrice(
-													(
-														parseInt(cart.totalPrice) + parseInt(variant.price)
-													).toFixed(2)
-												)
+												cart &&
+													setCurrentPrice(
+														(
+															parseInt(cart.totalPrice) +
+															parseInt(variant.price)
+														).toFixed(2)
+													)
 											}}
 											id={variant.id}
 										/>
