@@ -42,34 +42,35 @@ export default function Shop({
 	let initialCartPrice = 0
 
 	useEffect(() => {
-		getCartRemote(checkoutId).then((cart) => {
-			setCart(cart)
-			try {
-				initialCartPrice = cart.totalPrice
-				setCurrentPrice(cart.totalPrice)
-			} catch (error) {
-				console.log('no cart yet')
-			}
-		})
+		checkoutId &&
+			getCartRemote(checkoutId).then((cart) => {
+				setCart(cart)
+				try {
+					initialCartPrice = cart.totalPrice
+					setCurrentPrice(cart.totalPrice)
+				} catch (error) {
+					console.log('no cart yet')
+				}
+			})
 	}, [cartUpdated])
 
 	const addToCart = async () => {
-		try {
-			const product = products[selectedProduct]
-			const variant = product.variants[selectedVariant]
+		const product = products[selectedProduct]
+		const variant = product.variants[selectedVariant]
 
-			addProductToCart([
+		try {
+			await addProductToCart([
 				{
 					variantId: variant.id,
 					quantity: 1,
 				},
-			]).then(() => {
-				setAddedToCart('Added to Cart!')
-				setCartUpdated(cartUpdated + 1)
-				setSelectedProduct(-1)
-			})
+			])
+			console.log('add to cart - await', cart)
+			setAddedToCart('Added to Cart!')
+			setCartUpdated(cartUpdated + 1)
+			setSelectedProduct(-1)
 		} catch (error) {
-			setAddedToCart('Error adding to cart')
+			setAddedToCart('Sorry, there was an error adding to cart.')
 			console.log('Error adding to cart (shop.js)', error)
 		}
 	}
@@ -95,7 +96,7 @@ export default function Shop({
 
 	return (
 		<BlockWrapper id={id} anchor={anchor} decoration={decoration}>
-			<div className={className}>
+			<div className={className} id={'shop-commponent'}>
 				<div className={styles.image}>image</div>
 				<div className={styles.content}>
 					<PartialTextBlock
@@ -244,7 +245,14 @@ export default function Shop({
 											</p>
 										</div>
 										<div className={styles.buttonwrapper}>
-											<div className={styles.pseudobutton} onClick={addToCart}>
+											<div
+												className={styles.pseudobutton}
+												onClick={() => {
+													addToCart()
+													document
+														.getElementById('shop-commponent')
+														.scrollIntoView()
+												}}>
 												<PartialButton label={'Add to Cart'} />
 											</div>
 											{addedToCart != 'no' ? addedToCart : ''}

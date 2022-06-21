@@ -24,12 +24,13 @@ export default function Cart({ header, content }) {
 	const [loading, setLoading] = useState(false)
 
 	useEffect(() => {
-		getCartRemote(checkoutId).then((checkout) => {
-			setProductList(checkout.lineItems)
-			setCost(checkout.totalPrice)
-			setCartLoaded(true)
-			setLoading(false)
-		})
+		checkoutId &&
+			getCartRemote(checkoutId).then((checkout) => {
+				setProductList(checkout.lineItems)
+				setCost(checkout.totalPrice)
+				setCartLoaded(true)
+				setLoading(false)
+			})
 	}, [updated])
 
 	function increase(id, quantity) {
@@ -101,7 +102,7 @@ export default function Cart({ header, content }) {
 					/>
 				</div>
 
-				{cartLoaded && (
+				{cartLoaded ? (
 					<div className={styles.products}>
 						{productList.length > 0 ? (
 							<>
@@ -207,6 +208,12 @@ export default function Cart({ header, content }) {
 								/>
 							</div>
 						)}
+					</div>
+				) : (
+					<div className={styles.emptycart}>
+						<p>Your cart is empty.</p>
+						<p>Return to the homepage to continue shopping.</p>
+						<PartialButton label={'Home'} type={'internal'} page={homePage} />
 					</div>
 				)}
 			</div>

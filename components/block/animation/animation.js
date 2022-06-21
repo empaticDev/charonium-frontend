@@ -54,8 +54,6 @@ export default function Animation({ title, label, section, mobileImage }) {
 	}, [])
 
 	useEffect(() => {
-		console.log('frame:', scroll)
-
 		component = document.getElementById('component')
 		canvas = document.getElementById('animation-canvas')
 		context = canvas.getContext('2d')
