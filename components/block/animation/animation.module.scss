@@ -1,5 +1,5 @@
 .animation {
-	@apply snap-start relative;
+	@apply snap-start relative overflow-x-clip;
 }
 
 .content {
