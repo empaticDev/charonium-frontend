@@ -24,7 +24,7 @@ export default function Animation({ title, label, section, mobileImage }) {
 		imageURL = mobileImage.data.attributes.url
 	}
 
-	const frameCount = 476
+	const frameCount = 477
 	const [scroll, setScroll] = useState(1)
 	const getFrame = (index) =>
 		'animation/web-animation-' + index.toString().padStart(5, '0') + '.png'
@@ -128,8 +128,8 @@ export default function Animation({ title, label, section, mobileImage }) {
 	let keyStyles = cx({
 		textblock: true,
 		three: true,
-		hidden: scroll > 100 && scroll < 160 ? false : true,
-		visible: scroll > 100 && scroll < 160 ? true : false,
+		hidden: scroll > 120 && scroll < 180 ? false : true,
+		visible: scroll > 120 && scroll < 180 ? true : false,
 	})
 
 	let obolus = {
