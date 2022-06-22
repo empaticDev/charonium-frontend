@@ -49,26 +49,41 @@
 }
 
 .taxinfo {
-	@apply flex flex-row gap-4 justify-end max-w-lg justify-items-center items-center;
+	@apply flex flex-col gap-4 max-w-lg justify-items-end items-center pt-8;
+	> * {
+		@apply w-full;
+	}
 }
 
 .tax {
 	@apply flex flex-row justify-end gap-8 max-w-lg text-lg text-contrast-700 italic;
 	> p {
-		@apply text-right;
+		@apply text-right font-normal text-base;
 	}
 }
 
 .itemtotal {
-	@apply flex flex-row justify-end gap-8 max-w-lg text-xl hidden;
-	> p {
+	@apply flex flex-row justify-end gap-4 max-w-lg text-xl;
+	> :last-child {
 		@apply w-20 text-right;
 	}
 }
 
+.addtocart {
+	@apply flex flex-row gap-4 items-center justify-end;
+}
+
 .currentcart {
-	@apply flex flex-row justify-end gap-6 max-w-lg text-2xl;
+	@apply flex flex-row justify-end gap-4 max-w-lg text-2xl;
 	> p {
 		@apply text-right pt-8;
 	}
+
+	> :last-child {
+		@apply w-20;
+	}
+}
+
+.disclaimer {
+	@apply flex flex-row justify-end gap-6 max-w-lg text-base -mt-3 font-normal;
 }

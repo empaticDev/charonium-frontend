@@ -228,17 +228,6 @@ export default function Shop({
 										''
 									) : (
 										<div className={styles.taxinfo}>
-											<div className={styles.tax}>
-												<p>Taxes included</p>
-												{/* <p>Included Taxes:</p>
-												<p>
-													€
-													{(
-														products[selectedProduct].variants[selectedVariant]
-															.price * vat
-													).toFixed(2)}
-												</p> */}
-											</div>
 											<div className={styles.itemtotal}>
 												<p>Item total:</p>
 												<p>
@@ -249,7 +238,10 @@ export default function Shop({
 													}
 												</p>
 											</div>
-											<div>
+											<div className={styles.addtocart}>
+												<div className={styles.tax}>
+													<p>Taxes included</p>
+												</div>
 												<div
 													className={styles.pseudobutton}
 													onClick={() => {
@@ -260,7 +252,6 @@ export default function Shop({
 													}}>
 													<PartialButton label={'Add to Cart'} />
 												</div>
-												{addedToCart != 'no' ? addedToCart : ''}
 											</div>
 										</div>
 									)}
@@ -305,6 +296,9 @@ export default function Shop({
 											page={cartPage}
 										/>
 									</div>
+									<p className={styles.disclaimer}>
+										Tax and shipping will be calculated at checkout.
+									</p>
 								</>
 							)}
 						</div>
