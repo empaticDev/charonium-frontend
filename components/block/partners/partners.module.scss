@@ -15,7 +15,15 @@
 }
 
 .lower {
-	@apply flex flex-col md__flex-row mt-20;
+	@apply flex flex-col-reverse md__flex-row mt-20;
+}
+
+.image {
+	@apply relative w-[60%] pt-[60%] mt-12 mx-auto;
+
+	@screen md {
+		@apply w-[30%] pt-[30%] mx-24;
+	}
 }
 
 .listtitle {
@@ -24,8 +32,4 @@
 
 .ctawrapper {
 	@apply mt-16 w-fit cursor-pointer;
-}
-
-.placeholder {
-	@apply w-1/2;
 }

@@ -15,3 +15,11 @@
 		@apply flex flex-row-reverse;
 	}
 }
+
+.image {
+	@apply relative w-full h-screen max-h-[50vw] mb-12;
+
+	@screen md {
+		@apply w-1/2 max-h-[30vw] m-12;
+	}
+}

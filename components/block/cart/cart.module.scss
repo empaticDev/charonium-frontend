@@ -15,6 +15,10 @@
 	}
 }
 
+.productrow {
+	@apply text-xl;
+}
+
 .productlabel {
 	@apply flex justify-items-center gap-4;
 
@@ -31,8 +35,12 @@
 	}
 
 	&__image {
-		@apply w-8 h-8 relative;
+		@apply w-12 h-12 relative mt-2;
 	}
+}
+
+.remove {
+	@apply text-base;
 }
 
 .centered {
@@ -48,11 +56,11 @@
 }
 
 .total {
-	@apply font-heading uppercase text-sm text-center;
+	@apply font-heading uppercase text-lg text-center;
 }
 
 .buttons {
-	@apply max-w-3xl flex flex-row justify-end my-8 gap-8;
+	@apply max-w-3xl flex flex-row justify-end my-8 gap-12;
 
 	> .pseudobutton {
 		@apply cursor-pointer;
@@ -63,4 +71,8 @@
 	> p {
 		@apply my-4;
 	}
+}
+
+.disclaimer {
+	@apply max-w-3xl flex flex-row justify-end my-8 gap-12 font-normal;
 }

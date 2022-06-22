@@ -85,7 +85,6 @@ export default function Cart({ header, content }) {
 		},
 	}
 
-	// variant image: image: {id: "gid://shopify/ProductImage/33251377971425", src: "https://cdn.shopify.com/s/files/1/0606/6362/8001/products/bronze1.png?v=1635241995", altText: null, width: 1920, height: 1080, …}
 	const shopifyLoader = ({ src, width, quality }) => {
 		return `${src}?w=${width}&q=${quality || 75}`
 	}
@@ -160,9 +159,12 @@ export default function Cart({ header, content }) {
 													€{product.variant.price}
 												</td>
 												<td className={styles.centered}>
-													€{product.variant.price * product.quantity}
+													€
+													{(product.variant.price * product.quantity).toFixed(
+														2
+													)}
 												</td>
-												<td>
+												<td className={styles.remove}>
 													<button
 														disabled={loading}
 														className={styles.deleteButton}
@@ -177,7 +179,7 @@ export default function Cart({ header, content }) {
 										<tr className={styles.total}>
 											<td></td>
 											<td></td>
-											<td>Total</td>
+											<td>Subtotal</td>
 											<td>€{cost}</td>
 											<td></td>
 										</tr>
@@ -187,7 +189,7 @@ export default function Cart({ header, content }) {
 									<PartialButton
 										label={'Continue Shopping'}
 										type={'internal'}
-										secondary={true}
+										style={'Secondary'}
 										page={homePage}
 									/>
 									<div
@@ -195,6 +197,12 @@ export default function Cart({ header, content }) {
 										onClick={() => handleCheckout()}>
 										<PartialButton label={'Checkout Now'} />
 									</div>
+								</div>
+								<div className={styles.disclaimer}>
+									<p>
+										All products include tax, however the exact tax and shipping
+										will be calculated at checkout.
+									</p>
 								</div>
 							</>
 						) : (

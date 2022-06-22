@@ -1,5 +1,7 @@
 import classNames from 'classnames/bind'
 import styles from './partners.module.scss'
+import Image from 'next/image'
+import { useState } from 'react'
 
 import { BlockWrapper } from '@components/block'
 import { PartialTextBlock } from '@components/partial'
@@ -24,9 +26,23 @@ export default function Partners({
 	list,
 	cta,
 	decoration,
+	image,
 }) {
 	let className = cx({
 		partners: true,
+	})
+
+	const [imageLoaded, setImageLoaded] = useState(false)
+	let imageURL = ''
+
+	if (image.data != null) {
+		imageURL = image.data.attributes.url
+	}
+
+	let imageClass = cx({
+		image: true,
+		notloaded: !imageLoaded,
+		loaded: imageLoaded,
 	})
 
 	let textBlockProps = {
@@ -60,7 +76,17 @@ export default function Partners({
 				</div>
 				<PartialTextBlock {...textBlockB} />
 				<div className={styles.lower}>
-					<div className={styles.placeholder}>image</div>
+					<div className={imageClass}>
+						{image && (
+							<Image
+								src={imageURL}
+								layout={'fill'}
+								onLoadingComplete={() => {
+									setImageLoaded(true)
+								}}
+							/>
+						)}
+					</div>
 					<div className={styles.list}>
 						{listTitle && <div className={styles.listtitle}>{listTitle}</div>}
 						<ul>{list && <SharedPartialManager partials={list} />}</ul>

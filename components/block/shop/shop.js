@@ -4,6 +4,7 @@ import { addProductToCart, getCartRemote } from '../../../lib/cart'
 import classNames from 'classnames/bind'
 import styles from './shop.module.scss'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 import { BlockWrapper } from '@components/block'
 import {
@@ -24,10 +25,24 @@ export default function Shop({
 	decoration,
 	id,
 	anchor,
+	image,
 }) {
 	let className = cx({
 		shop: true,
 		right: true, // align it to the right
+	})
+
+	const [imageLoaded, setImageLoaded] = useState(false)
+	let imageURL = ''
+
+	if (image.data != null) {
+		imageURL = image.data.attributes.url
+	}
+
+	let imageClass = cx({
+		image: true,
+		notloaded: !imageLoaded,
+		loaded: imageLoaded,
 	})
 
 	const [selectedProduct, setSelectedProduct] = useState(-1) // out of range so none selected by default
@@ -97,7 +112,17 @@ export default function Shop({
 	return (
 		<BlockWrapper id={id} anchor={anchor} decoration={decoration}>
 			<div className={className} id={'shop-commponent'}>
-				<div className={styles.image}>image</div>
+				<div className={imageClass}>
+					{image && (
+						<Image
+							src={imageURL}
+							layout={'fill'}
+							onLoadingComplete={() => {
+								setImageLoaded(true)
+							}}
+						/>
+					)}
+				</div>
 				<div className={styles.content}>
 					<PartialTextBlock
 						title={header.title}
@@ -228,17 +253,6 @@ export default function Shop({
 										''
 									) : (
 										<div className={styles.taxinfo}>
-											<div className={styles.tax}>
-												<p>Taxes included</p>
-												{/* <p>Included Taxes:</p>
-												<p>
-													€
-													{(
-														products[selectedProduct].variants[selectedVariant]
-															.price * vat
-													).toFixed(2)}
-												</p> */}
-											</div>
 											<div className={styles.itemtotal}>
 												<p>Item total:</p>
 												<p>
@@ -249,7 +263,10 @@ export default function Shop({
 													}
 												</p>
 											</div>
-											<div>
+											<div className={styles.addtocart}>
+												<div className={styles.tax}>
+													<p>Taxes included</p>
+												</div>
 												<div
 													className={styles.pseudobutton}
 													onClick={() => {
@@ -260,7 +277,6 @@ export default function Shop({
 													}}>
 													<PartialButton label={'Add to Cart'} />
 												</div>
-												{addedToCart != 'no' ? addedToCart : ''}
 											</div>
 										</div>
 									)}
@@ -305,6 +321,9 @@ export default function Shop({
 											page={cartPage}
 										/>
 									</div>
+									<p className={styles.disclaimer}>
+										Tax and shipping will be calculated at checkout.
+									</p>
 								</>
 							)}
 						</div>
