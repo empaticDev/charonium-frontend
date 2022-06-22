@@ -4,6 +4,7 @@ import { addProductToCart, getCartRemote } from '../../../lib/cart'
 import classNames from 'classnames/bind'
 import styles from './shop.module.scss'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 import { BlockWrapper } from '@components/block'
 import {
@@ -24,10 +25,24 @@ export default function Shop({
 	decoration,
 	id,
 	anchor,
+	image,
 }) {
 	let className = cx({
 		shop: true,
 		right: true, // align it to the right
+	})
+
+	const [imageLoaded, setImageLoaded] = useState(false)
+	let imageURL = ''
+
+	if (image.data != null) {
+		imageURL = image.data.attributes.url
+	}
+
+	let imageClass = cx({
+		image: true,
+		notloaded: !imageLoaded,
+		loaded: imageLoaded,
 	})
 
 	const [selectedProduct, setSelectedProduct] = useState(-1) // out of range so none selected by default
@@ -97,7 +112,17 @@ export default function Shop({
 	return (
 		<BlockWrapper id={id} anchor={anchor} decoration={decoration}>
 			<div className={className} id={'shop-commponent'}>
-				<div className={styles.image}>image</div>
+				<div className={imageClass}>
+					{image && (
+						<Image
+							src={imageURL}
+							layout={'fill'}
+							onLoadingComplete={() => {
+								setImageLoaded(true)
+							}}
+						/>
+					)}
+				</div>
 				<div className={styles.content}>
 					<PartialTextBlock
 						title={header.title}

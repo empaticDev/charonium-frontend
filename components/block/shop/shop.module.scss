@@ -2,14 +2,18 @@
 	@apply flex flex-col md__flex-row;
 }
 
+.image {
+	@apply relative hidden;
+
+	@screen md {
+		@apply w-[50%] pt-[50%] m-12 inline-block;
+	}
+}
+
 .radios {
 	> input {
 		@apply hidden;
 	}
-}
-
-.image {
-	@apply w-full md__w-1/2;
 }
 
 .content {

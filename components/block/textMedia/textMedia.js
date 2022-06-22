@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from './style.module.scss'
 import { BlockWrapper } from '@components/block'
 import { PartialTextBlock } from '@components/partial'
+import { useState } from 'react'
 
 let cx = classNames.bind(styles)
 
@@ -17,7 +18,6 @@ export default function TextMedia({
 	ctas,
 	alignment,
 	image,
-	noimage,
 	decoration,
 }) {
 	let className = cx({
@@ -33,10 +33,18 @@ export default function TextMedia({
 		ctas: ctas,
 	}
 
-	// todo image data from api + add to api
-	// if (image.data != null) {
-	// 	imageURL = image.data.attributes.url
-	// }
+	const [imageLoaded, setImageLoaded] = useState(false)
+	let imageURL = ''
+
+	if (image.data != null) {
+		imageURL = image.data.attributes.url
+	}
+
+	let imageClass = cx({
+		image: true,
+		notloaded: !imageLoaded,
+		loaded: imageLoaded,
+	})
 
 	return (
 		<BlockWrapper
@@ -45,7 +53,17 @@ export default function TextMedia({
 			anchor={anchor}
 			decoration={decoration}>
 			<div className={className}>
-				<div>{noimage ? '' : 'image'}</div>
+				<div className={imageClass}>
+					{image && (
+						<Image
+							src={imageURL}
+							layout={'fill'}
+							onLoadingComplete={() => {
+								setImageLoaded(true)
+							}}
+						/>
+					)}
+				</div>
 				<PartialTextBlock {...textMediaProps} />
 			</div>
 		</BlockWrapper>
