@@ -8,6 +8,14 @@
 @import 'base/root';
 /* stylelint-enable no-invalid-position-at-import-rule */
 
+.cookie-overlay {
+	@apply w-screen h-screen fixed bg-skin-bg opacity-30 z-99;
+}
+
 html {
 	scroll-snap-type: y proximity;
+}
+
+.hide {
+	@apply w-screen h-screen sticky bg-skin-bg opacity-50 z-99 hidden;
 }
