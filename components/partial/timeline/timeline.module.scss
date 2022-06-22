@@ -7,10 +7,15 @@
 	@screen md {
 		@apply justify-start overflow-y-auto;
 	}
+
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
 }
 
 .list {
-	//styles here
 	@apply relative inline-flex flex-col;
 
 	@screen md {

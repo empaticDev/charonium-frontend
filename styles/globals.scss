@@ -12,8 +12,8 @@
 	@apply w-screen h-screen fixed bg-skin-bg opacity-30 z-99;
 }
 
-.main {
-	@apply snap-y;
+html {
+	scroll-snap-type: y proximity;
 }
 
 .hide {

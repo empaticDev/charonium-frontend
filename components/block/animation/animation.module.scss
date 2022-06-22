@@ -1,35 +1,144 @@
 .animation {
-	// add styles here
-	@apply snap-start;
+	@apply snap-start relative overflow-x-clip;
 }
 
 .content {
-	@apply h-screen overflow-scroll;
+	@apply h-screen overflow-scroll relative;
 
 	scrollbar-width: none;
 
 	&::-webkit-scrollbar {
 		display: none;
 	}
+
+	scroll-snap-type: y proximity;
 }
 
 .wrapper {
 	@apply h-[500vh] relative;
+
+	@screen md {
+		@apply h-[500vh];
+	}
 }
 
 .mycanvas {
-	@apply sticky w-full h-full max-h-screen top-0 left-0 z-0;
+	@apply invisible md__visible md__sticky w-full h-[56vw] max-h-screen -top-[200vh] left-0 z-0;
+
+	@screen md {
+		@apply top-[10vw];
+	}
+
+	@screen lg {
+		@apply top-0;
+	}
+}
+
+.mobileimage {
+	@apply visible md__invisible sticky w-full h-[56vw] top-[17vw] max-h-screen z-0;
+}
+
+.notloaded {
+	.staticimage {
+		@apply opacity-0 transition-all duration-1000;
+	}
+}
+
+.loaded {
+	.staticimage {
+		@apply opacity-100 transition-all duration-1000;
+	}
 }
 
 .textblock {
-	@apply relative z-99 w-9/10 max-w-7xl mx-auto;
+	@apply w-9/10 max-w-7xl mx-auto z-40 duration-500;
 }
 
 .one {
-	@apply absolute top-0 mx-auto pl-52;
+	@apply relative md__absolute mx-auto pl-20 pt-16;
+
+	@screen md {
+		@apply absolute top-0 mx-auto pl-52;
+	}
 }
 
 .two {
-	//styles
-	@apply absolute top-[90vh] pl-96;
+	@apply relative md__absolute top-[105vw] pl-20;
+
+	@screen md {
+		@apply top-[80vw] pl-[20vw];
+	}
+
+	@screen lg {
+		@apply top-[65vw] pl-[20vw];
+	}
+
+	@screen xl {
+		@apply top-[55vw] pl-[30vw];
+	}
+}
+
+.three {
+	@apply relative pl-20 top-[185vw];
+
+	@screen md {
+		@apply flex flex-row-reverse top-0 pt-[55vw];
+	}
+
+	@screen lg {
+		@apply pt-[20vw];
+	}
+
+	@screen xl {
+		@apply -top-[5vw] pt-[5vw];
+	}
+
+	@screen 2xl {
+		@apply -top-[25vw];
+	}
+}
+
+.rest {
+	@apply relative pl-20 top-[185vw] pt-[80vw];
+
+	@screen md {
+		@apply flex flex-row-reverse pr-20 top-20 pt-[55vw];
+	}
+
+	@screen lg {
+		@apply top-20 pt-[55vw];
+	}
+
+	@screen xl {
+		@apply -top-[5vw] pt-[35vw];
+	}
+
+	@screen 2xl {
+		@apply -top-[25vw];
+	}
+}
+
+.overlayt {
+	@apply absolute top-0 h-10 w-full z-99 bg-gradient-to-b from-bg to-transparent;
+}
+
+.overlayb {
+	@apply absolute bottom-0 h-10 w-full z-99 bg-gradient-to-t from-bg to-transparent;
+}
+
+.hidden {
+	@apply md__opacity-0;
+}
+
+.visible {
+	@apply opacity-100;
+}
+
+.graphic {
+	@apply absolute z-0 -right-[12vw] -top-[20vw];
+	> svg {
+		@apply fill-bg;
+		filter: drop-shadow(-2rem -2rem 4rem #015b88); // brand-600
+		transform: scaleX(-1);
+	}
 }

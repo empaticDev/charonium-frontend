@@ -2,6 +2,12 @@
 	@apply flex flex-col md__flex-row;
 }
 
+.radios {
+	> input {
+		@apply hidden;
+	}
+}
+
 .image {
 	@apply w-full md__w-1/2;
 }
@@ -18,14 +24,20 @@
 	@apply flex flex-col gap-8;
 }
 
+.asterisk {
+	@apply flex flex-col sm__flex-row items-center gap-1;
+
+	> svg {
+		@apply w-10 h-5;
+	}
+}
+
 .variants {
 	@apply flex flex-col gap-8 mt-8;
 }
 
-.radios {
-	> input {
-		@apply hidden;
-	}
+.cartinfo {
+	@apply flex flex-col gap-8;
 }
 
 .buttonwrapper {
@@ -36,14 +48,27 @@
 	@apply w-fit h-fit cursor-pointer;
 }
 
-.currentcart {
-	@apply flex flex-row justify-end gap-8 max-w-lg text-lg;
+.taxinfo {
+	@apply flex flex-row gap-4 justify-end max-w-lg justify-items-center items-center;
 }
 
-.asterisk {
-	@apply flex flex-row items-center gap-1;
+.tax {
+	@apply flex flex-row justify-end gap-8 max-w-lg text-lg text-contrast-700 italic;
+	> p {
+		@apply text-right;
+	}
+}
 
-	> svg {
-		@apply w-10 h-5;
+.itemtotal {
+	@apply flex flex-row justify-end gap-8 max-w-lg text-xl hidden;
+	> p {
+		@apply w-20 text-right;
+	}
+}
+
+.currentcart {
+	@apply flex flex-row justify-end gap-6 max-w-lg text-2xl;
+	> p {
+		@apply text-right pt-8;
 	}
 }

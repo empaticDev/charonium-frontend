@@ -65,11 +65,8 @@ export default function TeamMember({
 							className={styles.avatar}
 							src={avatarURL}
 							layout="fill"
-							onLoad={(event) => {
-								const target = event.target
-								if (target.src.indexOf('data:image/gif;base64') < 0) {
-									setAvatarLoaded(true)
-								}
+							onLoadingComplete={() => {
+								setAvatarLoaded(true)
 							}}
 						/>
 					</div>
@@ -81,11 +78,8 @@ export default function TeamMember({
 								className={styles.image}
 								src={imageURL}
 								layout="fill"
-								onLoad={(event) => {
-									const target = event.target
-									if (target.src.indexOf('data:image/gif;base64') < 0) {
-										setImageLoaded(true)
-									}
+								onLoadingComplete={() => {
+									setImageLoaded(true)
 								}}
 							/>
 						</div>

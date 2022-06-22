@@ -15,7 +15,7 @@ import {
 
 let cx = classNames.bind(styles)
 
-let vat = 0.19
+let vat = 0.166
 
 export default function Shop({
 	header,
@@ -42,34 +42,35 @@ export default function Shop({
 	let initialCartPrice = 0
 
 	useEffect(() => {
-		getCartRemote(checkoutId).then((cart) => {
-			setCart(cart)
-			try {
-				initialCartPrice = cart.totalPrice
-				setCurrentPrice(cart.totalPrice)
-			} catch (error) {
-				console.log('no cart yet')
-			}
-		})
+		checkoutId &&
+			getCartRemote(checkoutId).then((cart) => {
+				setCart(cart)
+				try {
+					initialCartPrice = cart.totalPrice
+					setCurrentPrice(cart.totalPrice)
+				} catch (error) {
+					console.log('no cart yet')
+				}
+			})
 	}, [cartUpdated])
 
 	const addToCart = async () => {
-		try {
-			const product = products[selectedProduct]
-			const variant = product.variants[selectedVariant]
+		const product = products[selectedProduct]
+		const variant = product.variants[selectedVariant]
 
-			addProductToCart([
+		try {
+			await addProductToCart([
 				{
 					variantId: variant.id,
 					quantity: 1,
 				},
-			]).then(() => {
-				setAddedToCart('Added to Cart!')
-				setCartUpdated(cartUpdated + 1)
-				setSelectedProduct(-1)
-			})
+			])
+			console.log('add to cart - await', cart)
+			setAddedToCart('Added to Cart!')
+			setCartUpdated(cartUpdated + 1)
+			setSelectedProduct(-1)
 		} catch (error) {
-			setAddedToCart('Error adding to cart')
+			setAddedToCart('Sorry, there was an error adding to cart.')
 			console.log('Error adding to cart (shop.js)', error)
 		}
 	}
@@ -95,7 +96,7 @@ export default function Shop({
 
 	return (
 		<BlockWrapper id={id} anchor={anchor} decoration={decoration}>
-			<div className={className}>
+			<div className={className} id={'shop-commponent'}>
 				<div className={styles.image}>image</div>
 				<div className={styles.content}>
 					<PartialTextBlock
@@ -115,7 +116,7 @@ export default function Shop({
 										checked={selectedProduct === index}
 										onClick={() => {
 											setSelectedProduct(index)
-											setCurrentPrice(cart.totalPrice)
+											cart && setCurrentPrice(cart.totalPrice)
 											setSelectedVariant(-1)
 											setAddedToCart('no')
 											document.getElementById('variantlist').scrollIntoView()
@@ -198,12 +199,15 @@ export default function Shop({
 											name="variants"
 											checked={selectedVariant === index}
 											onClick={() => {
+												console.log('location?', products[selectedProduct])
 												setSelectedVariant(index)
-												setCurrentPrice(
-													(
-														parseInt(cart.totalPrice) + parseInt(variant.price)
-													).toFixed(2)
-												)
+												cart &&
+													setCurrentPrice(
+														(
+															parseInt(cart.totalPrice) +
+															parseInt(variant.price)
+														).toFixed(2)
+													)
 											}}
 											id={variant.id}
 										/>
@@ -217,39 +221,77 @@ export default function Shop({
 								))}
 							</div>
 						)}
-						{selectedVariant >= 0 && (
-							<>
-								{addedToCart === 'Added to Cart!' ? (
-									''
-								) : (
-									<>
-										<div className={styles.currentcart}>
-											<p>Tax:</p>
-											<p>
-												€
-												{products[selectedProduct].variants[selectedVariant]
-													.price * vat}
-											</p>
-										</div>
-										<div className={styles.currentcart}>
-											<p>Item total:</p>
-											<p>
-												€
-												{
-													products[selectedProduct].variants[selectedVariant]
-														.price
-												}
-											</p>
-										</div>
-										<div className={styles.buttonwrapper}>
-											<div className={styles.pseudobutton} onClick={addToCart}>
-												<PartialButton label={'Add to Cart'} />
+						<div className={styles.cartinfo}>
+							{selectedVariant >= 0 && (
+								<>
+									{addedToCart === 'Added to Cart!' ? (
+										''
+									) : (
+										<div className={styles.taxinfo}>
+											<div className={styles.tax}>
+												<p>Taxes included</p>
+												{/* <p>Included Taxes:</p>
+												<p>
+													€
+													{(
+														products[selectedProduct].variants[selectedVariant]
+															.price * vat
+													).toFixed(2)}
+												</p> */}
 											</div>
-											{addedToCart != 'no' ? addedToCart : ''}
+											<div className={styles.itemtotal}>
+												<p>Item total:</p>
+												<p>
+													€
+													{
+														products[selectedProduct].variants[selectedVariant]
+															.price
+													}
+												</p>
+											</div>
+											<div>
+												<div
+													className={styles.pseudobutton}
+													onClick={() => {
+														addToCart()
+														document
+															.getElementById('shop-commponent')
+															.scrollIntoView()
+													}}>
+													<PartialButton label={'Add to Cart'} />
+												</div>
+												{addedToCart != 'no' ? addedToCart : ''}
+											</div>
 										</div>
-									</>
-								)}
-								{addedToCart === 'Added to Cart!' && cart === 'false' ? (
+									)}
+									{addedToCart === 'Added to Cart!' && cart === 'false' ? (
+										<div className={styles.buttonwrapper}>
+											<div
+												className={styles.pseudobutton}
+												onClick={handleCheckout}>
+												<PartialButton label={'Checkout Now'} />
+											</div>
+											<PartialButton
+												label={'View Cart'}
+												style={'Secondary'}
+												type={'internal'}
+												page={cartPage}
+											/>
+										</div>
+									) : (
+										''
+									)}
+								</>
+							)}
+							{/* check if there is a cart, then show it here  */}
+							{cart === 'false' ? (
+								''
+							) : (
+								<>
+									<div className={styles.currentcart}>
+										<p>Cart total:</p>
+										<p>€{currentPrice}</p>
+									</div>
 									<div className={styles.buttonwrapper}>
 										<div
 											className={styles.pseudobutton}
@@ -258,36 +300,14 @@ export default function Shop({
 										</div>
 										<PartialButton
 											label={'View Cart'}
+											style={'Secondary'}
 											type={'internal'}
 											page={cartPage}
 										/>
 									</div>
-								) : (
-									''
-								)}
-							</>
-						)}
-						{/* check if there is a cart, then show it here  */}
-						{cart === 'false' ? (
-							''
-						) : (
-							<>
-								<div className={styles.currentcart}>
-									<p>Cart total:</p>
-									<p>€{currentPrice}</p>
-								</div>
-								<div className={styles.buttonwrapper}>
-									<div className={styles.pseudobutton} onClick={handleCheckout}>
-										<PartialButton label={'Checkout Now'} />
-									</div>
-									<PartialButton
-										label={'View Cart'}
-										type={'internal'}
-										page={cartPage}
-									/>
-								</div>
-							</>
-						)}
+								</>
+							)}
+						</div>
 					</div>
 				</div>
 			</div>
